@@ -1,0 +1,19 @@
+#ifdef __OBJC__
+  #import <Foundation/Foundation.h>
+#endif
+
+
+////////////////////////////////////////////////////////////////
+//////////////////////Framework Configuration///////////////////
+
+//Here you can redefine bundle file name
+#define kBundleResources @"ODiSyFramework" //Do not add extension (.string)
+
+//Here you can redefine Localizable file name
+#define kBundleLocalizableName @"Localizable" //Do not add extension (.string)
+
+
+////////////////End of Framework Configuration /////////////////
+////////////////////////////////////////////////////////////////
+
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1DAD1242-90F1-4BDC-B732-88029B720BAE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ODBlockChainSample</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3BC259B9-5E23-4E90-A0D9-A802A5CC256D</key>
+		<string>https://github.com/odemolliens/blockchain-ios-sdk.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Sample/ODBlockChainSample/ODBlockChainSample.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3BC259B9-5E23-4E90-A0D9-A802A5CC256D</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/odemolliens/blockchain-ios-sdk.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3BC259B9-5E23-4E90-A0D9-A802A5CC256D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3BC259B9-5E23-4E90-A0D9-A802A5CC256D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BlockChainIosSDK</string>
+		</dict>
+	</array>
+</dict>
+</plist>

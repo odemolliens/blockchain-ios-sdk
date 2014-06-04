@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>38482BDD-9133-4F8B-9739-3B3391D6ACE4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ODiSyFramework</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>49C95E0D-1E18-4E23-8338-5D8E00848677</key>
+		<string>https://github.com/odemolliens/ODiSyFramework.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SDK/ODiSyFramework.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>49C95E0D-1E18-4E23-8338-5D8E00848677</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/odemolliens/ODiSyFramework.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>49C95E0D-1E18-4E23-8338-5D8E00848677</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>49C95E0D-1E18-4E23-8338-5D8E00848677</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ODiSyFramework</string>
+		</dict>
+	</array>
+</dict>
+</plist>

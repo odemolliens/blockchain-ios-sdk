@@ -1,0 +1,677 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		66F5F13314DB195B0068FD20 /* Framework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 66F5F13614DB195B0068FD20 /* Build configuration list for PBXAggregateTarget "Framework" */;
+			buildPhases = (
+				66F5F13A14DB19B20068FD20 /* Build .framework library */,
+			);
+			dependencies = (
+				664A26AC14E330B700C297E6 /* PBXTargetDependency */,
+				66F5F13914DB19940068FD20 /* PBXTargetDependency */,
+			);
+			name = Framework;
+			productName = Framework;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		664A269614E3265400C297E6 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664A268414E3222700C297E6 /* CoreFoundation.framework */; };
+		C41043CB193F85E300B9DF98 /* NSURLConnection+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = C41043C9193F85E300B9DF98 /* NSURLConnection+Blocks.h */; };
+		C41043CC193F85E300B9DF98 /* NSURLConnection+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = C41043CA193F85E300B9DF98 /* NSURLConnection+Blocks.m */; };
+		C41043D0193F879C00B9DF98 /* ODWalletService.h in Headers */ = {isa = PBXBuildFile; fileRef = C41043CE193F879C00B9DF98 /* ODWalletService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C41043D1193F879C00B9DF98 /* ODWalletService.m in Sources */ = {isa = PBXBuildFile; fileRef = C41043CF193F879C00B9DF98 /* ODWalletService.m */; };
+		C41043D4193F898700B9DF98 /* ODBlockChainConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = C41043D3193F898700B9DF98 /* ODBlockChainConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C41043E9193F8CDC00B9DF98 /* ODBlockChainError.h in Headers */ = {isa = PBXBuildFile; fileRef = C41043E7193F8CDC00B9DF98 /* ODBlockChainError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C41043EA193F8CDC00B9DF98 /* ODBlockChainError.m in Sources */ = {isa = PBXBuildFile; fileRef = C41043E8193F8CDC00B9DF98 /* ODBlockChainError.m */; };
+		C41043ED193F8D2600B9DF98 /* ODCreateWallet.h in Headers */ = {isa = PBXBuildFile; fileRef = C41043EB193F8D2600B9DF98 /* ODCreateWallet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C41043EE193F8D2600B9DF98 /* ODCreateWallet.m in Sources */ = {isa = PBXBuildFile; fileRef = C41043EC193F8D2600B9DF98 /* ODCreateWallet.m */; };
+		E1865CDA18D6FBBB00CCEF4B /* ODLocalizableManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E1865CD818D6FBBB00CCEF4B /* ODLocalizableManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1865CDB18D6FBBB00CCEF4B /* ODLocalizableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1865CD918D6FBBB00CCEF4B /* ODLocalizableManager.m */; };
+		E1865CDE18D6FDED00CCEF4B /* ODSDKFilesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E1865CDC18D6FDED00CCEF4B /* ODSDKFilesManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1865CDF18D6FDED00CCEF4B /* ODSDKFilesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1865CDD18D6FDED00CCEF4B /* ODSDKFilesManager.m */; };
+		E1988F5E18D3365C00283EE4 /* ODiSyFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = E1988F4F18D3365C00283EE4 /* ODiSyFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E1988F5F18D3365C00283EE4 /* ODBlockChainWallet-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = E1988F5118D3365C00283EE4 /* ODBlockChainWallet-Prefix.pch */; };
+		E1988F6118D3365C00283EE4 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1988F5618D3365C00283EE4 /* View.xib */; };
+		E1988F6218D3365C00283EE4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1988F5818D3365C00283EE4 /* Localizable.strings */; };
+		E19A76AF18D6E0100037BD02 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664A268414E3222700C297E6 /* CoreFoundation.framework */; };
+		E19A76B318D6E20B0037BD02 /* ODResourcesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E19A76B118D6E20B0037BD02 /* ODResourcesManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E19A76B418D6E20B0037BD02 /* ODResourcesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E19A76B218D6E20B0037BD02 /* ODResourcesManager.m */; };
+		E19A76BA18D6E2690037BD02 /* UIImage+SDKLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = E19A76B818D6E2690037BD02 /* UIImage+SDKLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E19A76BB18D6E2690037BD02 /* UIImage+SDKLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E19A76B918D6E2690037BD02 /* UIImage+SDKLoader.m */; };
+		E19A76BF18D6E4A00037BD02 /* imgtest.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E19A76BE18D6E4A00037BD02 /* imgtest.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		664A26AB14E330B700C297E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66E8B6CA14D899500074EAA4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 664A269414E3265400C297E6;
+			remoteInfo = SerenityResources;
+		};
+		66F5F13814DB19940068FD20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66E8B6CA14D899500074EAA4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66E8B6D214D899500074EAA4;
+			remoteInfo = Serenity;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		664A268414E3222700C297E6 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		664A269514E3265400C297E6 /* ODBlockChainWallet.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ODBlockChainWallet.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		66E8B6D314D899500074EAA4 /* libODBlockChainWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libODBlockChainWallet.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		66E8B6D614D899500074EAA4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C41043C9193F85E300B9DF98 /* NSURLConnection+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLConnection+Blocks.h"; sourceTree = "<group>"; };
+		C41043CA193F85E300B9DF98 /* NSURLConnection+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLConnection+Blocks.m"; sourceTree = "<group>"; };
+		C41043CE193F879C00B9DF98 /* ODWalletService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODWalletService.h; sourceTree = "<group>"; };
+		C41043CF193F879C00B9DF98 /* ODWalletService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODWalletService.m; sourceTree = "<group>"; };
+		C41043D3193F898700B9DF98 /* ODBlockChainConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODBlockChainConstants.h; sourceTree = "<group>"; };
+		C41043E7193F8CDC00B9DF98 /* ODBlockChainError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODBlockChainError.h; sourceTree = "<group>"; };
+		C41043E8193F8CDC00B9DF98 /* ODBlockChainError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODBlockChainError.m; sourceTree = "<group>"; };
+		C41043EB193F8D2600B9DF98 /* ODCreateWallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODCreateWallet.h; sourceTree = "<group>"; };
+		C41043EC193F8D2600B9DF98 /* ODCreateWallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODCreateWallet.m; sourceTree = "<group>"; };
+		E1865CD818D6FBBB00CCEF4B /* ODLocalizableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODLocalizableManager.h; sourceTree = "<group>"; };
+		E1865CD918D6FBBB00CCEF4B /* ODLocalizableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODLocalizableManager.m; sourceTree = "<group>"; };
+		E1865CDC18D6FDED00CCEF4B /* ODSDKFilesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODSDKFilesManager.h; sourceTree = "<group>"; };
+		E1865CDD18D6FDED00CCEF4B /* ODSDKFilesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODSDKFilesManager.m; sourceTree = "<group>"; };
+		E1988F4F18D3365C00283EE4 /* ODiSyFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODiSyFramework.h; sourceTree = "<group>"; };
+		E1988F5118D3365C00283EE4 /* ODBlockChainWallet-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ODBlockChainWallet-Prefix.pch"; sourceTree = "<group>"; };
+		E1988F5318D3365C00283EE4 /* ODBlockChainWalletResources-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ODBlockChainWalletResources-Info.plist"; sourceTree = "<group>"; };
+		E1988F5618D3365C00283EE4 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		E1988F5918D3365C00283EE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E19A76AA18D6DF9B0037BD02 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E19A76B118D6E20B0037BD02 /* ODResourcesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODResourcesManager.h; sourceTree = "<group>"; };
+		E19A76B218D6E20B0037BD02 /* ODResourcesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODResourcesManager.m; sourceTree = "<group>"; };
+		E19A76B818D6E2690037BD02 /* UIImage+SDKLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SDKLoader.h"; sourceTree = "<group>"; };
+		E19A76B918D6E2690037BD02 /* UIImage+SDKLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SDKLoader.m"; sourceTree = "<group>"; };
+		E19A76BE18D6E4A00037BD02 /* imgtest.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = imgtest.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		664A269214E3265400C297E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				664A269614E3265400C297E6 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66E8B6D014D899500074EAA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19A76AF18D6E0100037BD02 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		66E8B6C814D899500074EAA4 = {
+			isa = PBXGroup;
+			children = (
+				E19A76B018D6E20B0037BD02 /* FrameworkManager */,
+				E1988F4A18D3365C00283EE4 /* CodeSource */,
+				E1988F4D18D3365C00283EE4 /* Configuration */,
+				E1988F5418D3365C00283EE4 /* Resources */,
+				66E8B6D514D899500074EAA4 /* Frameworks */,
+				66E8B6D414D899500074EAA4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		66E8B6D414D899500074EAA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				66E8B6D314D899500074EAA4 /* libODBlockChainWallet.a */,
+				664A269514E3265400C297E6 /* ODBlockChainWallet.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		66E8B6D514D899500074EAA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E19A76AA18D6DF9B0037BD02 /* UIKit.framework */,
+				66E8B6D614D899500074EAA4 /* Foundation.framework */,
+				664A268414E3222700C297E6 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C41043C7193F85E300B9DF98 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				C41043C8193F85E300B9DF98 /* NSURLConnection-Blocks */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		C41043C8193F85E300B9DF98 /* NSURLConnection-Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				C41043C9193F85E300B9DF98 /* NSURLConnection+Blocks.h */,
+				C41043CA193F85E300B9DF98 /* NSURLConnection+Blocks.m */,
+			);
+			path = "NSURLConnection-Blocks";
+			sourceTree = "<group>";
+		};
+		C41043CD193F85F900B9DF98 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C41043CE193F879C00B9DF98 /* ODWalletService.h */,
+				C41043CF193F879C00B9DF98 /* ODWalletService.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C41043D2193F897200B9DF98 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C41043D3193F898700B9DF98 /* ODBlockChainConstants.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		C41043E6193F8CCB00B9DF98 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				C41043E7193F8CDC00B9DF98 /* ODBlockChainError.h */,
+				C41043E8193F8CDC00B9DF98 /* ODBlockChainError.m */,
+				C41043EB193F8D2600B9DF98 /* ODCreateWallet.h */,
+				C41043EC193F8D2600B9DF98 /* ODCreateWallet.m */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		E1988F4A18D3365C00283EE4 /* CodeSource */ = {
+			isa = PBXGroup;
+			children = (
+				C41043E6193F8CCB00B9DF98 /* Domain */,
+				C41043D2193F897200B9DF98 /* Constants */,
+				C41043CD193F85F900B9DF98 /* Services */,
+				C41043C7193F85E300B9DF98 /* Vendor */,
+			);
+			path = CodeSource;
+			sourceTree = "<group>";
+		};
+		E1988F4D18D3365C00283EE4 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				E1988F4E18D3365C00283EE4 /* AllHeaders */,
+				E1988F5018D3365C00283EE4 /* Prefix */,
+				E1988F5218D3365C00283EE4 /* Resources */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		E1988F4E18D3365C00283EE4 /* AllHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				E1988F4F18D3365C00283EE4 /* ODiSyFramework.h */,
+			);
+			path = AllHeaders;
+			sourceTree = "<group>";
+		};
+		E1988F5018D3365C00283EE4 /* Prefix */ = {
+			isa = PBXGroup;
+			children = (
+				E1988F5118D3365C00283EE4 /* ODBlockChainWallet-Prefix.pch */,
+			);
+			path = Prefix;
+			sourceTree = "<group>";
+		};
+		E1988F5218D3365C00283EE4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E1988F5318D3365C00283EE4 /* ODBlockChainWalletResources-Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E1988F5418D3365C00283EE4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E1988F5518D3365C00283EE4 /* Interface */,
+				E1988F5718D3365C00283EE4 /* Localizable */,
+				E1988F5A18D3365C00283EE4 /* Resources */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E1988F5518D3365C00283EE4 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				E1988F5618D3365C00283EE4 /* View.xib */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		E1988F5718D3365C00283EE4 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				E1988F5818D3365C00283EE4 /* Localizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		E1988F5A18D3365C00283EE4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E19A76BE18D6E4A00037BD02 /* imgtest.jpg */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E19A76B018D6E20B0037BD02 /* FrameworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				E19A76B518D6E2100037BD02 /* Resources */,
+			);
+			path = FrameworkManager;
+			sourceTree = "<group>";
+		};
+		E19A76B518D6E2100037BD02 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E19A76B718D6E2580037BD02 /* Util */,
+				E19A76B118D6E20B0037BD02 /* ODResourcesManager.h */,
+				E19A76B218D6E20B0037BD02 /* ODResourcesManager.m */,
+				E1865CD818D6FBBB00CCEF4B /* ODLocalizableManager.h */,
+				E1865CD918D6FBBB00CCEF4B /* ODLocalizableManager.m */,
+				E1865CDC18D6FDED00CCEF4B /* ODSDKFilesManager.h */,
+				E1865CDD18D6FDED00CCEF4B /* ODSDKFilesManager.m */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E19A76B718D6E2580037BD02 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E19A76B818D6E2690037BD02 /* UIImage+SDKLoader.h */,
+				E19A76B918D6E2690037BD02 /* UIImage+SDKLoader.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		66E8B6D114D899500074EAA4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1988F5E18D3365C00283EE4 /* ODiSyFramework.h in Headers */,
+				C41043D4193F898700B9DF98 /* ODBlockChainConstants.h in Headers */,
+				E1865CDE18D6FDED00CCEF4B /* ODSDKFilesManager.h in Headers */,
+				C41043ED193F8D2600B9DF98 /* ODCreateWallet.h in Headers */,
+				E1865CDA18D6FBBB00CCEF4B /* ODLocalizableManager.h in Headers */,
+				C41043E9193F8CDC00B9DF98 /* ODBlockChainError.h in Headers */,
+				E19A76B318D6E20B0037BD02 /* ODResourcesManager.h in Headers */,
+				E19A76BA18D6E2690037BD02 /* UIImage+SDKLoader.h in Headers */,
+				E1988F5F18D3365C00283EE4 /* ODBlockChainWallet-Prefix.pch in Headers */,
+				C41043CB193F85E300B9DF98 /* NSURLConnection+Blocks.h in Headers */,
+				C41043D0193F879C00B9DF98 /* ODWalletService.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		664A269414E3265400C297E6 /* Resources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 664A269E14E3265400C297E6 /* Build configuration list for PBXNativeTarget "Resources" */;
+			buildPhases = (
+				664A269114E3265400C297E6 /* Sources */,
+				664A269214E3265400C297E6 /* Frameworks */,
+				664A269314E3265400C297E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Resources;
+			productName = SerenityResources;
+			productReference = 664A269514E3265400C297E6 /* ODBlockChainWallet.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		66E8B6D214D899500074EAA4 /* Library */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66E8B6E014D899500074EAA4 /* Build configuration list for PBXNativeTarget "Library" */;
+			buildPhases = (
+				66E8B6CF14D899500074EAA4 /* Sources */,
+				66E8B6D014D899500074EAA4 /* Frameworks */,
+				66E8B6D114D899500074EAA4 /* Headers */,
+				66E8B6E814D8A4D10074EAA4 /* Build .a library */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Library;
+			productName = Serenity;
+			productReference = 66E8B6D314D899500074EAA4 /* libODBlockChainWallet.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		66E8B6CA14D899500074EAA4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Google;
+			};
+			buildConfigurationList = 66E8B6CD14D899500074EAA4 /* Build configuration list for PBXProject "ODBlockChainWallet" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 66E8B6C814D899500074EAA4;
+			productRefGroup = 66E8B6D414D899500074EAA4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				66E8B6D214D899500074EAA4 /* Library */,
+				664A269414E3265400C297E6 /* Resources */,
+				66F5F13314DB195B0068FD20 /* Framework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		664A269314E3265400C297E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1988F6118D3365C00283EE4 /* View.xib in Resources */,
+				E1988F6218D3365C00283EE4 /* Localizable.strings in Resources */,
+				E19A76BF18D6E4A00037BD02 /* imgtest.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		66E8B6E814D8A4D10074EAA4 /* Build .a library */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build .a library";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\n# The following conditionals come from\n# https://github.com/jverkoey/iOS-Framework\n#\n\nset -e\n\nmkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/${FRAMEWORK_VERSION}/Headers\"\n\n# Link the \"Current\" version to \"${FRAMEWORK_VERSION}\"\nln -sfh ${FRAMEWORK_VERSION} \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/Current\"\nln -sfh Versions/Current/Headers \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Headers\"\nln -sfh \"Versions/Current/${PRODUCT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/${PRODUCT_NAME}\"\n\n# The -a ensures that the headers maintain the source modification date so that we don't constantly\n# cause propagating rebuilds of files that import these headers.\ncp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/${FRAMEWORK_VERSION}/Headers\"\n";
+		};
+		66F5F13A14DB19B20068FD20 /* Build .framework library */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build .framework library";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# The following conditionals come from\n# https://github.com/jverkoey/iOS-Framework\n#\n\n\nset -e\nset +u\n# Avoid recursively calling this script.\nif [[ $SF_MASTER_SCRIPT_RUNNING ]]\nthen\nexit 0\nfi\nset -u\nexport SF_MASTER_SCRIPT_RUNNING=1\n\nSF_TARGET_NAME=${PROJECT_NAME}\nSF_EXECUTABLE_PATH=\"lib${SF_TARGET_NAME}.a\"\nSF_WRAPPER_NAME=\"${SF_TARGET_NAME}.framework\"\n\n# The following conditionals come from\n# https://github.com/kstenerud/iOS-Universal-Framework\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\nSF_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\nSF_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SF_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\nSF_OTHER_PLATFORM=iphonesimulator\nelse\nSF_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$SF_SDK_PLATFORM$ ]]\nthen\nSF_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${SF_OTHER_PLATFORM}\"\nelse\necho \"Could not find platform name from build products directory: $BUILT_PRODUCTS_DIR\"\nexit 1\nfi\n\n# Build the other platform.\nxcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${SF_OTHER_PLATFORM}${SF_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" OBJROOT=\"${OBJROOT}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\" $ACTION\n\n# Smash the two static libraries into one fat binary and store it in the .framework\nlipo -create \"${BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" -output \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/${FRAMEWORK_VERSION}/${SF_TARGET_NAME}\"\n\n# Copy the binary to the other architecture folder to have a complete framework in both.\ncp -a \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/${FRAMEWORK_VERSION}/${SF_TARGET_NAME}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/${FRAMEWORK_VERSION}/${SF_TARGET_NAME}\"\n\n\n# Old my-self working compile SDK (Don't manage bundle project)\n\n#SIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/lib${PROJECT_NAME}.a\" &&\n#DEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${PROJECT_NAME}.a\" &&\n#UNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\" &&\n#UNIVERSAL_LIBRARY_PATH=\"${UNIVERSAL_LIBRARY_DIR}/${PRODUCT_NAME}\" &&\n#FRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${PRODUCT_NAME}.framework\" &&\n\n\n# Create framework directory structure.\n#rm -rf \"${FRAMEWORK}\" &&\n#mkdir -p \"${UNIVERSAL_LIBRARY_DIR}\" &&\n#mkdir -p \"${FRAMEWORK}/Versions/A/Headers\" &&\n#mkdir -p \"${FRAMEWORK}/Versions/A/Resources\" &&\n\n# Generate universal binary for the device and simulator.\n#lipo \"${SIMULATOR_LIBRARY_PATH}\" \"${DEVICE_LIBRARY_PATH}\" -create -output \"${UNIVERSAL_LIBRARY_PATH}\" &&\n\n# Move files to appropriate locations in framework paths.\n#cp \"${UNIVERSAL_LIBRARY_PATH}\" \"${FRAMEWORK}/Versions/A\" &&\n#ln -s \"A\" \"${FRAMEWORK}/Versions/Current\" &&\n#ln -s \"Versions/Current/Headers\" \"${FRAMEWORK}/Headers\" &&\n#ln -s \"Versions/Current/Resources\" \"${FRAMEWORK}/Resources\" &&\n#ln -s \"Versions/Current/${PRODUCT_NAME}\" \"${FRAMEWORK}/${PRODUCT_NAME}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		664A269114E3265400C297E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66E8B6CF14D899500074EAA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E19A76B418D6E20B0037BD02 /* ODResourcesManager.m in Sources */,
+				E1865CDF18D6FDED00CCEF4B /* ODSDKFilesManager.m in Sources */,
+				C41043CC193F85E300B9DF98 /* NSURLConnection+Blocks.m in Sources */,
+				C41043EE193F8D2600B9DF98 /* ODCreateWallet.m in Sources */,
+				E19A76BB18D6E2690037BD02 /* UIImage+SDKLoader.m in Sources */,
+				C41043D1193F879C00B9DF98 /* ODWalletService.m in Sources */,
+				E1865CDB18D6FBBB00CCEF4B /* ODLocalizableManager.m in Sources */,
+				C41043EA193F8CDC00B9DF98 /* ODBlockChainError.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		664A26AC14E330B700C297E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 664A269414E3265400C297E6 /* Resources */;
+			targetProxy = 664A26AB14E330B700C297E6 /* PBXContainerItemProxy */;
+		};
+		66F5F13914DB19940068FD20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66E8B6D214D899500074EAA4 /* Library */;
+			targetProxy = 66F5F13814DB19940068FD20 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E1988F5818D3365C00283EE4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E1988F5918D3365C00283EE4 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		664A269F14E3265400C297E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLY_RULES_IN_COPY_FILES = YES;
+				FRAMEWORK_VERSION = 1.0.0;
+				INFOPLIST_FILE = "Configuration/Resources/ODBlockChainWalletResources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = ODBlockChainWallet;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		664A26A014E3265400C297E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLY_RULES_IN_COPY_FILES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_VERSION = 1.0.0;
+				INFOPLIST_FILE = "Configuration/Resources/ODBlockChainWalletResources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = ODBlockChainWallet;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		66E8B6DE14D899500074EAA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Debug;
+		};
+		66E8B6DF14D899500074EAA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		66E8B6E114D899500074EAA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DSTROOT = /tmp/ODiSyFramework.dst;
+				FRAMEWORK_VERSION = 1.0.0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Configuration/Prefix/ODBlockChainWallet-Prefix.pch";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = ODBlockChainWallet;
+				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+			};
+			name = Debug;
+		};
+		66E8B6E214D899500074EAA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
+				DSTROOT = /tmp/ODiSyFramework.dst;
+				FRAMEWORK_VERSION = 1.0.0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Configuration/Prefix/ODBlockChainWallet-Prefix.pch";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = ODBlockChainWallet;
+				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+			};
+			name = Release;
+		};
+		66F5F13414DB195B0068FD20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_VERSION = 1.0.0;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
+			};
+			name = Debug;
+		};
+		66F5F13514DB195B0068FD20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_VERSION = 1.0.0;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		664A269E14E3265400C297E6 /* Build configuration list for PBXNativeTarget "Resources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				664A269F14E3265400C297E6 /* Debug */,
+				664A26A014E3265400C297E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66E8B6CD14D899500074EAA4 /* Build configuration list for PBXProject "ODBlockChainWallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66E8B6DE14D899500074EAA4 /* Debug */,
+				66E8B6DF14D899500074EAA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66E8B6E014D899500074EAA4 /* Build configuration list for PBXNativeTarget "Library" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66E8B6E114D899500074EAA4 /* Debug */,
+				66E8B6E214D899500074EAA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66F5F13614DB195B0068FD20 /* Build configuration list for PBXAggregateTarget "Framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66F5F13414DB195B0068FD20 /* Debug */,
+				66F5F13514DB195B0068FD20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 66E8B6CA14D899500074EAA4 /* Project object */;
+}

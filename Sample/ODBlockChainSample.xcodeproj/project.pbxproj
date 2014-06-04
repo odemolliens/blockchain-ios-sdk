@@ -1,0 +1,351 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C41043AC193F83FD00B9DF98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41043AB193F83FD00B9DF98 /* Foundation.framework */; };
+		C41043AE193F83FD00B9DF98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41043AD193F83FD00B9DF98 /* UIKit.framework */; };
+		C41043B4193F83FD00B9DF98 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C41043B2193F83FD00B9DF98 /* InfoPlist.strings */; };
+		C41043B6193F83FD00B9DF98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C41043B5193F83FD00B9DF98 /* main.m */; };
+		C41043BC193F83FD00B9DF98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C41043BB193F83FD00B9DF98 /* AppDelegate.m */; };
+		C41043BF193F83FD00B9DF98 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41043BE193F83FD00B9DF98 /* MainViewController.m */; };
+		C41043C1193F83FD00B9DF98 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41043C0193F83FD00B9DF98 /* MainViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C41043A8193F83FD00B9DF98 /* ODBlockChainSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ODBlockChainSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C41043AB193F83FD00B9DF98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C41043AD193F83FD00B9DF98 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C41043B1193F83FD00B9DF98 /* ODBlockChainSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ODBlockChainSample-Info.plist"; sourceTree = "<group>"; };
+		C41043B3193F83FD00B9DF98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C41043B5193F83FD00B9DF98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C41043B7193F83FD00B9DF98 /* ODBlockChainSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ODBlockChainSample-Prefix.pch"; sourceTree = "<group>"; };
+		C41043B8193F83FD00B9DF98 /* main_prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main_prefix.pch; sourceTree = "<group>"; };
+		C41043BA193F83FD00B9DF98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
+		C41043BB193F83FD00B9DF98 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
+		C41043BD193F83FD00B9DF98 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Classes/MainViewController.h; sourceTree = "<group>"; };
+		C41043BE193F83FD00B9DF98 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Classes/MainViewController.m; sourceTree = "<group>"; };
+		C41043C0193F83FD00B9DF98 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainViewController.xib; path = Classes/MainViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C41043A3193F83FD00B9DF98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C41043AC193F83FD00B9DF98 /* Foundation.framework in Frameworks */,
+				C41043AE193F83FD00B9DF98 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C41043A6193F83FD00B9DF98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C410439D193F83FD00B9DF98 = {
+			isa = PBXGroup;
+			children = (
+				C41043AF193F83FD00B9DF98 /* ODBlockChainSample */,
+				C41043AA193F83FD00B9DF98 /* Frameworks */,
+				C41043A9193F83FD00B9DF98 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C41043A9193F83FD00B9DF98 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C41043A8193F83FD00B9DF98 /* ODBlockChainSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C41043AA193F83FD00B9DF98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C41043AB193F83FD00B9DF98 /* Foundation.framework */,
+				C41043AD193F83FD00B9DF98 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C41043AF193F83FD00B9DF98 /* ODBlockChainSample */ = {
+			isa = PBXGroup;
+			children = (
+				C41043B9193F83FD00B9DF98 /* Classes */,
+				C41043B0193F83FD00B9DF98 /* Supporting Files */,
+			);
+			path = ODBlockChainSample;
+			sourceTree = "<group>";
+		};
+		C41043B0193F83FD00B9DF98 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C41043B1193F83FD00B9DF98 /* ODBlockChainSample-Info.plist */,
+				C41043B2193F83FD00B9DF98 /* InfoPlist.strings */,
+				C41043B5193F83FD00B9DF98 /* main.m */,
+				C41043B7193F83FD00B9DF98 /* ODBlockChainSample-Prefix.pch */,
+				C41043B8193F83FD00B9DF98 /* main_prefix.pch */,
+				C41043C0193F83FD00B9DF98 /* MainViewController.xib */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C41043B9193F83FD00B9DF98 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C41043BA193F83FD00B9DF98 /* AppDelegate.h */,
+				C41043BB193F83FD00B9DF98 /* AppDelegate.m */,
+				C41043BD193F83FD00B9DF98 /* MainViewController.h */,
+				C41043BE193F83FD00B9DF98 /* MainViewController.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C41043A7193F83FD00B9DF98 /* ODBlockChainSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C41043C4193F83FD00B9DF98 /* Build configuration list for PBXNativeTarget "ODBlockChainSample" */;
+			buildPhases = (
+				C41043A2193F83FD00B9DF98 /* Sources */,
+				C41043A3193F83FD00B9DF98 /* Frameworks */,
+				C41043A4193F83FD00B9DF98 /* Resources */,
+				C41043A5193F83FD00B9DF98 /* Sources */,
+				C41043A6193F83FD00B9DF98 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ODBlockChainSample;
+			productName = ODBlockChainSample;
+			productReference = C41043A8193F83FD00B9DF98 /* ODBlockChainSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C410439E193F83FD00B9DF98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Olivier Demolliens";
+			};
+			buildConfigurationList = C41043A1193F83FD00B9DF98 /* Build configuration list for PBXProject "ODBlockChainSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C410439D193F83FD00B9DF98;
+			productRefGroup = C41043A9193F83FD00B9DF98 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C41043A7193F83FD00B9DF98 /* ODBlockChainSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C41043A4193F83FD00B9DF98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C41043B4193F83FD00B9DF98 /* InfoPlist.strings in Resources */,
+				C41043C1193F83FD00B9DF98 /* MainViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C41043A2193F83FD00B9DF98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C41043BC193F83FD00B9DF98 /* AppDelegate.m in Sources */,
+				C41043BF193F83FD00B9DF98 /* MainViewController.m in Sources */,
+				C41043B6193F83FD00B9DF98 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C41043A5193F83FD00B9DF98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C41043B2193F83FD00B9DF98 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C41043B3193F83FD00B9DF98 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C41043C2193F83FD00B9DF98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Debug;
+		};
+		C41043C3193F83FD00B9DF98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C41043C5193F83FD00B9DF98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ODBlockChainSample/main_prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				INFOPLIST_FILE = "ODBlockChainSample/ODBlockChainSample-Info.plist";
+				OTHER_LDFLAGS = (
+					"-weak_library",
+					/usr/lib/libz.dylib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C41043C6193F83FD00B9DF98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ODBlockChainSample/ODBlockChainSample-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "NDEBUG=1";
+				INFOPLIST_FILE = "ODBlockChainSample/ODBlockChainSample-Info.plist";
+				OTHER_LDFLAGS = (
+					"-weak_library",
+					/usr/lib/libz.dylib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C41043A1193F83FD00B9DF98 /* Build configuration list for PBXProject "ODBlockChainSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C41043C2193F83FD00B9DF98 /* Debug */,
+				C41043C3193F83FD00B9DF98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C41043C4193F83FD00B9DF98 /* Build configuration list for PBXNativeTarget "ODBlockChainSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C41043C5193F83FD00B9DF98 /* Debug */,
+				C41043C6193F83FD00B9DF98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C410439E193F83FD00B9DF98 /* Project object */;
+}
