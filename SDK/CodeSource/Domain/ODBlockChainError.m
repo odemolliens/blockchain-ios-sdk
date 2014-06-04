@@ -29,6 +29,7 @@
 {
     ODBlockChainError *error = [[[ODBlockChainError alloc]init]autorelease];
     
+    // TODO: WARNING !!! missingKeys can be an id object !!! (NSArray or other thing) - TODO code:-50
     NSError *errorMissingKeys = [[NSError alloc]initWithDomain:@"ParseError" code:-50 userInfo:missingKeys];
     
     [error setType:ODBCErrorMissingKeys];

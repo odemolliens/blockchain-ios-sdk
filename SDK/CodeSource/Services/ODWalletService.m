@@ -8,12 +8,11 @@
 
 #import "ODWalletService.h"
 
-
 //Constants
 #import "ODBlockChainConstants.h"
 
-//Vendor
-#import "NSURLConnection+Blocks.h"
+//Request Manager
+#import "ODBlockChainService.h"
 
 //Domain
 #import "ODBlockChainError.h"
@@ -67,13 +66,6 @@
                                                        timeoutInterval:20.0];
     [request setHTTPMethod:kBlockChainPOST];
     
-    /*
-     $password The password for the new wallet. Must be at least 10 characters in length.
-     $api_code An API code with create wallets permission.
-     $priv A private key to add to the wallet (Wallet import format preferred). (Optional)
-     $label A label to set for the first address in the wallet. Alphanumeric only. (Optional)
-     $email*/
-    
     NSMutableString *postKeys = [NSMutableString stringWithFormat:@"?api_code=%@",apiKey];
     
     [postKeys appendFormat:@"&password=%@",password];
@@ -86,44 +78,29 @@
         [postKeys appendFormat:@"&email=%@",email];
     }
     
-    
     [request setHTTPBody:[postKeys dataUsingEncoding:NSUTF8StringEncoding]];
     
-    [NSURLConnection asyncRequest:request
-                          success:^(NSData *data, NSURLResponse *response) {
-                              
-                              NSError *error = nil;
-                              
-                              id object = [NSJSONSerialization
-                                           JSONObjectWithData:data
-                                           options:0
-                                           error:&error];
-                              
-                              if(error) {
-                                  // TODO: ERROR PARSE
-                                  failureBlock([ODBlockChainError parseError]);
-                              }
-                              
-                              if (![object isKindOfClass:[NSDictionary class]]) {
-                                  // TODO: NOT WAITED OBJECT
-                                  failureBlock([ODBlockChainError parseError]);
-                              }else{
-                                  
-                                  ODCreateWallet *createWallet = [ODCreateWallet instantiateWithDictionnary:object];
-                                  
-                                  if (createWallet == nil) {
-                                      // TODO: MISSING PARAMETERS
-                                      failureBlock([ODBlockChainError new]);
-                                  }else{
-                                      successBlock(createWallet);
-                                  }
-                              }
-                          }
-                          failure:^(NSData *data, NSError *error) {
-                              
-                              // TODO: need implemented, manage?
-                              failureBlock([ODBlockChainError new]);
-                          }];
+    [ODBlockChainService manageRequest:request
+     
+                               success:^(id json){
+                                   
+                                   //Type expected: Dico
+                                   if (![json isKindOfClass:[NSDictionary class]]) {
+                                       failureBlock([ODBlockChainError parseErrorMissingKeys:json]);
+                                   }
+                                   
+                                   ODCreateWallet *createWallet = [ODCreateWallet instantiateWithDictionnary:json];
+                                   
+                                   //If missing keys
+                                   if ([createWallet isKindOfClass:[NSDictionary class]]) {
+                                       failureBlock([ODBlockChainError parseErrorMissingKeys:(NSDictionary*)createWallet]);
+                                   }else{
+                                       successBlock(createWallet);
+                                   }
+                               }
+                               failure:^(ODBlockChainError* error){
+                                   failureBlock(error);
+                               }];
 }
 
 

@@ -33,6 +33,8 @@
 		C41043EA193F8CDC00B9DF98 /* ODBlockChainError.m in Sources */ = {isa = PBXBuildFile; fileRef = C41043E8193F8CDC00B9DF98 /* ODBlockChainError.m */; };
 		C41043ED193F8D2600B9DF98 /* ODCreateWallet.h in Headers */ = {isa = PBXBuildFile; fileRef = C41043EB193F8D2600B9DF98 /* ODCreateWallet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C41043EE193F8D2600B9DF98 /* ODCreateWallet.m in Sources */ = {isa = PBXBuildFile; fileRef = C41043EC193F8D2600B9DF98 /* ODCreateWallet.m */; };
+		C41043F1193F97E100B9DF98 /* ODBlockChainService.h in Headers */ = {isa = PBXBuildFile; fileRef = C41043EF193F97E100B9DF98 /* ODBlockChainService.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		C41043F2193F97E100B9DF98 /* ODBlockChainService.m in Sources */ = {isa = PBXBuildFile; fileRef = C41043F0193F97E100B9DF98 /* ODBlockChainService.m */; };
 		E1865CDA18D6FBBB00CCEF4B /* ODLocalizableManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E1865CD818D6FBBB00CCEF4B /* ODLocalizableManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1865CDB18D6FBBB00CCEF4B /* ODLocalizableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E1865CD918D6FBBB00CCEF4B /* ODLocalizableManager.m */; };
 		E1865CDE18D6FDED00CCEF4B /* ODSDKFilesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E1865CDC18D6FDED00CCEF4B /* ODSDKFilesManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -80,6 +82,8 @@
 		C41043E8193F8CDC00B9DF98 /* ODBlockChainError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODBlockChainError.m; sourceTree = "<group>"; };
 		C41043EB193F8D2600B9DF98 /* ODCreateWallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODCreateWallet.h; sourceTree = "<group>"; };
 		C41043EC193F8D2600B9DF98 /* ODCreateWallet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODCreateWallet.m; sourceTree = "<group>"; };
+		C41043EF193F97E100B9DF98 /* ODBlockChainService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODBlockChainService.h; sourceTree = "<group>"; };
+		C41043F0193F97E100B9DF98 /* ODBlockChainService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODBlockChainService.m; sourceTree = "<group>"; };
 		E1865CD818D6FBBB00CCEF4B /* ODLocalizableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODLocalizableManager.h; sourceTree = "<group>"; };
 		E1865CD918D6FBBB00CCEF4B /* ODLocalizableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODLocalizableManager.m; sourceTree = "<group>"; };
 		E1865CDC18D6FDED00CCEF4B /* ODSDKFilesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODSDKFilesManager.h; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 			children = (
 				C41043CE193F879C00B9DF98 /* ODWalletService.h */,
 				C41043CF193F879C00B9DF98 /* ODWalletService.m */,
+				C41043EF193F97E100B9DF98 /* ODBlockChainService.h */,
+				C41043F0193F97E100B9DF98 /* ODBlockChainService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -311,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1988F5E18D3365C00283EE4 /* ODiSyFramework.h in Headers */,
+				C41043F1193F97E100B9DF98 /* ODBlockChainService.h in Headers */,
 				C41043D4193F898700B9DF98 /* ODBlockChainConstants.h in Headers */,
 				E1865CDE18D6FDED00CCEF4B /* ODSDKFilesManager.h in Headers */,
 				C41043ED193F8D2600B9DF98 /* ODCreateWallet.h in Headers */,
@@ -447,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E19A76B418D6E20B0037BD02 /* ODResourcesManager.m in Sources */,
+				C41043F2193F97E100B9DF98 /* ODBlockChainService.m in Sources */,
 				E1865CDF18D6FDED00CCEF4B /* ODSDKFilesManager.m in Sources */,
 				C41043CC193F85E300B9DF98 /* NSURLConnection+Blocks.m in Sources */,
 				C41043EE193F8D2600B9DF98 /* ODCreateWallet.m in Sources */,

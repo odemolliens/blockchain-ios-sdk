@@ -10,6 +10,7 @@
 
 typedef enum {
     ODBCErrorParse,
+    ODBCErrorUnexpectedObject,
     ODBCErrorMissingKeys,
     ODBCErrorNetwork
 } ODBCError;
@@ -28,6 +29,7 @@ typedef enum {
 
 
 +(ODBlockChainError*)parseError:(NSError*)parseError;
++(ODBlockChainError*)parseUnexpectedObject;
 +(ODBlockChainError*)parseErrorMissingKeys:(NSDictionary*)missingKeys;
 +(ODBlockChainError*)network:(NSError*)networkError;
 
