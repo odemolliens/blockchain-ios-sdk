@@ -14,6 +14,7 @@
 		C41043BC193F83FD00B9DF98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C41043BB193F83FD00B9DF98 /* AppDelegate.m */; };
 		C41043BF193F83FD00B9DF98 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C41043BE193F83FD00B9DF98 /* MainViewController.m */; };
 		C41043C1193F83FD00B9DF98 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41043C0193F83FD00B9DF98 /* MainViewController.xib */; };
+		C41043F6193F9DFB00B9DF98 /* ODBlockChainWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C41043F5193F9DFB00B9DF98 /* ODBlockChainWallet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C41043BD193F83FD00B9DF98 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Classes/MainViewController.h; sourceTree = "<group>"; };
 		C41043BE193F83FD00B9DF98 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Classes/MainViewController.m; sourceTree = "<group>"; };
 		C41043C0193F83FD00B9DF98 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainViewController.xib; path = Classes/MainViewController.xib; sourceTree = "<group>"; };
+		C41043F5193F9DFB00B9DF98 /* ODBlockChainWallet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ODBlockChainWallet.framework; path = "../SDK/DerivedData/ODBlockChainWallet/Build/Products/Debug-iphoneos/ODBlockChainWallet.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C41043F6193F9DFB00B9DF98 /* ODBlockChainWallet.framework in Frameworks */,
 				C41043AC193F83FD00B9DF98 /* Foundation.framework in Frameworks */,
 				C41043AE193F83FD00B9DF98 /* UIKit.framework in Frameworks */,
 			);
@@ -72,6 +75,7 @@
 		C41043AA193F83FD00B9DF98 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C41043F5193F9DFB00B9DF98 /* ODBlockChainWallet.framework */,
 				C41043AB193F83FD00B9DF98 /* Foundation.framework */,
 				C41043AD193F83FD00B9DF98 /* UIKit.framework */,
 			);
@@ -242,6 +246,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-all_load";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -279,6 +284,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-all_load";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -289,15 +295,17 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/odesmoliens/Dropbox,
+					"(Personal)/GithubPublic/BlockChainIosSDK/SDK/DerivedData/ODBlockChainWallet/Build/Products/Debug-iphoneos",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ODBlockChainSample/main_prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				INFOPLIST_FILE = "ODBlockChainSample/ODBlockChainSample-Info.plist";
-				OTHER_LDFLAGS = (
-					"-weak_library",
-					/usr/lib/libz.dylib,
-				);
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -310,14 +318,16 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/odesmoliens/Dropbox,
+					"(Personal)/GithubPublic/BlockChainIosSDK/SDK/DerivedData/ODBlockChainWallet/Build/Products/Debug-iphoneos",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ODBlockChainSample/ODBlockChainSample-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "NDEBUG=1";
 				INFOPLIST_FILE = "ODBlockChainSample/ODBlockChainSample-Info.plist";
-				OTHER_LDFLAGS = (
-					"-weak_library",
-					/usr/lib/libz.dylib,
-				);
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -344,6 +354,7 @@
 				C41043C6193F83FD00B9DF98 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

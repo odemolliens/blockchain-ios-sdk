@@ -27,6 +27,8 @@
 
 #import "MainViewController.h"
 
+#import <ODBlockChainWallet/ODWalletService.h>
+
 @implementation MainViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -52,6 +54,15 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    
+    [ODWalletService createWalletWithName:@"test" withPassword:@"18901757855992" andAPIKey:@":'(" andEmail:@"email@email.com" success:^(ODCreateWallet *wallet){
+        NSLog(@"sucess");
+    }failure:^(ODBlockChainError *error){
+         NSLog(@"error:%u",[error type]);
+         NSLog(@"error:%@",[[error error]description]);
+         NSLog(@"error code:%i",[[error error]code]);
+    }];
 }
 
 - (void)viewDidUnload

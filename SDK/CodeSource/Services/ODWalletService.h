@@ -10,8 +10,8 @@
 
 
 //Domain
-@class ODBlockChainError;
-@class ODCreateWallet;
+#import "ODBlockChainError.h"
+#import "ODCreateWallet.h"
 
 @interface ODWalletService : NSObject
 {

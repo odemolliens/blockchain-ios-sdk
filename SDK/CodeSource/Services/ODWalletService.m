@@ -14,10 +14,6 @@
 //Request Manager
 #import "ODBlockChainService.h"
 
-//Domain
-#import "ODBlockChainError.h"
-#import "ODCreateWallet.h"
-
 @interface ODWalletService()
 {
     
@@ -54,7 +50,7 @@
                     failure:(void(^)(ODBlockChainError*))failureBlock
 {
     // TODO: password >= 10 char
-    NSAssert([password length]<10, @"Password must be at least 10 characters in length.");
+    //NSAssert(([password length]>=10), @"Password must be at least 10 characters in length.");
     // TODO: ApiKey == ?
     // TODO: verify email
     // TODO: label -> Alphanumeric only.

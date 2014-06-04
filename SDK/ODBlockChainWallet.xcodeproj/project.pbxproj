@@ -24,7 +24,7 @@
 
 /* Begin PBXBuildFile section */
 		664A269614E3265400C297E6 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 664A268414E3222700C297E6 /* CoreFoundation.framework */; };
-		C41043CB193F85E300B9DF98 /* NSURLConnection+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = C41043C9193F85E300B9DF98 /* NSURLConnection+Blocks.h */; };
+		C41043CB193F85E300B9DF98 /* NSURLConnection+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = C41043C9193F85E300B9DF98 /* NSURLConnection+Blocks.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		C41043CC193F85E300B9DF98 /* NSURLConnection+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = C41043CA193F85E300B9DF98 /* NSURLConnection+Blocks.m */; };
 		C41043D0193F879C00B9DF98 /* ODWalletService.h in Headers */ = {isa = PBXBuildFile; fileRef = C41043CE193F879C00B9DF98 /* ODWalletService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C41043D1193F879C00B9DF98 /* ODWalletService.m in Sources */ = {isa = PBXBuildFile; fileRef = C41043CF193F879C00B9DF98 /* ODWalletService.m */; };
