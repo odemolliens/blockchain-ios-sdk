@@ -28,6 +28,12 @@
              success:(void(^)(id))successBlock
              failure:(void(^)(ODBlockChainError*))failureBlock
 {
+    
+    //Generic parameters
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    
     [NSURLConnection asyncRequest:request
                           success:^(NSData *data, NSURLResponse *response) {
                               
