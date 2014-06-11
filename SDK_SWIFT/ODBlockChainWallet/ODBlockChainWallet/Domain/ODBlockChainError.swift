@@ -16,7 +16,7 @@ enum ODBCError {
     case ODBCErrorNone
 }
 
-class ODBlockChainError
+class ODBlockChainError : NSObject
 {
     
     //Domain
@@ -31,26 +31,52 @@ class ODBlockChainError
         self.error = NSError();
     }
     
+    //Static methods
     
-    func parseError(parseError: NSError) -> ODBlockChainError
+    class func parseError(parseError: NSError) -> ODBlockChainError
     {
-        return ODBlockChainError();
+        
+        var nsError : NSError = NSError();
+        
+        var odError : ODBlockChainError = ODBlockChainError();
+        odError.type = ODBCError.ODBCErrorParse;
+        odError.error = nsError;
+        
+        return odError;
     }
     
     
-    func parseUnexpectedObject() -> ODBlockChainError
+    class func parseUnexpectedObject() -> ODBlockChainError
     {
-        return ODBlockChainError();
+        //TODO : manage error domain + error code
+        var nsError : NSError = NSError(domain: "ParseErrorUnexpectedObject", code: -50, userInfo: NSDictionary());
+        
+        var odError : ODBlockChainError = ODBlockChainError();
+        odError.type = ODBCError.ODBCErrorUnexpectedObject;
+        odError.error = nsError;
+        
+        return odError;
     }
     
-    func parseErrorMissingKeys(missingKeys : NSDictionary) -> ODBlockChainError
+    class func parseErrorMissingKeys(missingKeys : NSDictionary) -> ODBlockChainError
     {
-        return ODBlockChainError();
+        //TODO : manage error domain + error code
+        var nsError : NSError = NSError(domain: "ParseMissingKeysError", code: -51, userInfo: missingKeys);
+        
+        var odError : ODBlockChainError = ODBlockChainError();
+        odError.type = ODBCError.ODBCErrorMissingKeys;
+        odError.error = nsError;
+        
+        return odError;
     }
     
-    func network(networkError: NSError) -> ODBlockChainError
+    class func network(networkError: NSError) -> ODBlockChainError
     {
-        return ODBlockChainError();
+        var odError : ODBlockChainError = ODBlockChainError();
+        odError.type = ODBCError.ODBCErrorMissingKeys;
+        odError.error = networkError;
+        
+        return odError;
     }
     
     

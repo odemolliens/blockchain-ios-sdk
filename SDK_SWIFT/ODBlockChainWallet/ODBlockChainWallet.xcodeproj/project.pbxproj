@@ -11,6 +11,11 @@
 		C4226ED71948C7880086F212 /* ODBlockChainWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4226ECB1948C7880086F212 /* ODBlockChainWallet.framework */; };
 		C4226EDE1948C7880086F212 /* ODBlockChainWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226EDD1948C7880086F212 /* ODBlockChainWalletTests.swift */; };
 		C4226EEC1948C7DC0086F212 /* ODBlockChainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226EEB1948C7DC0086F212 /* ODBlockChainError.swift */; };
+		C4226EF01948CD320086F212 /* ODCreateWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226EEF1948CD320086F212 /* ODCreateWallet.swift */; };
+		C4226EF21948D0760086F212 /* ODBlockChainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226EF11948D0760086F212 /* ODBlockChainConstants.swift */; };
+		C4226EF41948D1EE0086F212 /* ODWalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226EF31948D1EE0086F212 /* ODWalletService.swift */; };
+		C4226EF71948D24C0086F212 /* NSUrlConnection+Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226EF61948D24C0086F212 /* NSUrlConnection+Blocks.swift */; };
+		C4226EF91948D6490086F212 /* ODBlockChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226EF81948D6490086F212 /* ODBlockChainService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +36,11 @@
 		C4226EDC1948C7880086F212 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4226EDD1948C7880086F212 /* ODBlockChainWalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODBlockChainWalletTests.swift; sourceTree = "<group>"; };
 		C4226EEB1948C7DC0086F212 /* ODBlockChainError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODBlockChainError.swift; sourceTree = "<group>"; };
+		C4226EEF1948CD320086F212 /* ODCreateWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODCreateWallet.swift; sourceTree = "<group>"; };
+		C4226EF11948D0760086F212 /* ODBlockChainConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ODBlockChainConstants.swift; path = ../Services/ODBlockChainConstants.swift; sourceTree = "<group>"; };
+		C4226EF31948D1EE0086F212 /* ODWalletService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODWalletService.swift; sourceTree = "<group>"; };
+		C4226EF61948D24C0086F212 /* NSUrlConnection+Blocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUrlConnection+Blocks.swift"; sourceTree = "<group>"; };
+		C4226EF81948D6490086F212 /* ODBlockChainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODBlockChainService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +121,7 @@
 		C4226EE71948C7CE0086F212 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				C4226EF11948D0760086F212 /* ODBlockChainConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -119,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				C4226EEB1948C7DC0086F212 /* ODBlockChainError.swift */,
+				C4226EEF1948CD320086F212 /* ODCreateWallet.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -126,6 +138,8 @@
 		C4226EE91948C7CE0086F212 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C4226EF31948D1EE0086F212 /* ODWalletService.swift */,
+				C4226EF81948D6490086F212 /* ODBlockChainService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -133,8 +147,17 @@
 		C4226EEA1948C7CE0086F212 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				C4226EF51948D22E0086F212 /* NSUrlConnection+Blocks */,
 			);
 			path = Vendor;
+			sourceTree = "<group>";
+		};
+		C4226EF51948D22E0086F212 /* NSUrlConnection+Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				C4226EF61948D24C0086F212 /* NSUrlConnection+Blocks.swift */,
+			);
+			name = "NSUrlConnection+Blocks";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,7 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4226EF91948D6490086F212 /* ODBlockChainService.swift in Sources */,
+				C4226EF71948D24C0086F212 /* NSUrlConnection+Blocks.swift in Sources */,
 				C4226EEC1948C7DC0086F212 /* ODBlockChainError.swift in Sources */,
+				C4226EF41948D1EE0086F212 /* ODWalletService.swift in Sources */,
+				C4226EF21948D0760086F212 /* ODBlockChainConstants.swift in Sources */,
+				C4226EF01948CD320086F212 /* ODCreateWallet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
