@@ -23,9 +23,6 @@ extension NSURLConnection
                 }else{
                     success(data,response);
                 }
-                
-                //pool release ;)
-                
                 });
         }
     }

@@ -79,5 +79,7 @@ class ODBlockChainError : NSObject
         return odError;
     }
     
+    //Methods
+    
     
 }

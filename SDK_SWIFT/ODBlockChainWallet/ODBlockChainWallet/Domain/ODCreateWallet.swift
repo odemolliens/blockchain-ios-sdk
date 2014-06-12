@@ -25,7 +25,7 @@ class ODCreateWallet: NSObject
         self.link = "";
     }
     
-    //Static
+    //Static Methods
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODCreateWallet
     {
         var createWallet : ODCreateWallet = ODCreateWallet();
