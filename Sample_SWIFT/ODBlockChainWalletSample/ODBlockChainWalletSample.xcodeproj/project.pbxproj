@@ -1,0 +1,414 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C4CAD851194B74D900132137 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CAD850194B74D900132137 /* AppDelegate.swift */; };
+		C4CAD853194B74D900132137 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4CAD852194B74D900132137 /* Images.xcassets */; };
+		C4CAD85F194B74D900132137 /* ODBlockChainWalletSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CAD85E194B74D900132137 /* ODBlockChainWalletSampleTests.swift */; };
+		C4CAD86A194B74E500132137 /* ODBlockChainWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CAD868194B74E500132137 /* ODBlockChainWallet.framework */; };
+		C4CAD86B194B74E500132137 /* ODBlockChainWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CAD868194B74E500132137 /* ODBlockChainWallet.framework */; };
+		C4CAD86C194B74E500132137 /* ODBlockChainWallet.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = C4CAD869194B74E500132137 /* ODBlockChainWallet.framework.dSYM */; };
+		C4CAD86D194B74E500132137 /* ODBlockChainWallet.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = C4CAD869194B74E500132137 /* ODBlockChainWallet.framework.dSYM */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C4CAD859194B74D900132137 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4CAD843194B74D900132137 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4CAD84A194B74D900132137;
+			remoteInfo = ODBlockChainWalletSample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C4CAD84B194B74D900132137 /* ODBlockChainWalletSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ODBlockChainWalletSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4CAD84F194B74D900132137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4CAD850194B74D900132137 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C4CAD852194B74D900132137 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C4CAD858194B74D900132137 /* ODBlockChainWalletSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ODBlockChainWalletSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4CAD85D194B74D900132137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4CAD85E194B74D900132137 /* ODBlockChainWalletSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODBlockChainWalletSampleTests.swift; sourceTree = "<group>"; };
+		C4CAD868194B74E500132137 /* ODBlockChainWallet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ODBlockChainWallet.framework; sourceTree = "<group>"; };
+		C4CAD869194B74E500132137 /* ODBlockChainWallet.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = ODBlockChainWallet.framework.dSYM; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C4CAD848194B74D900132137 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4CAD86A194B74E500132137 /* ODBlockChainWallet.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4CAD855194B74D900132137 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4CAD86B194B74E500132137 /* ODBlockChainWallet.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C4CAD842194B74D900132137 = {
+			isa = PBXGroup;
+			children = (
+				C4CAD84D194B74D900132137 /* ODBlockChainWalletSample */,
+				C4CAD85B194B74D900132137 /* ODBlockChainWalletSampleTests */,
+				C4CAD84C194B74D900132137 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C4CAD84C194B74D900132137 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4CAD84B194B74D900132137 /* ODBlockChainWalletSample.app */,
+				C4CAD858194B74D900132137 /* ODBlockChainWalletSampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4CAD84D194B74D900132137 /* ODBlockChainWalletSample */ = {
+			isa = PBXGroup;
+			children = (
+				C4CAD868194B74E500132137 /* ODBlockChainWallet.framework */,
+				C4CAD869194B74E500132137 /* ODBlockChainWallet.framework.dSYM */,
+				C4CAD850194B74D900132137 /* AppDelegate.swift */,
+				C4CAD852194B74D900132137 /* Images.xcassets */,
+				C4CAD84E194B74D900132137 /* Supporting Files */,
+			);
+			path = ODBlockChainWalletSample;
+			sourceTree = "<group>";
+		};
+		C4CAD84E194B74D900132137 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C4CAD84F194B74D900132137 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4CAD85B194B74D900132137 /* ODBlockChainWalletSampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				C4CAD85E194B74D900132137 /* ODBlockChainWalletSampleTests.swift */,
+				C4CAD85C194B74D900132137 /* Supporting Files */,
+			);
+			path = ODBlockChainWalletSampleTests;
+			sourceTree = "<group>";
+		};
+		C4CAD85C194B74D900132137 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C4CAD85D194B74D900132137 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C4CAD84A194B74D900132137 /* ODBlockChainWalletSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4CAD862194B74D900132137 /* Build configuration list for PBXNativeTarget "ODBlockChainWalletSample" */;
+			buildPhases = (
+				C4CAD847194B74D900132137 /* Sources */,
+				C4CAD848194B74D900132137 /* Frameworks */,
+				C4CAD849194B74D900132137 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ODBlockChainWalletSample;
+			productName = ODBlockChainWalletSample;
+			productReference = C4CAD84B194B74D900132137 /* ODBlockChainWalletSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C4CAD857194B74D900132137 /* ODBlockChainWalletSampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4CAD865194B74D900132137 /* Build configuration list for PBXNativeTarget "ODBlockChainWalletSampleTests" */;
+			buildPhases = (
+				C4CAD854194B74D900132137 /* Sources */,
+				C4CAD855194B74D900132137 /* Frameworks */,
+				C4CAD856194B74D900132137 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4CAD85A194B74D900132137 /* PBXTargetDependency */,
+			);
+			name = ODBlockChainWalletSampleTests;
+			productName = ODBlockChainWalletSampleTests;
+			productReference = C4CAD858194B74D900132137 /* ODBlockChainWalletSampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C4CAD843194B74D900132137 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Olivier Demolliens";
+				TargetAttributes = {
+					C4CAD84A194B74D900132137 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					C4CAD857194B74D900132137 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = C4CAD84A194B74D900132137;
+					};
+				};
+			};
+			buildConfigurationList = C4CAD846194B74D900132137 /* Build configuration list for PBXProject "ODBlockChainWalletSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C4CAD842194B74D900132137;
+			productRefGroup = C4CAD84C194B74D900132137 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C4CAD84A194B74D900132137 /* ODBlockChainWalletSample */,
+				C4CAD857194B74D900132137 /* ODBlockChainWalletSampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C4CAD849194B74D900132137 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4CAD86C194B74E500132137 /* ODBlockChainWallet.framework.dSYM in Resources */,
+				C4CAD853194B74D900132137 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4CAD856194B74D900132137 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4CAD86D194B74E500132137 /* ODBlockChainWallet.framework.dSYM in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C4CAD847194B74D900132137 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4CAD851194B74D900132137 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4CAD854194B74D900132137 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4CAD85F194B74D900132137 /* ODBlockChainWalletSampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C4CAD85A194B74D900132137 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4CAD84A194B74D900132137 /* ODBlockChainWalletSample */;
+			targetProxy = C4CAD859194B74D900132137 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C4CAD860194B74D900132137 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C4CAD861194B74D900132137 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C4CAD863194B74D900132137 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ODBlockChainWalletSample",
+				);
+				INFOPLIST_FILE = ODBlockChainWalletSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C4CAD864194B74D900132137 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ODBlockChainWalletSample",
+				);
+				INFOPLIST_FILE = ODBlockChainWalletSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C4CAD866194B74D900132137 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ODBlockChainWalletSample.app/ODBlockChainWalletSample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(PROJECT_DIR)/ODBlockChainWalletSample",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ODBlockChainWalletSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		C4CAD867194B74D900132137 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ODBlockChainWalletSample.app/ODBlockChainWalletSample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(PROJECT_DIR)/ODBlockChainWalletSample",
+				);
+				INFOPLIST_FILE = ODBlockChainWalletSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C4CAD846194B74D900132137 /* Build configuration list for PBXProject "ODBlockChainWalletSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4CAD860194B74D900132137 /* Debug */,
+				C4CAD861194B74D900132137 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4CAD862194B74D900132137 /* Build configuration list for PBXNativeTarget "ODBlockChainWalletSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4CAD863194B74D900132137 /* Debug */,
+				C4CAD864194B74D900132137 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C4CAD865194B74D900132137 /* Build configuration list for PBXNativeTarget "ODBlockChainWalletSampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4CAD866194B74D900132137 /* Debug */,
+				C4CAD867194B74D900132137 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C4CAD843194B74D900132137 /* Project object */;
+}

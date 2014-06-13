@@ -1,0 +1,10 @@
+framework module ODBlockChainWallet {
+  umbrella header "ODBlockChainWallet.h"
+
+  export *
+  module * { export * }
+}
+
+module ODBlockChainWallet.Swift {
+    header "ODBlockChainWallet-Swift.h"
+}

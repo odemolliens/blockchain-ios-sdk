@@ -14,10 +14,17 @@ extension NSURLConnection
     class func asyncRequest(request : NSURLRequest, success :(NSData, NSURLResponse) -> Void = {data, response in /* ... */},failure: (NSData, NSError) -> Void = {data, error in /* ... */})
         
     {
+        // XCTest usage
+        #if DEBUG
+            var waiting : Bool = true;
+        #else
+            var waiting : Bool = false;
+        #endif
+        
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             var queue : NSOperationQueue = NSOperationQueue();
             NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler:{response,data,error in
-                
+                waiting = false;
                 if(error){
                     failure(data,error);
                 }else{
@@ -25,5 +32,11 @@ extension NSURLConnection
                 }
                 });
         }
+        
+        while(waiting) {
+            NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate())
+            usleep(10)
+        }
+        
     }
 }
