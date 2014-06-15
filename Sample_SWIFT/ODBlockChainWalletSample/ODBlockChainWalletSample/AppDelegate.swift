@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ODBlockChainWallet
+//import ODBlockChainWallet
 
 
 @UIApplicationMain
@@ -20,14 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         // Override point for customization after application launch.
         
+        
         ODWalletService.createWallet("", password: "", apiKey: "", email: "",
             success:{(object : AnyObject) -> Void in
-               
-                /**/},
+                NSLog("%@", "success");
+                
+            },
             
             failure: {(error : ODBlockChainError) -> Void in
-                
-                /**/});
+                  NSLog("%@:%@", "fail: error:",error.err());
+            });
         
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()

@@ -31,6 +31,13 @@ class ODBlockChainError : NSObject
         self.error = NSError();
     }
     
+    //Override
+    func err() -> NSString
+    {
+        //TODO : display enum + fix override description
+        return self.error.description;
+    }
+    
     //Static methods
     
     class func parseError(parseError: NSError) -> ODBlockChainError

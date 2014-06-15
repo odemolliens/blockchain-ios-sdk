@@ -32,4 +32,20 @@ class ODBlockChainWalletSampleTests: XCTestCase {
         }
     }
     
+    
+    func testFunction() {
+        //XCPSetExecutionShouldContinueIndefinitely();
+        
+        ODWalletService.createWallet("", password: "", apiKey: "", email: "",
+            success:{(object : AnyObject) -> Void in
+                NSLog("%@", "success");
+                XCTAssert("Success")
+                },
+            
+            failure: {(error : ODBlockChainError) -> Void in
+                NSLog("%@", "fail");
+                XCTFail("fail");
+                });
+    }
+    
 }
