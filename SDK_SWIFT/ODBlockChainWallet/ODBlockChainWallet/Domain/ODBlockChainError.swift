@@ -13,7 +13,20 @@ enum ODBCError {
     case ODBCErrorUnexpectedObject
     case ODBCErrorMissingKeys
     case ODBCErrorNetwork
+    case ODBCErrorAPI
     case ODBCErrorNone
+}
+
+
+enum ODBCErrorAPI {
+    case Unknow
+    case PasswordLength
+    case ApiKey
+    case InvalidEmail
+    case AlphaNumericOnly
+    case InvalidBlockHash
+    case InvalidBlockIndex
+    case BlockNotFound
 }
 
 class ODBlockChainError : NSObject
@@ -31,11 +44,17 @@ class ODBlockChainError : NSObject
         self.error = NSError();
     }
     
-    //Override
-    func err() -> NSString
+    //Methods
+    
+    func contentMessage() -> NSString
     {
-        //TODO : display enum + fix override description
-        return self.error.description;
+        var error : NSString = self.error.userInfo.valueForKey("content") as NSString;
+        
+        if(error != nil){
+            return error;
+        }else{
+            return "";
+        }
     }
     
     //Static methods
@@ -80,13 +99,19 @@ class ODBlockChainError : NSObject
     class func network(networkError: NSError) -> ODBlockChainError
     {
         var odError : ODBlockChainError = ODBlockChainError();
-        odError.type = ODBCError.ODBCErrorMissingKeys;
+        odError.type = ODBCError.ODBCErrorNetwork;
         odError.error = networkError;
         
         return odError;
     }
     
-    //Methods
-    
-    
+    class func api(apiError: NSError) -> ODBlockChainError
+    {
+        var odError : ODBlockChainError = ODBlockChainError();
+        odError.type = ODBCError.ODBCErrorAPI;
+        odError.error = apiError;
+        
+        return odError;
+    }
+
 }

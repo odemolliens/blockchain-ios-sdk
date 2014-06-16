@@ -17,15 +17,8 @@ class ODBlockChainService
         request.setValue("application/json", forHTTPHeaderField: "Accept");
         request.setValue("application/json", forHTTPHeaderField: "Content-Type");
         
-        NSLog("%@", request.URL.description);
-
+        NSLog("%@", request.URL);
         NSURLConnection.asyncRequest(request, success: {data,response in
-            
-            var datastring: String = NSString(data:data, encoding:NSUTF8StringEncoding)
-            
-            NSLog("%@", datastring);
-            
-           // response.
             
             var parseError : NSError?;
             
@@ -39,15 +32,15 @@ class ODBlockChainService
             
             }, failure: {data,error in
                 
-                var odError : ODBlockChainError = ODBlockChainError.network(error);
-                failure(odError);
-            });
-        
-        
-        NSURLConnection.asyncRequest(request, success: {data,response in
-         
-            }, failure: {data,error in
+                var content : NSString = error.userInfo.valueForKey("content") as NSString;
                 
+                if(content != nil){
+                    var odError : ODBlockChainError = ODBlockChainError.api(error);
+                    failure(odError);
+                }else{
+                    var odError : ODBlockChainError = ODBlockChainError.network(error);
+                    failure(odError);
+                }
             });
     }
 }

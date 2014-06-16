@@ -10,8 +10,17 @@ import Foundation
 
 class ODWalletService
 {
-    
-    
+    /*
+    Create Wallet Service
+    -> Email & Name parameters are optionnal
+    Return an ODCreateWallet object with identifier if successfull
+    Knowed Errors
+    case Unknow
+    case PasswordLength
+    case ApiKey
+    case InvalidEmail
+    case AlphaNumericOnly
+    */
     class func createWallet(name : NSString, password : NSString, apiKey : NSString, email : NSString, success :(AnyObject) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
         
@@ -22,7 +31,7 @@ class ODWalletService
         
         //Parameters
         postKeys.appendFormat("?api_code=%@", apiKey);
-        postKeys.appendFormat("&password=%@", name);
+        postKeys.appendFormat("&password=%@", password);
         
         //Optionnal keys
         if(email.length>0){
@@ -33,8 +42,7 @@ class ODWalletService
             postKeys.appendFormat("&label=%@", name);
         }
         
-        //TODO : find a setHTTPBody to set keys
-        url = NSURL.URLWithString(NSString(format : "%@%@",kBlockChainUrlCreateWallet,postKeys/*.dataUsingEncoding(NSUTF8StringEncoding)*/));
+        url = NSURL.URLWithString(NSString(format : "%@%@",kBlockChainUrlCreateWallet,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)));
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBlockChainTimeout));
         

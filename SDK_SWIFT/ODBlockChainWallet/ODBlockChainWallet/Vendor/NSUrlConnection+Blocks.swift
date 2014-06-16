@@ -48,8 +48,8 @@ extension NSURLConnection
                 }else{
                     var datastring: String = NSString(data:data, encoding:NSUTF8StringEncoding)
                     var content : NSMutableDictionary = NSMutableDictionary();
-                    var mError : NSError = NSError(domain: res.URL.description, code: res.statusCode, userInfo: nil);
                     content.setValue(datastring, forKey: "content");
+                    var mError : NSError = NSError(domain: res.URL.description, code: res.statusCode, userInfo: content);
                     //content.setValue(NSHTTPURLResponse.localizedStringForStatusCode(res.statusCode), forKey: "localizedError");
                     failure(data,mError);
                 }

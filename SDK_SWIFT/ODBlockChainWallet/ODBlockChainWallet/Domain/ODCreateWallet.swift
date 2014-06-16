@@ -11,6 +11,7 @@ import Foundation
 
 class ODCreateWallet: NSObject
 {
+    
     //Domain
     var guid : NSString;
     var address : NSString;
@@ -36,6 +37,20 @@ class ODCreateWallet: NSObject
         return createWallet;
     }
     
+    class func parseErrorResponseFromAPI(response:NSString) -> ODBCErrorAPI
+    {
+        if(response.isEqualToString("Password Must be greater than 10 characters in length")){
+            return ODBCErrorAPI.PasswordLength;
+        }else if(response.isEqualToString("Authorization Key invalid or disabled")){
+            return ODBCErrorAPI.ApiKey;
+        }else if(response.isEqualToString("Invalid Email")){
+            return ODBCErrorAPI.InvalidEmail;
+        }else if(response.isEqualToString("Label Must be alphanumeric")){
+            return ODBCErrorAPI.AlphaNumericOnly;
+        }else{
+            return ODBCErrorAPI.Unknow;
+        }
+    }
     
     //Methods
     
