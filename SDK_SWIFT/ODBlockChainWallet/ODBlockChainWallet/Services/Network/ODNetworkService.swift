@@ -17,8 +17,8 @@ class ODNetworkService
     Return ODBlock with block information
     Knowed Errors
     case Unknow
-    case InvalidBlockHash
-    case InvalidBlockIndex
+    case InvalidBlockHash -> TODO Never return by server
+    case InvalidBlockIndex -> TODO Never return by server
     case BlockNotFound
     */
     class func singleBlockIndex(index : NSString, success :(AnyObject) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
@@ -100,6 +100,10 @@ class ODNetworkService
             ,failure:failure);
     }
     
+    /**
+
+
+**/
     class func singleTransactionIndex(index : NSString, success :(AnyObject) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
         var url : NSURL;

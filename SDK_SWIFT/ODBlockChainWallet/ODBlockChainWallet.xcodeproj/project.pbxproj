@@ -28,6 +28,7 @@
 		C49752E7194F05C20045EB6A /* ODBCWNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49752E6194F05C20045EB6A /* ODBCWNetwork.swift */; };
 		C49752E8194F05C20045EB6A /* ODBCWNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49752E6194F05C20045EB6A /* ODBCWNetwork.swift */; };
 		C49752F6194F0A4F0045EB6A /* ODBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49752F5194F0A4F0045EB6A /* ODBlock.swift */; };
+		C4D162EC195B41DD00514F63 /* ODSingleTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D162EB195B41DD00514F63 /* ODSingleTransaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		C49752E0194F05A10045EB6A /* ODBCWCreateWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODBCWCreateWallet.swift; sourceTree = "<group>"; };
 		C49752E6194F05C20045EB6A /* ODBCWNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODBCWNetwork.swift; sourceTree = "<group>"; };
 		C49752F5194F0A4F0045EB6A /* ODBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODBlock.swift; sourceTree = "<group>"; };
+		C4D162EB195B41DD00514F63 /* ODSingleTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODSingleTransaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 				C4226EEB1948C7DC0086F212 /* ODBlockChainError.swift */,
 				C4226EEF1948CD320086F212 /* ODCreateWallet.swift */,
 				C49752F5194F0A4F0045EB6A /* ODBlock.swift */,
+				C4D162EB195B41DD00514F63 /* ODSingleTransaction.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				C4226EF21948D0760086F212 /* ODBlockChainConstants.swift in Sources */,
 				C49752DB194F057F0045EB6A /* ODNetworkService.swift in Sources */,
 				C49752E7194F05C20045EB6A /* ODBCWNetwork.swift in Sources */,
+				C4D162EC195B41DD00514F63 /* ODSingleTransaction.swift in Sources */,
 				C49752E1194F05A10045EB6A /* ODBCWCreateWallet.swift in Sources */,
 				C4226EF01948CD320086F212 /* ODCreateWallet.swift in Sources */,
 			);

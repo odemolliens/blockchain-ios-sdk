@@ -49,7 +49,7 @@ class ODBlock : NSObject
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODBlock
     {
         var block : ODBlock = ODBlock();
-        block.hashBlock = dic.valueForKey("hashBlock") as NSString;
+        block.hashBlock = dic.valueForKey("hash") as NSString;
         block.ver = dic.valueForKey("ver") as NSInteger;
         block.prevBlock = dic.valueForKey("prev_block") as NSString;
         block.time = dic.valueForKey("time") as NSInteger;

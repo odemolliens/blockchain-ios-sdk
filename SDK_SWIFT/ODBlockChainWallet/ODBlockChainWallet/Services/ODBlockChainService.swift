@@ -17,7 +17,6 @@ class ODBlockChainService
         request.setValue("application/json", forHTTPHeaderField: "Accept");
         request.setValue("application/json", forHTTPHeaderField: "Content-Type");
         
-        NSLog("%@", request.URL);
         NSURLConnection.asyncRequest(request, success: {data,response in
             
             var parseError : NSError?;

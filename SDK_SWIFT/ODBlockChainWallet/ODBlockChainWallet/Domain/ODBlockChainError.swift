@@ -27,6 +27,7 @@ enum ODBCErrorAPI {
     case InvalidBlockHash
     case InvalidBlockIndex
     case BlockNotFound
+    case TransactionNotFound
 }
 
 class ODBlockChainError : NSObject
