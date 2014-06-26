@@ -47,8 +47,11 @@ class ODWalletService
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBlockChainTimeout));
         
         ODBlockChainService.manageRequest(request,
-            success:success
-            ,failure:failure);
+            success:{(object : AnyObject) -> Void in
+                success(object);
+            },failure:{(error : ODBlockChainError) -> Void in
+                failure(error);
+            });
     }
 
 }

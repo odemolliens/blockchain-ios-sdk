@@ -72,6 +72,18 @@ class ODBlockChainError : NSObject
         return odError;
     }
     
+    class func parseError(expected: NSString, result : NSString) -> ODBlockChainError
+    {
+        //TODO : manage error domain + error code
+        var nsError : NSError = NSError(domain: "ParseErrorUnexpectedObjectClass", code: -49, userInfo: NSDictionary(object: NSString(format:"expected:%@ result:%@",expected,result), forKey: "error"));
+        
+        var odError : ODBlockChainError = ODBlockChainError();
+        odError.type = ODBCError.ODBCErrorParse;
+        odError.error = nsError;
+        
+        return odError;
+    }
+    
     
     class func parseUnexpectedObject() -> ODBlockChainError
     {

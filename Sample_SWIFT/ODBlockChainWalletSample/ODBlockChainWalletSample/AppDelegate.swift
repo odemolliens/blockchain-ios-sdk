@@ -20,6 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         // Override point for customization after application launch.
         
+        ODNetworkService.singleBlockHash("45345",
+            success: {(object : ODBlock) -> Void in
+               
+            }, failure: {(error : ODBlockChainError) -> Void in
+               
+            });
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()
         return true

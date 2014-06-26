@@ -46,8 +46,9 @@ class ODBCWNetwork: XCTestCase {
     });
     }*/
     
-    func testODBlockIndexInvalidBlockIndex() {
-        ODNetworkService.singleBlockIndex("1", success: {(object : AnyObject) -> Void in
+    //500 - Single Block Index - Block not found
+    func testNetworkSingleBlockIndexBlockNotFound() {
+        ODNetworkService.singleBlockIndex("1", success: {(object : ODBlock) -> Void in
             XCTFail("fail");
             }, failure: {(error : ODBlockChainError) -> Void in
                 
@@ -59,19 +60,21 @@ class ODBCWNetwork: XCTestCase {
             });
     }
     
-    func testODBlockIndexValidBlockIndex() {
+    //200 - Single block Hash
+    func testNetworkSingleBlockHashValid() {
         ODNetworkService.singleBlockHash("45345",
-            success: {(object : AnyObject) -> Void in
+            success: {(object : ODBlock) -> Void in
                 XCTAssert("Success")
             }, failure: {(error : ODBlockChainError) -> Void in
                 XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
             });
     }
    
-    func testODBlockInvalidSingleTransactionHash() {
+    //500 - Single Transaction Hash - Transaction Not Found
+    func testNetworkSingleTransactionHashInvalid() {
         ODNetworkService.singleTransactionHash("18f7f4e51afe9659d12f6722995928d8ef87dbfde2dbca2d25231bb7591afbd8",
-            success: {(object : AnyObject) -> Void in
-                XCTAssert("Success")
+            success: {(object : ODSingleTransaction) -> Void in
+                XCTFail("Fail")
             }, failure: {(error : ODBlockChainError) -> Void in
                 if(ODSingleTransaction.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.TransactionNotFound){
                     XCTAssert("Success")
@@ -81,14 +84,19 @@ class ODBCWNetwork: XCTestCase {
             });
     }
     
-    func testODBlockValidSingleTransactionHash() {
+    //200 - Single Transaction Hash
+    func testNetworkSingleTransactionHashValid() {
         ODNetworkService.singleTransactionHash("18f7f4e51afe9659d84f6722995928d8ef87dbfde2dbca2d25231bb7591afbd8",
-            success: {(object : AnyObject) -> Void in
+            success: {(object : ODSingleTransaction) -> Void in
                 XCTAssert("Success")
             }, failure: {(error : ODBlockChainError) -> Void in
                 XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
             });
     }
+    
+    
+    
+    //
     
 
 }

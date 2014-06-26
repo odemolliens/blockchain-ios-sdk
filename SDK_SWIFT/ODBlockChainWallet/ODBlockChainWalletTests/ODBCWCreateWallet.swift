@@ -20,7 +20,8 @@ class ODBCWCreateWallet: XCTestCase {
         super.tearDown()
     }
     
-    func testODWalletServicCreateWalletErrorPasswordLength() {
+    //500 - Create Wallet - Password length
+    func testWalletCreateWalletErrorPasswordLength() {
             ODWalletService.createWallet("", password: "", apiKey: "a", email: "",
                 success:{(object : AnyObject) -> Void in
                     XCTFail("fail");
@@ -36,7 +37,8 @@ class ODBCWCreateWallet: XCTestCase {
                 });
     }
     
-    func testODWalletServicCreateWalletErrorApiKey() {
+    //500 - Create Wallet - Api key
+    func testWalletCreateWalletErrorApiKey() {
             ODWalletService.createWallet("", password: "0123456789", apiKey: "", email: "",
                 success:{(object : AnyObject) -> Void in
                     XCTFail("fail");
@@ -54,7 +56,8 @@ class ODBCWCreateWallet: XCTestCase {
                 });
     }
     
-    func testODWalletServicCreateWalletErrorInvalidEmail() {
+    //500 - Create Wallet - Invalid email
+    func testWalletCreateWalletErrorInvalidEmail() {
             ODWalletService.createWallet("", password: "0123456789", apiKey: "", email: "wtfsdasd",
                 success:{(object : AnyObject) -> Void in
                     XCTFail("fail");
@@ -72,7 +75,8 @@ class ODBCWCreateWallet: XCTestCase {
                 });
     }
     
-    func testODWalletServicCreateWalletErrorAlphaNumericOnly() {
+    //500 - Create Wallet - Alphanumeric only
+    func testWalletCreateWalletErrorAlphaNumericOnly() {
             ODWalletService.createWallet("$", password: "0123456789", apiKey: "", email: "test@test.com",
                 success:{(object : AnyObject) -> Void in
                     XCTFail("fail");
@@ -86,8 +90,20 @@ class ODBCWCreateWallet: XCTestCase {
                     }else{
                         XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
                     }
-                    
                 });
+    }
+    
+    //200 - Create Wallet
+    func testWalletCreateWalletValid() {
+        ODWalletService.createWallet("myWallet", password: "0123456789aeza", apiKey: /*YourAPIKey*/"", email: "test1@test234.com",
+            success:{(object : AnyObject) -> Void in
+                XCTAssert("Success")
+                
+            },
+            
+            failure: {(error : ODBlockChainError) -> Void in
+                XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+            });
     }
     
 }
