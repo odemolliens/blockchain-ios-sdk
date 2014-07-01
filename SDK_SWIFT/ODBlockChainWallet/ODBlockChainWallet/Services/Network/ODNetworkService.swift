@@ -140,7 +140,7 @@ class ODNetworkService
     Retrieve information about a single address with an hash
     -> limit : Optional limit parameter to show n transactions e.g. &limit=50 (Max 50)
     -> offset : Optional offset parameter to skip the first n transactions e.g. &offset=100 (Page 2 for limit 50)
-    -> ! Use -1 if you don't need to use the parameters - /// TODO fix nil
+    -> ! Use -1 if you don't need to use the parameters - /// TODO fix nil object when implement
     Knowed Errors
     case Unknow
     case Hash
@@ -155,12 +155,12 @@ class ODNetworkService
         var firstCharKeys : NSString = "?";
         
         //Optionnal keys
-        if(limit != -1){
+        if(/*limit != nil*/ limit != -1){
             postKeys.appendFormat("%@limit=%@", firstCharKeys,limit);
             firstCharKeys = "&";
         }
         
-        if(offset != -1){
+        if(/*offset != nil*/ offset != -1){
             postKeys.appendFormat("%@offset=%@", firstCharKeys,offset);
             firstCharKeys = "&";
         }
@@ -182,29 +182,38 @@ class ODNetworkService
                 failure(error);
             });
     }
+
     
-    /*Single Address
-    
-    http://blockchain.info/address/$hash_160?format=json
-    http://blockchain.info/address/$bitcoin_address?format=json
-    http://blockchain.info/rawaddr/$bitcoin_address
-    
-    Optional limit parameter to show n transactions e.g. &limit=50 (Max 50)
-    Optional offset parameter to skip the first n transactions e.g. &offset=100 (Page 2 for limit 50)
-    
-    {
-    "hash160":"660d4ef3a743e3e696ad990364e555c271ad504b",
-    "address":"1AJbsFZ64EpEfS5UAjAfcUG8pH8Jn3rn1F",
-    "n_tx":17,
-    "n_unredeemed":2,
-    "total_received":1031350000,
-    "total_sent":931250000,
-    "final_balance":100100000,
-    "txs":[--Array of Transactions--]
-    }*/
-    
-    
-    
+    /**
+Multi Address
+
+http://blockchain.info/multiaddr?active=$address|$address (Multiple addresses divided by |)
+
+{
+"addresses":[
+
+{
+"hash160":"641ad5051edd97029a003fe9efb29359fcee409d",
+"address":"1A8JiWcwvpY7tAopUkSnGuEYHmzGYfZPiq",
+"n_tx":4,
+"total_received":1401000000,
+"total_sent":1000000,
+"final_balance":1400000000
+},
+
+{
+"hash160":"ddbeb8b1a5d54975ee5779cf64573081a89710e5",
+"address":"1MDUoxL1bGvMxhuoDYx6i11ePytECAk9QK",
+"n_tx":0,
+"total_received":0,
+"total_sent":0,
+"final_balance":0
+},
+
+"txs":[--Latest 50 Transactions--]
+*/
+
+
     //TODO : Chart Data / Block Height / Single Address / Multi Address / Unspent outputs / Latest Block / Unconfirmed Transactions / Blocks / Inventory Data
     
     
