@@ -13,13 +13,15 @@ class ODSingleTransaction : NSObject
 {
     //Domain
     var hashBlock : NSString;
-    var ver : NSInteger;
-    var vinSz : NSInteger;
-    var voutSz : NSInteger;
+    var ver : NSNumber;
+    var vinSz : NSNumber;
+    var voutSz : NSNumber;
     var lockTime : NSString;
-    var size : NSInteger;
+    var size : NSNumber;
     var relayedBy : NSString;
-    var blockHeight : NSInteger;
+    var blockHeight : NSNumber;
+    var doubleSpend : Bool;
+    var time : NSNumber;
     
     /* TODO : undev array inputs
 "inputs":[
@@ -56,6 +58,7 @@ class ODSingleTransaction : NSObject
     //Constructor
     init()
     {
+        self.doubleSpend  = true;
         self.hashBlock = "";
         self.ver = 0;
         self.vinSz = 0;
@@ -64,20 +67,24 @@ class ODSingleTransaction : NSObject
         self.size = 0;
         self.relayedBy = "";
         self.blockHeight = 0;
+        self.time = 0;
     }
     
     //Static Methods
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODSingleTransaction
     {
         var transaction : ODSingleTransaction = ODSingleTransaction();
-        transaction.hashBlock = dic.valueForKey("hash") as NSString;
-        transaction.ver = dic.valueForKey("ver") as NSInteger;
-        transaction.vinSz = dic.valueForKey("vin_sz") as NSInteger;
-        transaction.voutSz = dic.valueForKey("vout_sz") as NSInteger;
-        transaction.lockTime = dic.valueForKey("lock_time") as NSString;
-        transaction.size = dic.valueForKey("size") as NSInteger;
-        transaction.relayedBy = dic.valueForKey("relayed_by") as NSString;
-        transaction.blockHeight = dic.valueForKey("block_height") as NSInteger;
+        transaction.hashBlock = dic.valueForKey("hash") as NSString!;
+        transaction.doubleSpend = dic.valueForKey("double_spend") as Bool!;
+        transaction.ver = dic.valueForKey("ver") as NSNumber!;
+        transaction.vinSz = dic.valueForKey("vin_sz") as NSNumber!;
+        transaction.voutSz = dic.valueForKey("vout_sz") as NSNumber!;
+        transaction.size = dic.valueForKey("size") as NSNumber!;
+        transaction.relayedBy = dic.valueForKey("relayed_by") as NSString!;
+        //transaction.blockHeight = dic.valueForKey("block_height") as NSNumber!;
+        //transaction.time = dic.valueForKey("time") as NSNumber!;
+        //Server doesn't return locktime -_- - or not always TODO
+        //transaction.lockTime = dic.valueForKey("lock_time") as NSString!;
         return transaction;
     }
     

@@ -32,7 +32,7 @@ class ODNetworkService
         
         ODBlockChainService.manageRequest(request,
             success:{(object : AnyObject) -> Void in
-                if(object.member(NSDictionary())){
+                if(object.isKindOfClass(NSDictionary)){
                     var dic : NSDictionary = object as NSDictionary;
                     
                     success(ODBlock.instantiateWithDictionnary(dic));
@@ -63,10 +63,10 @@ class ODNetworkService
         
         ODBlockChainService.manageRequest(request,
             success:{(object : AnyObject) -> Void in
-                print(object);
-                if(object.member(NSDictionary())){
+                
+                if(object.isKindOfClass(NSDictionary)){
                     var dic : NSDictionary = object as NSDictionary;
-                    
+                   
                     success(ODBlock.instantiateWithDictionnary(dic));
                 }else{
                     failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
@@ -89,15 +89,15 @@ class ODNetworkService
         var url : NSURL;
         var request : NSMutableURLRequest;
         
-        url = NSURL.URLWithString(NSString(format : "%@%@",kBlockChainUrlTransactionInfo,hash));
-        
+        url = NSURL.URLWithString(NSString(format : "%@%@?format=json",kBlockChainUrlTransactionInfo,hash));
+
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBlockChainTimeout));
         
         ODBlockChainService.manageRequest(request,
             success:{(object : AnyObject) -> Void in
-                if(object.member(NSDictionary())){
+                if(object.isKindOfClass(NSDictionary)){
                     var dic : NSDictionary = object as NSDictionary;
-                    
+
                     success(ODSingleTransaction.instantiateWithDictionnary(dic));
                 }else{
                     failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
@@ -124,7 +124,7 @@ class ODNetworkService
         
         ODBlockChainService.manageRequest(request,
             success:{(object : AnyObject) -> Void in
-                if(object.member(NSDictionary())){
+                if(object.isKindOfClass(NSDictionary)){
                     var dic : NSDictionary = object as NSDictionary;
                     
                     success(ODSingleTransaction.instantiateWithDictionnary(dic));

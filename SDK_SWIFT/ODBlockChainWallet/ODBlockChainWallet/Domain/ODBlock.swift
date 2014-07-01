@@ -12,18 +12,18 @@ class ODBlock : NSObject
 {
     //Domain
     var hashBlock : NSString;
-    var ver : NSInteger;
+    var ver : NSNumber;
     var prevBlock : NSString;
     var mrklRoot : NSString;
-    var time : NSInteger;
-    var bits : NSInteger;
-    var nonce: NSInteger;
-    var numberOftx: NSInteger;
-    var size : NSInteger;
-    var blockIndex : NSInteger;
+    var time : NSNumber;
+    var bits : NSNumber;
+    var nonce: NSNumber;
+    var numberOftx: NSNumber;
+    var size : NSNumber;
+    var blockIndex : NSNumber;
     var mainChain : Bool;
-    var height : NSInteger;
-    var receveidTime : NSInteger;
+    var height : NSNumber;
+    var receveidTime : NSNumber;
     var relayedBy : NSString;
     
     //Constructor
@@ -49,19 +49,19 @@ class ODBlock : NSObject
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODBlock
     {
         var block : ODBlock = ODBlock();
-        block.hashBlock = dic.valueForKey("hash") as NSString;
-        block.ver = dic.valueForKey("ver") as NSInteger;
-        block.prevBlock = dic.valueForKey("prev_block") as NSString;
-        block.time = dic.valueForKey("time") as NSInteger;
-        block.nonce = dic.valueForKey("nonce") as NSInteger;
-        block.bits = dic.valueForKey("bits") as NSInteger;
-        block.numberOftx = dic.valueForKey("n_tx") as NSInteger;
-        block.size = dic.valueForKey("size") as NSInteger;
-        block.blockIndex = dic.valueForKey("block_index") as NSInteger;
-        block.mainChain = dic.valueForKey("main_chain") as Bool;
-        block.height = dic.valueForKey("height") as NSInteger;
-        block.receveidTime = dic.valueForKey("received_time") as NSInteger;
-        block.relayedBy = dic.valueForKey("relayed_by") as NSString;
+        block.hashBlock = dic.valueForKey("hash") as NSString!;
+        block.ver = dic.valueForKey("ver") as NSNumber!;
+        block.prevBlock = dic.valueForKey("prev_block") as NSString!;
+        block.time = dic.valueForKey("time") as NSNumber!;
+        block.nonce = dic.valueForKey("nonce") as NSNumber!;
+        block.bits = dic.valueForKey("bits") as NSNumber!;
+        block.numberOftx = dic.valueForKey("n_tx") as NSNumber!;
+        block.size = dic.valueForKey("size") as NSNumber!;
+        block.blockIndex = dic.valueForKey("block_index") as NSNumber!;
+        block.mainChain = dic.valueForKey("main_chain") as Bool!;
+        block.height = dic.valueForKey("height") as NSNumber!;
+        block.receveidTime = dic.valueForKey("received_time") as NSNumber!;
+        block.relayedBy = dic.valueForKey("relayed_by") as NSString!;
         
         return block;
     }
