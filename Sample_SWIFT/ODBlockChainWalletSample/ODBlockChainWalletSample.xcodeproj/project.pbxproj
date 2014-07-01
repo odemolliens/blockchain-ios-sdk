@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C45D1FFB196331F400CDFC79 /* ODSingleAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45D1FFA196331F400CDFC79 /* ODSingleAddress.swift */; };
+		C45D1FFC196331F400CDFC79 /* ODSingleAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45D1FFA196331F400CDFC79 /* ODSingleAddress.swift */; };
 		C49752E5194F05AA0045EB6A /* ODBCWCreateWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49752E3194F05AA0045EB6A /* ODBCWCreateWallet.swift */; };
 		C49752EB194F05C70045EB6A /* ODBCWNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49752E9194F05C70045EB6A /* ODBCWNetwork.swift */; };
 		C49752ED194F06220045EB6A /* ODNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49752EC194F06220045EB6A /* ODNetworkService.swift */; };
@@ -56,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C45D1FFA196331F400CDFC79 /* ODSingleAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ODSingleAddress.swift; path = ../../../SDK_SWIFT/ODBlockChainWallet/ODBlockChainWallet/Domain/ODSingleAddress.swift; sourceTree = "<group>"; };
 		C49752E3194F05AA0045EB6A /* ODBCWCreateWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ODBCWCreateWallet.swift; path = ../../../SDK_SWIFT/ODBlockChainWallet/ODBlockChainWalletTests/ODBCWCreateWallet.swift; sourceTree = "<group>"; };
 		C49752E9194F05C70045EB6A /* ODBCWNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ODBCWNetwork.swift; path = ../../../SDK_SWIFT/ODBlockChainWallet/ODBlockChainWalletTests/ODBCWNetwork.swift; sourceTree = "<group>"; };
 		C49752EC194F06220045EB6A /* ODNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ODNetworkService.swift; path = ../../../SDK_SWIFT/ODBlockChainWallet/ODBlockChainWallet/Services/Network/ODNetworkService.swift; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 		C49752F3194F09D00045EB6A /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				C45D1FFA196331F400CDFC79 /* ODSingleAddress.swift */,
 				C4D162ED195B41EB00514F63 /* ODSingleTransaction.swift */,
 				C49752F7194F0A540045EB6A /* ODBlock.swift */,
 				C4CAD877194DAF0300132137 /* ODBlockChainError.swift */,
@@ -295,6 +299,7 @@
 				C4CAD87F194DAF0300132137 /* ODBlockChainError.swift in Sources */,
 				C4CAD851194B74D900132137 /* AppDelegate.swift in Sources */,
 				C49752F0194F07AB0045EB6A /* ODWalletService.swift in Sources */,
+				C45D1FFB196331F400CDFC79 /* ODSingleAddress.swift in Sources */,
 				C4CAD881194DAF0300132137 /* ODCreateWallet.swift in Sources */,
 				C49752ED194F06220045EB6A /* ODNetworkService.swift in Sources */,
 			);
@@ -311,6 +316,7 @@
 				C49752F9194F0A540045EB6A /* ODBlock.swift in Sources */,
 				C49752F1194F07AB0045EB6A /* ODWalletService.swift in Sources */,
 				C4CAD880194DAF0300132137 /* ODBlockChainError.swift in Sources */,
+				C45D1FFC196331F400CDFC79 /* ODSingleAddress.swift in Sources */,
 				C49752E5194F05AA0045EB6A /* ODBCWCreateWallet.swift in Sources */,
 				C4D162EF195B41EB00514F63 /* ODSingleTransaction.swift in Sources */,
 				C49752EB194F05C70045EB6A /* ODBCWNetwork.swift in Sources */,

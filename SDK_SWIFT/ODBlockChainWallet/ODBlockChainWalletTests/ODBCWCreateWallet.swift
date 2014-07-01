@@ -93,7 +93,7 @@ class ODBCWCreateWallet: XCTestCase {
                 });
     }
     
-    //200 - Create Wallet
+    //200 - Create Wallet - FIXME - disabled test service
     func testWalletCreateWalletValid() {
         ODWalletService.createWallet("myWallet", password: "0123456789aeza", apiKey: /*YourAPIKey*/"", email: "test1@test234.com",
             success:{(object : AnyObject) -> Void in

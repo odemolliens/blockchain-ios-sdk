@@ -28,7 +28,7 @@ let kBlockChainUrlCreateWallet = NSString(format:"%@%@%@",kBlockChainUrl,kBlockC
 //NetworkService
 let kBlockChainUrlBlockInfo = NSString(format:"%@%@",kBlockChainUrl,"rawblock/");
 let kBlockChainUrlTransactionInfo = NSString(format:"%@%@",kBlockChainUrl,"rawtx/");
-
+let kBlockChainUrlTransactionSingleAddress = NSString(format:"%@%@",kBlockChainUrl,"address/");
 
 //
 /////////// END OF NETWORK CONSTANTS ///////////

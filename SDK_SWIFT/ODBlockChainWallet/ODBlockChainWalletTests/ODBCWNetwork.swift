@@ -122,9 +122,15 @@ class ODBCWNetwork: XCTestCase {
             });
     }
     
-    
-    
-    //
-    
+    //200 - Single Address Index
+    func testNetworkSingleAddressHashValid() {
+        ODNetworkService.singleAddressHash("660d4ef3a743e3e696ad990364e555c271ad504b",
+            success: {(object : ODSingleAddress) -> Void in
+                XCTAssert("Success")
+                // TODO : Test domain content
+            }, failure: {(error : ODBlockChainError) -> Void in
+                XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+            });
+    }
 
 }

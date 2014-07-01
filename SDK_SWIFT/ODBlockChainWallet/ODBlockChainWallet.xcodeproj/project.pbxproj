@@ -19,6 +19,8 @@
 		C44E5A32194B6B98006DAEE2 /* ODCreateWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226EEF1948CD320086F212 /* ODCreateWallet.swift */; };
 		C44E5A34194B6B98006DAEE2 /* ODBlockChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226EF81948D6490086F212 /* ODBlockChainService.swift */; };
 		C44E5A35194B6B98006DAEE2 /* NSUrlConnection+Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226EF61948D24C0086F212 /* NSUrlConnection+Blocks.swift */; };
+		C45D1FF8196331ED00CDFC79 /* ODSingleAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45D1FF7196331ED00CDFC79 /* ODSingleAddress.swift */; };
+		C45D1FF9196331ED00CDFC79 /* ODSingleAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45D1FF7196331ED00CDFC79 /* ODSingleAddress.swift */; };
 		C49752D8194F05690045EB6A /* ODWalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49752D7194F05690045EB6A /* ODWalletService.swift */; };
 		C49752D9194F05690045EB6A /* ODWalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49752D7194F05690045EB6A /* ODWalletService.swift */; };
 		C49752DB194F057F0045EB6A /* ODNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49752DA194F057F0045EB6A /* ODNetworkService.swift */; };
@@ -108,6 +110,7 @@
 		C4226EF11948D0760086F212 /* ODBlockChainConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ODBlockChainConstants.swift; path = ../Services/ODBlockChainConstants.swift; sourceTree = "<group>"; };
 		C4226EF61948D24C0086F212 /* NSUrlConnection+Blocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUrlConnection+Blocks.swift"; sourceTree = "<group>"; };
 		C4226EF81948D6490086F212 /* ODBlockChainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODBlockChainService.swift; sourceTree = "<group>"; };
+		C45D1FF7196331ED00CDFC79 /* ODSingleAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODSingleAddress.swift; sourceTree = "<group>"; };
 		C49752D7194F05690045EB6A /* ODWalletService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODWalletService.swift; sourceTree = "<group>"; };
 		C49752DA194F057F0045EB6A /* ODNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODNetworkService.swift; sourceTree = "<group>"; };
 		C49752E0194F05A10045EB6A /* ODBCWCreateWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODBCWCreateWallet.swift; sourceTree = "<group>"; };
@@ -207,6 +210,7 @@
 				C4226EEF1948CD320086F212 /* ODCreateWallet.swift */,
 				C49752F5194F0A4F0045EB6A /* ODBlock.swift */,
 				C4D162EB195B41DD00514F63 /* ODSingleTransaction.swift */,
+				C45D1FF7196331ED00CDFC79 /* ODSingleAddress.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -376,6 +380,7 @@
 				C49752F6194F0A4F0045EB6A /* ODBlock.swift in Sources */,
 				C4226EF21948D0760086F212 /* ODBlockChainConstants.swift in Sources */,
 				C49752DB194F057F0045EB6A /* ODNetworkService.swift in Sources */,
+				C45D1FF8196331ED00CDFC79 /* ODSingleAddress.swift in Sources */,
 				C49752E7194F05C20045EB6A /* ODBCWNetwork.swift in Sources */,
 				C4D162EC195B41DD00514F63 /* ODSingleTransaction.swift in Sources */,
 				C49752E1194F05A10045EB6A /* ODBCWCreateWallet.swift in Sources */,
@@ -392,6 +397,7 @@
 				C44E5A35194B6B98006DAEE2 /* NSUrlConnection+Blocks.swift in Sources */,
 				C44E5A31194B6B98006DAEE2 /* ODBlockChainError.swift in Sources */,
 				C49752D9194F05690045EB6A /* ODWalletService.swift in Sources */,
+				C45D1FF9196331ED00CDFC79 /* ODSingleAddress.swift in Sources */,
 				C44E5A32194B6B98006DAEE2 /* ODCreateWallet.swift in Sources */,
 				C49752E8194F05C20045EB6A /* ODBCWNetwork.swift in Sources */,
 				C49752E2194F05A10045EB6A /* ODBCWCreateWallet.swift in Sources */,
