@@ -70,11 +70,11 @@ class ODBlock : NSObject
     class func parseErrorResponseFromAPI(response:NSString) -> ODBCErrorAPI
     {
         if(response.isEqualToString("Invalid Block Hash")){
-            return ODBCErrorAPI.InvalidBlockHash;
+            return ODBCErrorAPI.Hash;
         }else if(response.isEqualToString("Invalid Block Index")){
-            return ODBCErrorAPI.InvalidBlockIndex;
+            return ODBCErrorAPI.Index;
         }else if(response.isEqualToString("Block Not Found")){
-            return ODBCErrorAPI.BlockNotFound;
+            return ODBCErrorAPI.NotFound;
         }else{
             return ODBCErrorAPI.Unknow;
         }

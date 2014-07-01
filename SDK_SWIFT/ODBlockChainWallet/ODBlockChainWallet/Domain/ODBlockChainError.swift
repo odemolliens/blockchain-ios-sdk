@@ -24,10 +24,11 @@ enum ODBCErrorAPI {
     case ApiKey
     case InvalidEmail
     case AlphaNumericOnly
-    case InvalidBlockHash
-    case InvalidBlockIndex
-    case BlockNotFound
+    case Hash
+    case Index
+    case NotFound
     case TransactionNotFound
+    case IllegalCharacter
 }
 
 class ODBlockChainError : NSObject

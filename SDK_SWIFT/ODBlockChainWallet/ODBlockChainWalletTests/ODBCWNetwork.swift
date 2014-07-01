@@ -20,12 +20,12 @@ class ODBCWNetwork: XCTestCase {
         super.tearDown()
     }
     
-    /*func testODBlockIndexInvalidBlockHash() {
+    /*func testODBlockIndexHash() {
     ODNetworkService.singleBlockHash("23742834223412414233949234", success: {(object : AnyObject) -> Void in
     XCTFail("fail");
     }, failure: {(error : ODBlockChainError) -> Void in
     
-    if(ODBlock.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.InvalidBlockHash){
+    if(ODBlock.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.Hash){
     XCTAssert("Success")
     }else{
     XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
@@ -33,12 +33,12 @@ class ODBCWNetwork: XCTestCase {
     });
     }*/
     
-    /*func testODBlockIndexInvalidBlockIndex() {
+    /*func testODBlockIndexIndex() {
     ODNetworkService.singleBlockIndex("1", success: {(object : AnyObject) -> Void in
     XCTFail("fail");
     }, failure: {(error : ODBlockChainError) -> Void in
     
-    if(ODBlock.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.InvalidBlockIndex){
+    if(ODBlock.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.Index){
     XCTAssert("Success")
     }else{
     XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
@@ -47,12 +47,12 @@ class ODBCWNetwork: XCTestCase {
     }*/
     
     //500 - Single Block Index - Block not found
-    func testNetworkSingleBlockIndexBlockNotFound() {
+    func testNetworkSingleBlockIndexNotFound() {
         ODNetworkService.singleBlockIndex("1", success: {(object : ODBlock) -> Void in
             XCTFail("fail");
             }, failure: {(error : ODBlockChainError) -> Void in
                 
-                if(ODBlock.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.BlockNotFound){
+                if(ODBlock.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.NotFound){
                     XCTAssert("Success")
                 }else{
                     XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
@@ -130,6 +130,34 @@ class ODBCWNetwork: XCTestCase {
                 // TODO : Test domain content
             }, failure: {(error : ODBlockChainError) -> Void in
                 XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+            });
+    }
+    
+    //500 - Single Address Index - Illegal Character
+    func testNetworkSingleAddressHashInvalidIllegalCharacter() {
+        ODNetworkService.singleAddressHash("1234IL",
+            success: {(object : ODSingleAddress) -> Void in
+                XCTFail("Fail");
+            }, failure: {(error : ODBlockChainError) -> Void in
+                if(ODSingleAddress.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.IllegalCharacter){
+                    XCTAssert("Success")
+                }else{
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                }
+            });
+    }
+    
+    //500 - Single Address Index - Hash
+    func testNetworkSingleAddressHashInvalidHash() {
+        ODNetworkService.singleAddressHash("00000000a00e3%C3%A0e000ad000000e000c000ad000b",
+            success: {(object : ODSingleAddress) -> Void in
+                XCTFail("Fail");
+            }, failure: {(error : ODBlockChainError) -> Void in
+                if(ODSingleAddress.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.Hash){
+                    XCTAssert("Success")
+                }else{
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                }
             });
     }
 

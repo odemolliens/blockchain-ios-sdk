@@ -51,10 +51,12 @@ class ODSingleAddress : NSObject {
     class func parseErrorResponseFromAPI(response:NSString) -> ODBCErrorAPI
     {
         //TODO : undev
-        /*if(response.isEqualToString("Transaction not found")){
-            return ODBCErrorAPI.TransactionNotFound;
-        }else{*/
+        if(response.hasPrefix("Illegal character")){
+            return ODBCErrorAPI.IllegalCharacter;
+        }else if(response.isEqualToString("Sorry this is is not a valid  hash 160")){
+            return ODBCErrorAPI.Hash;
+        }else{
             return ODBCErrorAPI.Unknow;
-        //}
+        }
     }
 }

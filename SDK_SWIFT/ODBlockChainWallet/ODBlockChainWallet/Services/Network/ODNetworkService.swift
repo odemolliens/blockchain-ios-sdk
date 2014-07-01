@@ -17,9 +17,9 @@ class ODNetworkService
     Return ODBlock with block information
     Knowed Errors
     case Unknow
-    case InvalidBlockHash -> TODO Never return by server
-    case InvalidBlockIndex -> TODO Never return by server
-    case BlockNotFound
+    case Hash -> TODO Never return by server
+    case Index -> TODO Never return by server
+    case NotFound
     */
     class func singleBlockIndex(index : NSString, success :(ODBlock) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
@@ -48,9 +48,9 @@ class ODNetworkService
     Retrieve information about one block with hash value
     Knowed Errors
     case Unknow
-    case InvalidBlockHash
-    case InvalidBlockIndex
-    case BlockNotFound
+    case Hash
+    case Index
+    case NotFound
     */
     class func singleBlockHash(hash : NSString, success :(ODBlock) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
@@ -140,6 +140,7 @@ class ODNetworkService
     Retrieve information about a single address with an hash
     Knowed Errors
     case Unknow
+    case Hash
     //http://blockchain.info/address/$hash_160?format=json
     */
     class func singleAddressHash(hash : NSString, success :(ODSingleAddress) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
@@ -164,10 +165,6 @@ class ODNetworkService
                 failure(error);
             });
     }
-    
-    
-    
-    
     
     /*Single Address
     
