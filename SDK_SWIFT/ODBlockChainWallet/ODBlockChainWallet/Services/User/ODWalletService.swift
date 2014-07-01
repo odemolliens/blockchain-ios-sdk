@@ -12,7 +12,7 @@ class ODWalletService
 {
     /*
     Create Wallet Service
-    -> Email & Name parameters are optionnal
+    -> Email & Name : parameters are optionnal
     Return an ODCreateWallet object with identifier if successfull
     Knowed Errors
     case Unknow
@@ -28,18 +28,22 @@ class ODWalletService
         var request : NSMutableURLRequest;
         var postKeys : NSMutableString = NSMutableString();
         
+        var firstCharKeys : NSString = "?";
         
         //Parameters
-        postKeys.appendFormat("?api_code=%@", apiKey);
-        postKeys.appendFormat("&password=%@", password);
+        postKeys.appendFormat("%@api_code=%@", firstCharKeys, apiKey);
+        
+        firstCharKeys = "&";
+        
+        postKeys.appendFormat("%@password=%@", firstCharKeys, password);
         
         //Optionnal keys
         if(email.length>0){
-            postKeys.appendFormat("&email=%@", email);
+            postKeys.appendFormat("%@email=%@", firstCharKeys, email);
         }
         
         if(name.length>0){
-            postKeys.appendFormat("&label=%@", name);
+            postKeys.appendFormat("%@label=%@", firstCharKeys ,name);
         }
         
         url = NSURL.URLWithString(NSString(format : "%@%@",kBlockChainUrlCreateWallet,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)));

@@ -123,8 +123,9 @@ class ODBCWNetwork: XCTestCase {
     }
     
     //200 - Single Address Index
+    // TODO : No error returned by server if limit > 50
     func testNetworkSingleAddressHashValid() {
-        ODNetworkService.singleAddressHash("660d4ef3a743e3e696ad990364e555c271ad504b",
+        ODNetworkService.singleAddressHash("660d4ef3a743e3e696ad990364e555c271ad504b",limit: -1,offset: -1,
             success: {(object : ODSingleAddress) -> Void in
                 XCTAssert("Success")
                 // TODO : Test domain content
@@ -135,7 +136,7 @@ class ODBCWNetwork: XCTestCase {
     
     //500 - Single Address Index - Illegal Character
     func testNetworkSingleAddressHashInvalidIllegalCharacter() {
-        ODNetworkService.singleAddressHash("1234IL",
+        ODNetworkService.singleAddressHash("1234IL",limit: -1,offset: -1,
             success: {(object : ODSingleAddress) -> Void in
                 XCTFail("Fail");
             }, failure: {(error : ODBlockChainError) -> Void in
@@ -149,7 +150,7 @@ class ODBCWNetwork: XCTestCase {
     
     //500 - Single Address Index - Hash
     func testNetworkSingleAddressHashInvalidHash() {
-        ODNetworkService.singleAddressHash("00000000a00e3%C3%A0e000ad000000e000c000ad000b",
+        ODNetworkService.singleAddressHash("00000000a00e3%C3%A0e000ad000000e000c000ad000b",limit: -1,offset: -1,
             success: {(object : ODSingleAddress) -> Void in
                 XCTFail("Fail");
             }, failure: {(error : ODBlockChainError) -> Void in

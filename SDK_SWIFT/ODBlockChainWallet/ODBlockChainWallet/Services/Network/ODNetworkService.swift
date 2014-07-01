@@ -138,17 +138,34 @@ class ODNetworkService
     
     /*
     Retrieve information about a single address with an hash
+    -> limit : Optional limit parameter to show n transactions e.g. &limit=50 (Max 50)
+    -> offset : Optional offset parameter to skip the first n transactions e.g. &offset=100 (Page 2 for limit 50)
+    -> ! Use -1 if you don't need to use the parameters - /// TODO fix nil
     Knowed Errors
     case Unknow
     case Hash
-    //http://blockchain.info/address/$hash_160?format=json
     */
-    class func singleAddressHash(hash : NSString, success :(ODSingleAddress) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    class func singleAddressHash(hash : NSString, limit : NSNumber, offset : NSNumber, success :(ODSingleAddress) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
         var url : NSURL;
         var request : NSMutableURLRequest;
         
-        url = NSURL.URLWithString(NSString(format : "%@%@?format=json",kBlockChainUrlTransactionSingleAddress,hash));
+        var postKeys : NSMutableString = NSMutableString();
+        
+        var firstCharKeys : NSString = "?";
+        
+        //Optionnal keys
+        if(limit != -1){
+            postKeys.appendFormat("%@limit=%@", firstCharKeys,limit);
+            firstCharKeys = "&";
+        }
+        
+        if(offset != -1){
+            postKeys.appendFormat("%@offset=%@", firstCharKeys,offset);
+            firstCharKeys = "&";
+        }
+        
+        url = NSURL.URLWithString(NSString(format : "%@%@%@%@format=json",kBlockChainUrlTransactionSingleAddress,hash,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding),firstCharKeys));
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBlockChainTimeout));
         
