@@ -82,10 +82,14 @@ class ODBlock : NSObject
     {
         if(response.isEqualToString("Invalid Block Hash")){
             return ODBCErrorAPI.Hash;
+        }else if(response.isEqualToString("null")){
+            return ODBCErrorAPI.ApiUnavailable;
         }else if(response.isEqualToString("Invalid Block Index")){
             return ODBCErrorAPI.Index;
         }else if(response.isEqualToString("Block Not Found")){
             return ODBCErrorAPI.NotFound;
+        }else if(response.isEqualToString("null") || response.isEqualToString("CloudFare")){
+            return ODBCErrorAPI.ApiUnavailable;
         }else{
             return ODBCErrorAPI.Unknow;
         }

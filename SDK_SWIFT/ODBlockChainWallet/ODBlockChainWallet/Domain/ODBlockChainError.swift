@@ -31,15 +31,18 @@ enum ODBCError {
 
 enum ODBCErrorAPI {
     case Unknow
+    case ApiUnavailable
+    //case CloudFareUnavailable //http code 522 -> case ApiUnavailable
     case PasswordLength
     case ApiKey
-    case InvalidEmail
+    case Email
     case AlphaNumericOnly
     case Hash
     case Index
     case NotFound
     case TransactionNotFound
     case IllegalCharacter
+    case Invalid
 }
 
 class ODBlockChainError : NSObject
@@ -61,12 +64,19 @@ class ODBlockChainError : NSObject
     
     func contentMessage() -> NSString
     {
-        var error : NSString = self.error.userInfo.valueForKey("content") as NSString;
+        var error : NSString = NSString();
         
-        if(error != nil){
+        // TODO : need optimization
+        if(self.error.userInfo.valueForKey("content")){
+            if(self.error.userInfo.valueForKey("content").isKindOfClass(NSString)){
+                error = self.error.userInfo.valueForKey("content") as NSString;
+            }
+        }
+        
+        if(error.length>0){
             return error;
         }else{
-            return "";
+            return "NO_CONTENT";
         }
     }
     
@@ -109,6 +119,7 @@ class ODBlockChainError : NSObject
         return odError;
     }
     
+    //TODO : this is not used for the moment
     class func parseErrorMissingKeys(missingKeys : NSDictionary) -> ODBlockChainError
     {
         //TODO : manage error domain + error code
@@ -132,7 +143,26 @@ class ODBlockChainError : NSObject
     
     class func api(apiError: NSError) -> ODBlockChainError
     {
+        var statusCode : NSNumber = NSNumber();
+        
         var odError : ODBlockChainError = ODBlockChainError();
+        
+        // TODO : need optimization
+        if(apiError.userInfo.valueForKey("httpcode")){
+            if(apiError.userInfo.valueForKey("httpcode").isKindOfClass(NSNumber)){
+                statusCode = apiError.userInfo.valueForKey("httpcode") as NSNumber;
+                
+                if(statusCode==522){
+                    odError.type = ODBCError.ODBCErrorAPI;
+                    odError.error = apiError;
+                    //Force key for contentMessage() method
+                    odError.error.userInfo.setValue("CloudFare", forKey: "content");
+                    return odError;
+                }
+                
+            }
+        }
+        
         odError.type = ODBCError.ODBCErrorAPI;
         odError.error = apiError;
         

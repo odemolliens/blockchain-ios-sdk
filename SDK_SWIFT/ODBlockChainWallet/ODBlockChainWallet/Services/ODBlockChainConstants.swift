@@ -40,6 +40,7 @@ let kBlockChainUrlCreateWallet = NSString(format:"%@%@%@",kBlockChainUrl,kBlockC
 let kBlockChainUrlBlockInfo = NSString(format:"%@%@",kBlockChainUrl,"rawblock/");
 let kBlockChainUrlTransactionInfo = NSString(format:"%@%@",kBlockChainUrl,"rawtx/");
 let kBlockChainUrlTransactionSingleAddress = NSString(format:"%@%@",kBlockChainUrl,"address/");
+let kBlockChainUrlTransactionMultiAddress = NSString(format:"%@%@",kBlockChainUrl,"multiaddr?active=");
 
 //
 /////////// END OF NETWORK CONSTANTS ///////////

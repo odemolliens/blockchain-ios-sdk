@@ -42,9 +42,19 @@ class ODBlockChainService
             
             }, failure: {data,error in
                 
-                var content : NSString = error.userInfo.valueForKey("content") as NSString;
+                var content : NSString = NSString();
                 
-                if(content != nil){
+                // TODO : need optimization
+                if(error.userInfo.valueForKey("content")){
+                    if(error.userInfo.valueForKey("content").isKindOfClass(NSString)){
+                        content = error.userInfo.valueForKey("content") as NSString;
+                        
+                        var odError : ODBlockChainError = ODBlockChainError.api(error);
+                        failure(odError);
+                    }
+                }
+                
+                if(content.length>0){
                     var odError : ODBlockChainError = ODBlockChainError.api(error);
                     failure(odError);
                 }else{

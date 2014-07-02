@@ -172,5 +172,47 @@ class ODBCWNetwork: XCTestCase {
                 }
             });
     }
-
+    
+    /*
+    
+    //Disabled because doesn't work same as the documentation https://blockchain.info/api/blockchain_api
+    //If you want try by yourself - don't forget uncomment in service class ;) (ODNetworkService)
+    //500 - Multi Address - Invalid
+    func testNetworkMultiAddressInvalidInvalid() {
+        
+        var mArray = NSMutableArray();
+        
+        mArray.addObject("1pkSDfsdfdf");
+        mArray.addObject("sf2342342");
+        
+        ODNetworkService.multiAddress(mArray,
+            success: {(object : NSArray) -> Void in
+                XCTFail("Fail");
+            }, failure: {(error : ODBlockChainError) -> Void in
+                if(ODSingleAddress.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.Invalid){
+                    XCTAssert("Success")
+                }else{
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                }
+            });
+    }
+    
+    //200 - Multi Address
+    func testNetworkMultiAddressValid() {
+        
+        var mArray = NSMutableArray();
+        
+        mArray.addObject("1C9KJmsQk2Tydk3TD7E5AnJpuKV8Y1Hhsv");
+        mArray.addObject("1DRw8j2hwmR7Kn45c7foj4dVLKgE5t2Evw");
+        
+        ODNetworkService.multiAddress(mArray,
+            success: {(object : NSArray) -> Void in
+                XCTAssert("Success");
+            }, failure: {(error : ODBlockChainError) -> Void in
+                XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+            });
+    }
+*/
+    
+    
 }

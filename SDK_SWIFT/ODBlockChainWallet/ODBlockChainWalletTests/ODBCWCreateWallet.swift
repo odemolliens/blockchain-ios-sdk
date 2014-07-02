@@ -68,7 +68,7 @@ class ODBCWCreateWallet: XCTestCase {
     }
     
     //500 - Create Wallet - Invalid email
-    func testWalletCreateWalletErrorInvalidEmail() {
+    func testWalletCreateWalletErrorEmail() {
             ODWalletService.createWallet("", password: "0123456789", apiKey: "", email: "wtfsdasd",
                 success:{(object : AnyObject) -> Void in
                     XCTFail("fail");
@@ -77,7 +77,7 @@ class ODBCWCreateWallet: XCTestCase {
                 
                 failure: {(error : ODBlockChainError) -> Void in
                     
-                    if(ODCreateWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.InvalidEmail){
+                    if(ODCreateWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.Email){
                         XCTAssert("Success")
                     }else{
                         XCTFail(NSString(format:"Fail: %@",error.contentMessage()));

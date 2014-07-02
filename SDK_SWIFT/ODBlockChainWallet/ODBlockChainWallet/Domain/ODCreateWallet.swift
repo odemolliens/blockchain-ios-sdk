@@ -55,9 +55,15 @@ class ODCreateWallet: NSObject
         }else if(response.isEqualToString("Authorization Key invalid or disabled")){
             return ODBCErrorAPI.ApiKey;
         }else if(response.isEqualToString("Invalid Email")){
-            return ODBCErrorAPI.InvalidEmail;
+            return ODBCErrorAPI.Email;
         }else if(response.isEqualToString("Label Must be alphanumeric")){
             return ODBCErrorAPI.AlphaNumericOnly;
+        }else if(response.isEqualToString("null")){
+            return ODBCErrorAPI.ApiUnavailable;
+        }else if(response.isEqualToString("Invalid Bitcoin Address")){
+            return ODBCErrorAPI.Invalid;
+        }else if(response.isEqualToString("null") || response.isEqualToString("CloudFare")){
+            return ODBCErrorAPI.ApiUnavailable;
         }else{
             return ODBCErrorAPI.Unknow;
         }

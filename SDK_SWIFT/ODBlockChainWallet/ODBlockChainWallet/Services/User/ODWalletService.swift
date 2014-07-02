@@ -29,7 +29,7 @@ class ODWalletService
     case Unknow
     case PasswordLength
     case ApiKey
-    case InvalidEmail
+    case Email
     case AlphaNumericOnly
     */
     class func createWallet(name : NSString, password : NSString, apiKey : NSString, email : NSString, success :(AnyObject) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void

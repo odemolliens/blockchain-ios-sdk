@@ -77,7 +77,7 @@ class ODNetworkService
                 
                 if(object.isKindOfClass(NSDictionary)){
                     var dic : NSDictionary = object as NSDictionary;
-                   
+                    
                     success(ODBlock.instantiateWithDictionnary(dic));
                 }else{
                     failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
@@ -101,14 +101,14 @@ class ODNetworkService
         var request : NSMutableURLRequest;
         
         url = NSURL.URLWithString(NSString(format : "%@%@?format=json",kBlockChainUrlTransactionInfo,hash));
-
+        
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBlockChainTimeout));
         
         ODBlockChainService.manageRequest(request,
             success:{(object : AnyObject) -> Void in
                 if(object.isKindOfClass(NSDictionary)){
                     var dic : NSDictionary = object as NSDictionary;
-
+                    
                     success(ODSingleTransaction.instantiateWithDictionnary(dic));
                 }else{
                     failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
@@ -193,39 +193,66 @@ class ODNetworkService
                 failure(error);
             });
     }
-
     
-    /**
-Multi Address
-
-http://blockchain.info/multiaddr?active=$address|$address (Multiple addresses divided by |)
-
-{
-"addresses":[
-
-{
-"hash160":"641ad5051edd97029a003fe9efb29359fcee409d",
-"address":"1A8JiWcwvpY7tAopUkSnGuEYHmzGYfZPiq",
-"n_tx":4,
-"total_received":1401000000,
-"total_sent":1000000,
-"final_balance":1400000000
-},
-
-{
-"hash160":"ddbeb8b1a5d54975ee5779cf64573081a89710e5",
-"address":"1MDUoxL1bGvMxhuoDYx6i11ePytECAk9QK",
-"n_tx":0,
-"total_received":0,
-"total_sent":0,
-"final_balance":0
-},
-
-"txs":[--Latest 50 Transactions--]
-*/
-
-
-    //TODO : Chart Data / Block Height / Multi Address / Unspent outputs / Latest Block / Unconfirmed Transactions / Blocks / Inventory Data
+    /*Retrieve information about a multi address
+    Latest 50 Transactions on each address
+    Knowed Errors
+    case Unknow
+    */
+    
+    //Disabled because doesn't work same as the documentation https://blockchain.info/api/blockchain_api
+    //If you want try by yourself - don't forget uncomment in test ;) (ODBCWNetwork)
+    /*class func multiAddress(addressList : NSArray, success :(NSArray) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    {
+    var url : NSURL;
+    var request : NSMutableURLRequest;
+    
+    var postKeys : NSMutableString = NSMutableString();
+    
+    var firstCharKeys : NSString = "|";
+    
+    
+    for(var i = 0; i < addressList.count;i++){
+    
+    var adress : NSString = addressList.objectAtIndex(i) as NSString!;
+    
+    if(postKeys.length==0){
+    postKeys.appendFormat("%@", adress);
+    }else{
+    postKeys.appendFormat("%@%@", firstCharKeys,adress);
+    }
+    }
+    
+    //first params is in constants url
+    firstCharKeys = "&";
+    
+    url = NSURL.URLWithString(NSString(format : "%@%@%@format=json",kBlockChainUrlTransactionMultiAddress,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding),firstCharKeys));
+    
+    request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBlockChainTimeout));
+    
+    ODBlockChainService.manageRequest(request,
+    success:{(object : AnyObject) -> Void in
+    if(object.isKindOfClass(NSArray)){
+    var dic : NSArray = object as NSArray;
+    
+    var mArray : NSMutableArray = NSMutableArray();
+    
+    for(var j = 0; j < addressList.count;j++){
+    var singleAdress : NSDictionary = addressList.objectAtIndex(j) as NSDictionary!;
+    mArray.addObject(ODSingleAddress.instantiateWithDictionnary(singleAdress));
+    }
+    
+    success(mArray);
+    
+    }else{
+    failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
+    }
+    },failure:{(error : ODBlockChainError) -> Void in
+    failure(error);
+    });
+    }*/
+    
+    //TODO : Chart Data / Block Height / Unspent outputs / Latest Block / Unconfirmed Transactions / Blocks / Inventory Data
     
     
     

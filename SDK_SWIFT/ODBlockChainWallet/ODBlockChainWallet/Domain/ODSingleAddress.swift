@@ -66,6 +66,8 @@ class ODSingleAddress : NSObject {
             return ODBCErrorAPI.IllegalCharacter;
         }else if(response.isEqualToString("Sorry this is is not a valid  hash 160")){
             return ODBCErrorAPI.Hash;
+        }else if(response.isEqualToString("null") || response.isEqualToString("CloudFare")){
+            return ODBCErrorAPI.ApiUnavailable;
         }else{
             return ODBCErrorAPI.Unknow;
         }

@@ -25,6 +25,7 @@ extension NSURLConnection
     class func asyncRequest(request : NSURLRequest, success :(NSData, NSURLResponse) -> Void = {data, response in /* ... */},failure: (NSData, NSError) -> Void = {data, error in /* ... */})
         
     {
+        NSLog("%@", request.URL.description);
         // XCTest usage
         #if DEBUG
             var waiting : Bool = true;
@@ -49,6 +50,7 @@ extension NSURLConnection
                     var datastring: String = NSString(data:data, encoding:NSUTF8StringEncoding)
                     var content : NSMutableDictionary = NSMutableDictionary();
                     content.setValue(datastring, forKey: "content");
+                    content.setValue(res.statusCode, forKey: "httpcode");
                     var mError : NSError = NSError(domain: res.URL.description, code: res.statusCode, userInfo: content);
                     //content.setValue(NSHTTPURLResponse.localizedStringForStatusCode(res.statusCode), forKey: "localizedError");
                     failure(data,mError);

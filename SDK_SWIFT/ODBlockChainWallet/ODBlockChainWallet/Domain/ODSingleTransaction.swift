@@ -104,6 +104,8 @@ class ODSingleTransaction : NSObject
     {
         if(response.isEqualToString("Transaction not found")){
             return ODBCErrorAPI.TransactionNotFound;
+        }else if(response.isEqualToString("null") || response.isEqualToString("CloudFare")){
+            return ODBCErrorAPI.ApiUnavailable;
         }else{
             return ODBCErrorAPI.Unknow;
         }
