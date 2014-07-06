@@ -102,9 +102,9 @@ class ODSingleTransaction : NSObject
     
     class func parseErrorResponseFromAPI(response:NSString) -> ODBCErrorAPI
     {
-        if(response.isEqualToString("Transaction not found")){
+        if(response.isEqualToString(kBCBlockChainTransactionNotFound)){
             return ODBCErrorAPI.TransactionNotFound;
-        }else if(response.isEqualToString("null") || response.isEqualToString("CloudFare")){
+        }else if(response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
             return ODBCErrorAPI.ApiUnavailable;
         }else{
             return ODBCErrorAPI.Unknow;

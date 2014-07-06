@@ -50,19 +50,17 @@ class ODCreateWallet: NSObject
     
     class func parseErrorResponseFromAPI(response:NSString) -> ODBCErrorAPI
     {
-        if(response.isEqualToString("Password Must be greater than 10 characters in length")){
+        if(response.isEqualToString(kBCWalletPasswordLength)){
             return ODBCErrorAPI.PasswordLength;
-        }else if(response.isEqualToString("Authorization Key invalid or disabled")){
+        }else if(response.isEqualToString(kBCWalletApiKey)){
             return ODBCErrorAPI.ApiKey;
-        }else if(response.isEqualToString("Invalid Email")){
+        }else if(response.isEqualToString(kBCWalletEmail)){
             return ODBCErrorAPI.Email;
-        }else if(response.isEqualToString("Label Must be alphanumeric")){
+        }else if(response.isEqualToString(kBCWalletAlphaNumeric)){
             return ODBCErrorAPI.AlphaNumericOnly;
-        }else if(response.isEqualToString("null")){
-            return ODBCErrorAPI.ApiUnavailable;
-        }else if(response.isEqualToString("Invalid Bitcoin Address")){
+        }else if(response.isEqualToString(kBCWalletInvalidAdress)){
             return ODBCErrorAPI.Invalid;
-        }else if(response.isEqualToString("null") || response.isEqualToString("CloudFare")){
+        }else if(response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
             return ODBCErrorAPI.ApiUnavailable;
         }else{
             return ODBCErrorAPI.Unknow;

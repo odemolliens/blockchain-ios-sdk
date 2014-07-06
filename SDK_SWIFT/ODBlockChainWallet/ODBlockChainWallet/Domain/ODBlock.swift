@@ -80,15 +80,13 @@ class ODBlock : NSObject
     
     class func parseErrorResponseFromAPI(response:NSString) -> ODBCErrorAPI
     {
-        if(response.isEqualToString("Invalid Block Hash")){
+        if(response.isEqualToString(kBCBlockChainHash)){
             return ODBCErrorAPI.Hash;
-        }else if(response.isEqualToString("null")){
-            return ODBCErrorAPI.ApiUnavailable;
-        }else if(response.isEqualToString("Invalid Block Index")){
+        }else if(response.isEqualToString(kBCBlockChainIndex)){
             return ODBCErrorAPI.Index;
-        }else if(response.isEqualToString("Block Not Found")){
+        }else if(response.isEqualToString(kBCBlockChainBlockNotFound)){
             return ODBCErrorAPI.NotFound;
-        }else if(response.isEqualToString("null") || response.isEqualToString("CloudFare")){
+        }else if(response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
             return ODBCErrorAPI.ApiUnavailable;
         }else{
             return ODBCErrorAPI.Unknow;

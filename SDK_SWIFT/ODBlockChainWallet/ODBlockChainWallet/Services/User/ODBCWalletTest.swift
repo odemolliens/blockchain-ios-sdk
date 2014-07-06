@@ -57,9 +57,9 @@ class ODBCWalletService
             postKeys.appendFormat("%@label=%@", firstCharKeys ,name);
         }
         
-        url = NSURL.URLWithString(NSString(format : "%@%@",kBlockChainUrlCreateWallet,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)));
+        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlCreateWallet,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)));
         
-        request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBlockChainTimeout));
+        request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
         ODBlockChainService.manageRequest(request,
             success:{(object : AnyObject) -> Void in

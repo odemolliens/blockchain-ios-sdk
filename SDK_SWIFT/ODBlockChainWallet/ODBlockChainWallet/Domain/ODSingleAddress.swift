@@ -62,11 +62,11 @@ class ODSingleAddress : NSObject {
     class func parseErrorResponseFromAPI(response:NSString) -> ODBCErrorAPI
     {
         //TODO : undev
-        if(response.hasPrefix("Illegal character")){
+        if(response.hasPrefix(kBCBlockChainIllegalChar)){
             return ODBCErrorAPI.IllegalCharacter;
-        }else if(response.isEqualToString("Sorry this is is not a valid  hash 160")){
+        }else if(response.isEqualToString(kBCBlockChainHash160)){
             return ODBCErrorAPI.Hash;
-        }else if(response.isEqualToString("null") || response.isEqualToString("CloudFare")){
+        }else if(response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
             return ODBCErrorAPI.ApiUnavailable;
         }else{
             return ODBCErrorAPI.Unknow;

@@ -19,28 +19,88 @@
 
 import Foundation
 
-/////////// NETWORK ///////////
+/////////// BEGIN NETWORK CONSTANTS ///////////
+//
 
-//Http request
-let kBlockChainGET : NSString = "GET";
-let kBlockChainPOST : NSString = "POST";
-
-//Network Management
-let kBlockChainTimeout : NSInteger = 20;
-
-
-/////////// URL ///////////
-let kBlockChainUrl : NSString = "https://blockchain.info/";
-let kBlockChainUrlApi : NSString = "api/v2/";
-
-//CreateWalletService
-let kBlockChainUrlCreateWallet = NSString(format:"%@%@%@",kBlockChainUrl,kBlockChainUrlApi,"create_wallet");
-
-//NetworkService
-let kBlockChainUrlBlockInfo = NSString(format:"%@%@",kBlockChainUrl,"rawblock/");
-let kBlockChainUrlTransactionInfo = NSString(format:"%@%@",kBlockChainUrl,"rawtx/");
-let kBlockChainUrlTransactionSingleAddress = NSString(format:"%@%@",kBlockChainUrl,"address/");
-let kBlockChainUrlTransactionMultiAddress = NSString(format:"%@%@",kBlockChainUrl,"multiaddr?active=");
 
 //
-/////////// END OF NETWORK CONSTANTS ///////////
+/////////// HTTP Request ///////////
+//
+let kBCGET : NSString = "GET";
+let kBCPOST : NSString = "POST";
+
+//
+/////////// Network Management ///////////
+//
+let kBCTimeout : NSInteger = 20;
+
+//
+/////////// URL ///////////
+//
+let kBCUrl : NSString = "https://blockchain.info/";
+let kBCUrlApi : NSString = "api/v2/";
+
+//
+/////////// Wallet Service ///////////
+//
+let kBCUrlCreateWallet = NSString(format:"%@%@%@",kBCUrl,kBCUrlApi,"create_wallet");
+
+//
+/////////// BlockChain Service ///////////
+//
+let kBCUrlBlockInfo = NSString(format:"%@%@",kBCUrl,"rawblock/");
+let kBCUrlTransactionInfo = NSString(format:"%@%@",kBCUrl,"rawtx/");
+let kBCUrlTransactionSingleAddress = NSString(format:"%@%@",kBCUrl,"address/");
+let kBCUrlTransactionMultiAddress = NSString(format:"%@%@",kBCUrl,"multiaddr?active=");
+
+
+//
+/////////// END NETWORK CONSTANTS ///////////
+
+
+/////////// BEGIN ERROR NETWORK CONSTANTS ///////////
+//
+
+
+
+//
+/////////// Common ///////////
+//
+let kBCCommonNull = "null";
+let kBCCommonCloudFare = "CloudFare"; // httpcode 522
+
+
+//
+/////////// Wallet ///////////
+//
+
+
+let kBCWalletPasswordLength = "Password Must be greater than 10 characters in length";
+let kBCWalletApiKey = "Authorization Key invalid or disabled";
+let kBCWalletEmail = "Invalid Email";
+let kBCWalletAlphaNumeric = "Label Must be alphanumeric";
+let kBCWalletInvalidAdress = "Invalid Bitcoin Address";
+
+
+//
+/////////// BlockChain ///////////
+//
+
+
+let kBCBlockChainHash = "Invalid Block Hash";
+let kBCBlockChainIndex = "Invalid Block Index";
+let kBCBlockChainBlockNotFound = "Block Not Found";
+let kBCBlockChainTransactionNotFound = "Transaction not found";
+let kBCBlockChainIllegalChar = "Illegal character";
+let kBCBlockChainHash160 = "Sorry this is is not a valid  hash 160";
+
+
+//
+/////////// END ERROR NETWORK CONSTANTS ///////////
+
+
+
+
+
+
+
