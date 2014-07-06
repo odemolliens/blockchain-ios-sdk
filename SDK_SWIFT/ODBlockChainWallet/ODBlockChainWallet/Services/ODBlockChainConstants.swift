@@ -44,6 +44,7 @@ let kBCUrlApi : NSString = "api/v2/";
 /////////// Wallet Service ///////////
 //
 let kBCUrlCreateWallet = NSString(format:"%@%@%@",kBCUrl,kBCUrlApi,"create_wallet");
+let kBCUrlWalletMerchant = NSString(format:"%@%@",kBCUrl,"merchant/");
 
 //
 /////////// BlockChain Service ///////////
@@ -74,12 +75,12 @@ let kBCCommonCloudFare = "CloudFare"; // httpcode 522
 /////////// Wallet ///////////
 //
 
-
-let kBCWalletPasswordLength = "Password Must be greater than 10 characters in length";
-let kBCWalletApiKey = "Authorization Key invalid or disabled";
-let kBCWalletEmail = "Invalid Email";
-let kBCWalletAlphaNumeric = "Label Must be alphanumeric";
-let kBCWalletInvalidAdress = "Invalid Bitcoin Address";
+let kBCWalletSatoshi : NSNumber = 100000000.0;
+let kBCWalletPasswordLength : NSString = "Password Must be greater than 10 characters in length";
+let kBCWalletApiKey : NSString = "Authorization Key invalid or disabled";
+let kBCWalletEmail : NSString = "Invalid Email";
+let kBCWalletAlphaNumeric : NSString = "Label Must be alphanumeric";
+let kBCWalletInvalidAdress : NSString = "Invalid Bitcoin Address";
 
 
 //
@@ -87,12 +88,12 @@ let kBCWalletInvalidAdress = "Invalid Bitcoin Address";
 //
 
 
-let kBCBlockChainHash = "Invalid Block Hash";
-let kBCBlockChainIndex = "Invalid Block Index";
-let kBCBlockChainBlockNotFound = "Block Not Found";
-let kBCBlockChainTransactionNotFound = "Transaction not found";
-let kBCBlockChainIllegalChar = "Illegal character";
-let kBCBlockChainHash160 = "Sorry this is is not a valid  hash 160";
+let kBCBlockChainHash : NSString = "Invalid Block Hash";
+let kBCBlockChainIndex : NSString = "Invalid Block Index";
+let kBCBlockChainBlockNotFound : NSString = "Block Not Found";
+let kBCBlockChainTransactionNotFound : NSString = "Transaction not found";
+let kBCBlockChainIllegalChar : NSString = "Illegal character";
+let kBCBlockChainHash160 : NSString = "Sorry this is is not a valid  hash 160";
 
 
 //

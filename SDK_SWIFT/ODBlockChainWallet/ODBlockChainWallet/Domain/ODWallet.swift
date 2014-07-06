@@ -20,7 +20,7 @@
 import Foundation
 
 
-class ODCreateWallet: NSObject
+class ODWallet: NSObject
 {
     
     //Domain
@@ -38,9 +38,9 @@ class ODCreateWallet: NSObject
     }
     
     //Static Methods
-    class func instantiateWithDictionnary(dic:NSDictionary) -> ODCreateWallet
+    class func instantiateWithDictionnary(dic:NSDictionary) -> ODWallet
     {
-        var createWallet : ODCreateWallet = ODCreateWallet();
+        var createWallet : ODWallet = ODWallet();
         createWallet.guid = dic.valueForKey("guid") as NSString;
         createWallet.address = dic.valueForKey("address") as NSString;
         createWallet.link = dic.valueForKey("link") as NSString;

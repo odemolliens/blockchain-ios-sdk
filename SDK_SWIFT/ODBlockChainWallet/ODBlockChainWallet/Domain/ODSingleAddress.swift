@@ -61,7 +61,6 @@ class ODSingleAddress : NSObject {
     
     class func parseErrorResponseFromAPI(response:NSString) -> ODBCErrorAPI
     {
-        //TODO : undev
         if(response.hasPrefix(kBCBlockChainIllegalChar)){
             return ODBCErrorAPI.IllegalCharacter;
         }else if(response.isEqualToString(kBCBlockChainHash160)){

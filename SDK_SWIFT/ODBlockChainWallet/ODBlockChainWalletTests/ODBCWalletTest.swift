@@ -34,13 +34,13 @@ class ODBCWalletTest: XCTestCase {
     //500 - Create Wallet - Password length
     func testWalletCreateWalletErrorPasswordLength() {
             ODBCWalletService.createWallet("", password: "", apiKey: "a", email: "",
-                success:{(object : AnyObject) -> Void in
+                success:{(object : ODWallet) -> Void in
                     XCTFail("fail");
                 },
                 
                 failure: {(error : ODBlockChainError) -> Void in
                     
-                    if(ODCreateWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.PasswordLength){
+                    if(ODWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.PasswordLength){
                         XCTAssert("Success")
                     }else{
                         XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
@@ -51,14 +51,14 @@ class ODBCWalletTest: XCTestCase {
     //500 - Create Wallet - Api key
     func testWalletCreateWalletErrorApiKey() {
             ODBCWalletService.createWallet("", password: "0123456789", apiKey: "", email: "",
-                success:{(object : AnyObject) -> Void in
+                success:{(object : ODWallet) -> Void in
                     XCTFail("fail");
                     
                 },
                 
                 failure: {(error : ODBlockChainError) -> Void in
                     
-                    if(ODCreateWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.ApiKey){
+                    if(ODWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.ApiKey){
                         XCTAssert("Success")
                     }else{
                         XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
@@ -70,14 +70,14 @@ class ODBCWalletTest: XCTestCase {
     //500 - Create Wallet - Invalid email
     func testWalletCreateWalletErrorEmail() {
             ODBCWalletService.createWallet("", password: "0123456789", apiKey: "", email: "wtfsdasd",
-                success:{(object : AnyObject) -> Void in
+                success:{(object : ODWallet) -> Void in
                     XCTFail("fail");
                     
                 },
                 
                 failure: {(error : ODBlockChainError) -> Void in
                     
-                    if(ODCreateWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.Email){
+                    if(ODWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.Email){
                         XCTAssert("Success")
                     }else{
                         XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
@@ -89,14 +89,14 @@ class ODBCWalletTest: XCTestCase {
     //500 - Create Wallet - Alphanumeric only
     func testWalletCreateWalletErrorAlphaNumericOnly() {
             ODBCWalletService.createWallet("$", password: "0123456789", apiKey: "", email: "test@test.com",
-                success:{(object : AnyObject) -> Void in
+                success:{(object : ODWallet) -> Void in
                     XCTFail("fail");
                     
                 },
                 
                 failure: {(error : ODBlockChainError) -> Void in
                     
-                    if(ODCreateWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.AlphaNumericOnly){
+                    if(ODWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.AlphaNumericOnly){
                         XCTAssert("Success")
                     }else{
                         XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
@@ -107,7 +107,7 @@ class ODBCWalletTest: XCTestCase {
     //200 - Create Wallet - FIXME - disabled test service
     func testWalletCreateWalletValid() {
         ODBCWalletService.createWallet("myWallet", password: "0123456789aeza", apiKey: /*YourAPIKey*/"", email: "test1@test234.com",
-            success:{(object : AnyObject) -> Void in
+            success:{(object : ODWallet) -> Void in
                 XCTAssert("Success")
                 
             },
