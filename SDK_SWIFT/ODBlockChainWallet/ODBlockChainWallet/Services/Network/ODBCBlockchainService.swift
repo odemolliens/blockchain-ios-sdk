@@ -20,7 +20,7 @@
 import Foundation
 
 
-class ODNetworkService
+class ODBCBlockchainService
 {
     
     /*
@@ -201,7 +201,7 @@ class ODNetworkService
     */
     
     //Disabled because doesn't work same as the documentation https://blockchain.info/api/blockchain_api
-    //If you want try by yourself - don't forget uncomment in test ;) (ODBCWNetwork)
+    //If you want try by yourself - don't forget uncomment in test ;) (ODBCAPI)
     /*class func multiAddress(addressList : NSArray, success :(NSArray) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
     var url : NSURL;
@@ -251,6 +251,9 @@ class ODNetworkService
     failure(error);
     });
     }*/
+    
+    
+    
     
     //TODO : Chart Data / Block Height / Unspent outputs / Latest Block / Unconfirmed Transactions / Blocks / Inventory Data
     

@@ -19,7 +19,7 @@
 
 import XCTest
 
-class ODBCWNetwork: XCTestCase {
+class ODBCBlockchainTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -32,7 +32,7 @@ class ODBCWNetwork: XCTestCase {
     }
     
     /*func testODBlockIndexHash() {
-    ODNetworkService.singleBlockHash("23742834223412414233949234", success: {(object : AnyObject) -> Void in
+    ODBCBlockchainService.singleBlockHash("23742834223412414233949234", success: {(object : AnyObject) -> Void in
     XCTFail("fail");
     }, failure: {(error : ODBlockChainError) -> Void in
     
@@ -45,7 +45,7 @@ class ODBCWNetwork: XCTestCase {
     }*/
     
     /*func testODBlockIndexIndex() {
-    ODNetworkService.singleBlockIndex("1", success: {(object : AnyObject) -> Void in
+    ODBCBlockchainService.singleBlockIndex("1", success: {(object : AnyObject) -> Void in
     XCTFail("fail");
     }, failure: {(error : ODBlockChainError) -> Void in
     
@@ -59,7 +59,7 @@ class ODBCWNetwork: XCTestCase {
     
     //500 - Single Block Index - Block not found
     func testNetworkSingleBlockIndexNotFound() {
-        ODNetworkService.singleBlockIndex("1", success: {(object : ODBlock) -> Void in
+        ODBCBlockchainService.singleBlockIndex("1", success: {(object : ODBlock) -> Void in
             XCTFail("fail");
             }, failure: {(error : ODBlockChainError) -> Void in
                 
@@ -73,7 +73,7 @@ class ODBCWNetwork: XCTestCase {
     
     //200 - Single block Hash
     func testNetworkSingleBlockHashValid() {
-        ODNetworkService.singleBlockHash("45345",
+        ODBCBlockchainService.singleBlockHash("45345",
             success: {(object : ODBlock) -> Void in
                 XCTAssert("Success:%@",object.hashBlock);
                 
@@ -85,7 +85,7 @@ class ODBCWNetwork: XCTestCase {
    
     //500 - Single Transaction Hash - Transaction Not Found
     func testNetworkSingleTransactionHashInvalid() {
-        ODNetworkService.singleTransactionHash("18f7f4e51afe9659d12f6722995928d8ef87dbfde2dbca2d25231bb7591afbd8",
+        ODBCBlockchainService.singleTransactionHash("18f7f4e51afe9659d12f6722995928d8ef87dbfde2dbca2d25231bb7591afbd8",
             success: {(object : ODSingleTransaction) -> Void in
                 XCTFail("Fail")
             }, failure: {(error : ODBlockChainError) -> Void in
@@ -99,7 +99,7 @@ class ODBCWNetwork: XCTestCase {
     
     //200 - Single Transaction Hash
     func testNetworkSingleTransactionHashValid() {
-        ODNetworkService.singleTransactionHash("18f7f4e51afe9659d84f6722995928d8ef87dbfde2dbca2d25231bb7591afbd8",
+        ODBCBlockchainService.singleTransactionHash("18f7f4e51afe9659d84f6722995928d8ef87dbfde2dbca2d25231bb7591afbd8",
             success: {(object : ODSingleTransaction) -> Void in
                 XCTAssert("Success")
                 // TODO : Test domain content
@@ -110,7 +110,7 @@ class ODBCWNetwork: XCTestCase {
     
     //500 - Single Transaction Index - Transaction Not Found
     func testNetworkSingleTransactionIndexInvalid() {
-        ODNetworkService.singleTransactionIndex("-1",
+        ODBCBlockchainService.singleTransactionIndex("-1",
             success: {(object : ODSingleTransaction) -> Void in
                 XCTFail("Fail")
             }, failure: {(error : ODBlockChainError) -> Void in
@@ -124,7 +124,7 @@ class ODBCWNetwork: XCTestCase {
     
     //200 - Single Transaction Index
     func testNetworkSingleTransactionIndexValid() {
-        ODNetworkService.singleTransactionIndex("46714",
+        ODBCBlockchainService.singleTransactionIndex("46714",
             success: {(object : ODSingleTransaction) -> Void in
                 XCTAssert("Success")
                 // TODO : Test domain content
@@ -136,7 +136,7 @@ class ODBCWNetwork: XCTestCase {
     //200 - Single Address Index
     // TODO : No error returned by server if limit > 50
     func testNetworkSingleAddressHashValid() {
-        ODNetworkService.singleAddressHash("660d4ef3a743e3e696ad990364e555c271ad504b",limit: -1,offset: -1,
+        ODBCBlockchainService.singleAddressHash("660d4ef3a743e3e696ad990364e555c271ad504b",limit: -1,offset: -1,
             success: {(object : ODSingleAddress) -> Void in
                 XCTAssert("Success")
                 // TODO : Test domain content
@@ -147,7 +147,7 @@ class ODBCWNetwork: XCTestCase {
     
     //500 - Single Address Index - Illegal Character
     func testNetworkSingleAddressHashInvalidIllegalCharacter() {
-        ODNetworkService.singleAddressHash("1234IL",limit: -1,offset: -1,
+        ODBCBlockchainService.singleAddressHash("1234IL",limit: -1,offset: -1,
             success: {(object : ODSingleAddress) -> Void in
                 XCTFail("Fail");
             }, failure: {(error : ODBlockChainError) -> Void in
@@ -161,7 +161,7 @@ class ODBCWNetwork: XCTestCase {
     
     //500 - Single Address Index - Hash
     func testNetworkSingleAddressHashInvalidHash() {
-        ODNetworkService.singleAddressHash("00000000a00e3%C3%A0e000ad000000e000c000ad000b",limit: -1,offset: -1,
+        ODBCBlockchainService.singleAddressHash("00000000a00e3%C3%A0e000ad000000e000c000ad000b",limit: -1,offset: -1,
             success: {(object : ODSingleAddress) -> Void in
                 XCTFail("Fail");
             }, failure: {(error : ODBlockChainError) -> Void in
@@ -176,7 +176,7 @@ class ODBCWNetwork: XCTestCase {
     /*
     
     //Disabled because doesn't work same as the documentation https://blockchain.info/api/blockchain_api
-    //If you want try by yourself - don't forget uncomment in service class ;) (ODNetworkService)
+    //If you want try by yourself - don't forget uncomment in service class ;) (ODBCBlockchainService)
     //500 - Multi Address - Invalid
     func testNetworkMultiAddressInvalidInvalid() {
         
@@ -185,7 +185,7 @@ class ODBCWNetwork: XCTestCase {
         mArray.addObject("1pkSDfsdfdf");
         mArray.addObject("sf2342342");
         
-        ODNetworkService.multiAddress(mArray,
+        ODBCBlockchainService.multiAddress(mArray,
             success: {(object : NSArray) -> Void in
                 XCTFail("Fail");
             }, failure: {(error : ODBlockChainError) -> Void in
@@ -205,7 +205,7 @@ class ODBCWNetwork: XCTestCase {
         mArray.addObject("1C9KJmsQk2Tydk3TD7E5AnJpuKV8Y1Hhsv");
         mArray.addObject("1DRw8j2hwmR7Kn45c7foj4dVLKgE5t2Evw");
         
-        ODNetworkService.multiAddress(mArray,
+        ODBCBlockchainService.multiAddress(mArray,
             success: {(object : NSArray) -> Void in
                 XCTAssert("Success");
             }, failure: {(error : ODBlockChainError) -> Void in

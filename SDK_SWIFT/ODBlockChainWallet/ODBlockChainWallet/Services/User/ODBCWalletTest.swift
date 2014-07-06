@@ -19,7 +19,7 @@
 
 import Foundation
 
-class ODWalletService
+class ODBCWalletService
 {
     /*
     Create Wallet Service

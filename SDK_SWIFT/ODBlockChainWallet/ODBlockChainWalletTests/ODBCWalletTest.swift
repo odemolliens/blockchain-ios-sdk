@@ -19,7 +19,7 @@
 
 import XCTest
 
-class ODBCWCreateWallet: XCTestCase {
+class ODBCWalletTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -33,7 +33,7 @@ class ODBCWCreateWallet: XCTestCase {
     
     //500 - Create Wallet - Password length
     func testWalletCreateWalletErrorPasswordLength() {
-            ODWalletService.createWallet("", password: "", apiKey: "a", email: "",
+            ODBCWalletService.createWallet("", password: "", apiKey: "a", email: "",
                 success:{(object : AnyObject) -> Void in
                     XCTFail("fail");
                 },
@@ -50,7 +50,7 @@ class ODBCWCreateWallet: XCTestCase {
     
     //500 - Create Wallet - Api key
     func testWalletCreateWalletErrorApiKey() {
-            ODWalletService.createWallet("", password: "0123456789", apiKey: "", email: "",
+            ODBCWalletService.createWallet("", password: "0123456789", apiKey: "", email: "",
                 success:{(object : AnyObject) -> Void in
                     XCTFail("fail");
                     
@@ -69,7 +69,7 @@ class ODBCWCreateWallet: XCTestCase {
     
     //500 - Create Wallet - Invalid email
     func testWalletCreateWalletErrorEmail() {
-            ODWalletService.createWallet("", password: "0123456789", apiKey: "", email: "wtfsdasd",
+            ODBCWalletService.createWallet("", password: "0123456789", apiKey: "", email: "wtfsdasd",
                 success:{(object : AnyObject) -> Void in
                     XCTFail("fail");
                     
@@ -88,7 +88,7 @@ class ODBCWCreateWallet: XCTestCase {
     
     //500 - Create Wallet - Alphanumeric only
     func testWalletCreateWalletErrorAlphaNumericOnly() {
-            ODWalletService.createWallet("$", password: "0123456789", apiKey: "", email: "test@test.com",
+            ODBCWalletService.createWallet("$", password: "0123456789", apiKey: "", email: "test@test.com",
                 success:{(object : AnyObject) -> Void in
                     XCTFail("fail");
                     
@@ -106,7 +106,7 @@ class ODBCWCreateWallet: XCTestCase {
     
     //200 - Create Wallet - FIXME - disabled test service
     func testWalletCreateWalletValid() {
-        ODWalletService.createWallet("myWallet", password: "0123456789aeza", apiKey: /*YourAPIKey*/"", email: "test1@test234.com",
+        ODBCWalletService.createWallet("myWallet", password: "0123456789aeza", apiKey: /*YourAPIKey*/"", email: "test1@test234.com",
             success:{(object : AnyObject) -> Void in
                 XCTAssert("Success")
                 
