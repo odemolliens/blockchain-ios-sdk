@@ -6,8 +6,17 @@ ODBlockChainWallet - SDK Swift framework connector to Blockchain.org (Swift vers
 
 -> Unit testing available
 
-Services:
+
+Services availables (before stop the project):
+
 singleBlockIndex - Retrieve information about one block with index number
+
 singleBlockHash - Retrieve information about one block with hash value
+
 singleTransactionHash - Retrieve information about a single transaction with an hash
+
 singleTransactionIndex - Retrieve information about a single transaction with an index
+
+singleAddressHash - Retrieve information about a single address with an hash
+
+
