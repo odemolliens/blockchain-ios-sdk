@@ -1,13 +1,9 @@
-ODBlockChainWallet - Swift SDK connect to Blockchain.org
+ODBlockChainWallet (WP)
 ==================
-
-/!\ WARNING :  This project is stopped due to some inconcistence in Blockchain.org API (strange JSON response, poor documentation). /!\
-
 
 -> Unit testing available
 
-
-Services availables (before stop the project):
+Services availables :
 
 singleBlockIndex - Retrieve information about one block with index number
 
