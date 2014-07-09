@@ -1,2 +1,2 @@
-blockchain-ios-sdk
+ODBlockChainWallet
 ==================
