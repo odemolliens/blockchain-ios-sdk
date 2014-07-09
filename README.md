@@ -1,4 +1,4 @@
-ODBlockChainWallet - SDK Swift framework connector to Blockchain.org (Swift version)
+ODBlockChainWallet - Swift SDK connect to Blockchain.org
 ==================
 
 /!\ WARNING :  This project is stopped due to some inconcistence in Blockchain.org API (strange JSON response, poor documentation). /!\
