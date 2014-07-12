@@ -28,6 +28,8 @@
 		C44038F0196957AC0017B860 /* ODBlockChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226EF81948D6490086F212 /* ODBlockChainService.swift */; };
 		C449887E1971470600B6C0BE /* ODBalanceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C449887D1971470600B6C0BE /* ODBalanceDetails.swift */; };
 		C449887F1971484500B6C0BE /* ODBalanceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C449887D1971470600B6C0BE /* ODBalanceDetails.swift */; };
+		C4498881197157D100B6C0BE /* ODBCMyTestWalletConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4498880197157D100B6C0BE /* ODBCMyTestWalletConstants.swift */; };
+		C4498882197157D100B6C0BE /* ODBCMyTestWalletConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4498880197157D100B6C0BE /* ODBCMyTestWalletConstants.swift */; };
 		C44E5A30194B6B98006DAEE2 /* ODBlockChainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226EF11948D0760086F212 /* ODBlockChainConstants.swift */; };
 		C44E5A35194B6B98006DAEE2 /* NSUrlConnection+Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4226EF61948D24C0086F212 /* NSUrlConnection+Blocks.swift */; };
 		C45D1FF8196331ED00CDFC79 /* ODSingleAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45D1FF7196331ED00CDFC79 /* ODSingleAddress.swift */; };
@@ -119,6 +121,7 @@
 		C4226EF61948D24C0086F212 /* NSUrlConnection+Blocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUrlConnection+Blocks.swift"; sourceTree = "<group>"; };
 		C4226EF81948D6490086F212 /* ODBlockChainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODBlockChainService.swift; sourceTree = "<group>"; };
 		C449887D1971470600B6C0BE /* ODBalanceDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODBalanceDetails.swift; sourceTree = "<group>"; };
+		C4498880197157D100B6C0BE /* ODBCMyTestWalletConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODBCMyTestWalletConstants.swift; sourceTree = "<group>"; };
 		C45D1FF7196331ED00CDFC79 /* ODSingleAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODSingleAddress.swift; sourceTree = "<group>"; };
 		C49752D7194F05690045EB6A /* ODBCWalletService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODBCWalletService.swift; sourceTree = "<group>"; };
 		C49752DA194F057F0045EB6A /* ODBCBlockchainService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ODBCBlockchainService.swift; sourceTree = "<group>"; };
@@ -189,6 +192,7 @@
 		C4226EDA1948C7880086F212 /* ODBlockChainWalletTests */ = {
 			isa = PBXGroup;
 			children = (
+				C4498880197157D100B6C0BE /* ODBCMyTestWalletConstants.swift */,
 				C49752E6194F05C20045EB6A /* ODBCBlockchainTest.swift */,
 				C49752E0194F05A10045EB6A /* ODBCWalletTest.swift */,
 				C4226EDB1948C7880086F212 /* Supporting Files */,
@@ -409,6 +413,7 @@
 				C41D6434196F031500954376 /* ODBalance.swift in Sources */,
 				C4226EF71948D24C0086F212 /* NSUrlConnection+Blocks.swift in Sources */,
 				C4226EEC1948C7DC0086F212 /* ODBlockChainError.swift in Sources */,
+				C4498881197157D100B6C0BE /* ODBCMyTestWalletConstants.swift in Sources */,
 				C49752F6194F0A4F0045EB6A /* ODBlock.swift in Sources */,
 				C4226EF21948D0760086F212 /* ODBlockChainConstants.swift in Sources */,
 				C49752DB194F057F0045EB6A /* ODBCBlockchainService.swift in Sources */,
@@ -437,6 +442,7 @@
 				C44038EF196957AC0017B860 /* ODBCWalletService.swift in Sources */,
 				C49752E8194F05C20045EB6A /* ODBCBlockchainTest.swift in Sources */,
 				C49752E2194F05A10045EB6A /* ODBCWalletTest.swift in Sources */,
+				C4498882197157D100B6C0BE /* ODBCMyTestWalletConstants.swift in Sources */,
 				C44038EC196957AC0017B860 /* ODSingleTransaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

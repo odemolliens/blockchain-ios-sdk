@@ -359,7 +359,7 @@ class ODBCWalletService
         
         firstCharKeys = "&";
         
-        postKeys.appendFormat("%@address=%@", firstCharKeys, mainPassword);
+        postKeys.appendFormat("%@address=%@", firstCharKeys, address);
         
         if(!(confirmations.floatValue==(-1.0))){
             postKeys.appendFormat("%@confirmations=%f", firstCharKeys ,confirmations);
@@ -381,4 +381,116 @@ class ODBCWalletService
                 failure(error);
             });
     }
+    
+    
+    /*
+    Generating a new address
+    -> walletIdentifier : Your Wallet identifier
+    -> mainPassword Your Main My wallet password
+    -> secondPassword : Your second My Wallet password if double encryption is enabled.
+    -> label : An optional label to attach to this address. It is recommended this is a human readable string e.g. "Order No : 1234". You May use this as a reference to check balance of an order (documented later)
+    Knowed Errors
+    case Unknow
+    */
+    
+    class func createAddress(walletIdentifier : NSString,mainPassword : NSString,secondPassword : NSString,label : NSString,  success :(ODBalanceDetails) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    {
+        var url : NSURL;
+        var request : NSMutableURLRequest;
+        var postKeys : NSMutableString = NSMutableString();
+        
+        var firstCharKeys : NSString = "?";
+        
+        //Parameters
+        postKeys.appendFormat("%@/new_address", walletIdentifier);
+        
+        postKeys.appendFormat("%@main_password=%@", firstCharKeys, mainPassword);
+        
+        firstCharKeys = "&";
+        
+        postKeys.appendFormat("%@second_password=%@", firstCharKeys, secondPassword);
+        
+        postKeys.appendFormat("%@label=%@", firstCharKeys, label);
+        
+        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)));
+        
+        request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
+        
+        ODBlockChainService.manageRequest(request,
+            success:{(object : AnyObject) -> Void in
+                if(object.isKindOfClass(NSDictionary)){
+                    var dic : NSDictionary = object as NSDictionary;
+                    success(ODBalanceDetails.instantiateWithDictionnary(dic));
+                }else{
+                    failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
+                }
+            },failure:{(error : ODBlockChainError) -> Void in
+                failure(error);
+            });
+    }
+    
+    
+    
+    
+    /*
+    
+    Archiving an address
+    
+    To improve wallet performance addresses which have not been used recently should be moved to an archived state. They will still be held in the wallet but will no longer be included in the "list" or "list-transactions" calls.
+    
+    For example if an invoice is generated for a user once that invoice is paid the address should be archived.
+    
+    Or if a unique bitcoin address is generated for each user, users who have not logged in recently (~30 days) their addresses should be archived.
+    
+    https://blockchain.info/merchant/$guid/archive_address?password=$main_password&second_password=$second_password&address=$address
+    
+    $main_password Your Main My wallet password
+    $second_password Your second My Wallet password if double encryption is enabled.
+    $address The bitcoin address to archive
+    
+    Response:
+    
+    {"archived" : "18fyqiZzndTxdVo7g9ouRogB4uFj86JJiy"}
+    
+    */
+    
+    
+    
+    /*
+    
+    Unarchive an address
+    
+    Unarchive an address. Will also restore consolidated addresses (see below).
+    
+    https://blockchain.info/merchant/$guid/unarchive_address?password=$main_password&second_password=$second_password&address=$address
+    
+    $main_password Your Main My wallet password
+    $second_password Your second My Wallet password if double encryption is enabled.
+    $address The bitcoin address to unarchive
+    
+    Response:
+    
+    {"active" : "18fyqiZzndTxdVo7g9ouRogB4uFj86JJiy"}
+    
+    */
+    
+    
+    /*
+    Consolidating Addresses
+    
+    Queries to wallets with over 10 thousand addresses will become sluggish especially in the web interface. The auto_consolidate command will remove some inactive archived addresses from the wallet and insert them as forwarding addresses (see receive payments API). You will still receive callback notifications for these addresses however they will no longer be part of the main wallet and will be stored server side.
+    
+    If generating a lot of addresses it is a recommended to call this method at least every 48 hours. A good value for days is 60 i.e. addresses which have not received transactions in the last 60 days will be consolidated.
+    
+    https://blockchain.info/merchant/$guid/auto_consolidate?password=$main_password&second_password=$second_password&days=$days
+    
+    $main_password Your Main My wallet password
+    $second_password Your second My Wallet password if double encryption is enabled.
+    $days Addresses which have not received any transactions in at least this many days will be consolidated.
+    
+    Response:
+    
+    { "consolidated" : ["18fyqiZzndTxdVo7g9ouRogB4uFj86JJiy"]}
+    */
+
 }
