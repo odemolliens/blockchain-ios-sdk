@@ -10,8 +10,8 @@
 import Foundation
 
 
-class ODBalance : NSObject {
-    
+class ODBalance : NSObject
+{
     var balance : NSNumber;
     
     //Constructor

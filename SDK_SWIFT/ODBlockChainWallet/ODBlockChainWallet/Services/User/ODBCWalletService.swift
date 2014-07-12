@@ -233,8 +233,6 @@ class ODBCWalletService
     //TODO : untested
     Fetching the wallet balance
     Fetch the balance of a wallet. This should be used as an estimate only and will include unconfirmed transactions and possibly double spends.
-    Fetching the wallet balance
-    Fetch the balance of a wallet. This should be used as an estimate only and will include unconfirmed transactions and possibly double spends.
     -> walletIdentifier : Your Wallet identifier
     -> mainPassword : Your Main My wallet password
     Knowed Errors
@@ -271,6 +269,116 @@ class ODBCWalletService
                 failure(error);
             });
     }
-
-
+    
+    
+    /*
+    //TODO : untested
+    Listing Addresses
+    List all active addresses in a wallet. Also includes a 0 confirmation balance which should be used as an estimate only and will include unconfirmed transactions and possibly double spends.
+    -> walletIdentifier : Your Wallet identifier
+    -> mainPassword : Your Main My wallet password
+    -> confirmations : The minimum number of confirmations transactions must have before being included in balance of addresses (Optional)
+    Knowed Errors
+    case Unknow
+    */
+    class func listingAddresses(walletIdentifier : NSString,mainPassword : NSString,confirmations : NSNumber,  success :(NSArray) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    {
+        var url : NSURL;
+        var request : NSMutableURLRequest;
+        var postKeys : NSMutableString = NSMutableString();
+        
+        var firstCharKeys : NSString = "?";
+        
+        //Parameters
+        postKeys.appendFormat("%@/list", walletIdentifier);
+        
+        postKeys.appendFormat("%@main_password=%@", firstCharKeys, mainPassword);
+        
+        firstCharKeys = "&";
+        
+        if(!(confirmations.floatValue==(-1.0))){
+            postKeys.appendFormat("%@confirmations=%f", firstCharKeys ,confirmations);
+        }
+        
+        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)));
+        
+        request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
+        
+        ODBlockChainService.manageRequest(request,
+            success:{(object : AnyObject) -> Void in
+                if(object.isKindOfClass(NSDictionary)){
+                    var dic : NSDictionary = object as NSDictionary;
+                    
+                    
+                    if(dic.valueForKey("addresses").isKindOfClass(NSArray)){
+                        var resultArray : NSArray = dic.valueForKey("addresses") as NSArray;
+                        var mArray : NSMutableArray = NSMutableArray();
+                        
+                        for(var i = 0; i < resultArray.count;i++){
+                            var dicAddress : NSDictionary = resultArray.objectAtIndex(i) as NSDictionary!;
+                            
+                            mArray.addObject(ODBalanceDetails.instantiateWithDictionnary(dicAddress));
+                        }
+                        
+                        success(mArray);
+                        
+                    }else{
+                        failure(ODBlockChainError.parseError(NSArray.description(),result:dic.description));
+                    }
+                }else{
+                    failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
+                }
+            },failure:{(error : ODBlockChainError) -> Void in
+                failure(error);
+            });
+    }
+    
+    /*
+    //TODO : untested
+    Getting the balance of an address
+    Retrieve the balance of a bitcoin address. Querying the balance of an address by label is depreciated.
+    -> walletIdentifier : Your Wallet identifier
+    -> mainPassword : Your Main My wallet password
+    -> confirmations : The minimum number of confirmations transactions must have before being included in balance of addresses (Optional)
+    -> address : The bitcoin address to lookup
+    Knowed Errors
+    case Unknow
+    */
+    class func myAddress(walletIdentifier : NSString,mainPassword : NSString,address : NSString,confirmations : NSNumber,  success :(ODBalanceDetails) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    {
+        var url : NSURL;
+        var request : NSMutableURLRequest;
+        var postKeys : NSMutableString = NSMutableString();
+        
+        var firstCharKeys : NSString = "?";
+        
+        //Parameters
+        postKeys.appendFormat("%@/address_balance", walletIdentifier);
+        
+        postKeys.appendFormat("%@main_password=%@", firstCharKeys, mainPassword);
+        
+        firstCharKeys = "&";
+        
+        postKeys.appendFormat("%@address=%@", firstCharKeys, mainPassword);
+        
+        if(!(confirmations.floatValue==(-1.0))){
+            postKeys.appendFormat("%@confirmations=%f", firstCharKeys ,confirmations);
+        }
+        
+        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)));
+        
+        request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
+        
+        ODBlockChainService.manageRequest(request,
+            success:{(object : AnyObject) -> Void in
+                if(object.isKindOfClass(NSDictionary)){
+                    var dic : NSDictionary = object as NSDictionary;
+                    success(ODBalanceDetails.instantiateWithDictionnary(dic));
+                }else{
+                    failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
+                }
+            },failure:{(error : ODBlockChainError) -> Void in
+                failure(error);
+            });
+    }
 }
