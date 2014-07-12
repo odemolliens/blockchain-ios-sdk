@@ -74,16 +74,6 @@ class ODBCWalletService
             });
     }
     
-    
-    /****
-    Response:
-    
-    { "message" : "Response Message" , "tx_hash": "Transaction Hash", "notice" : "Additional Message" }
-    
-    { "message" : "Sent 0.1 BTC to 1A8JiWcwvpY7tAopUkSnGuEYHmzGYfZPiq" , "tx_hash" : "f322d01ad784e5deeb25464a5781c3b20971c1863679ca506e702e3e33c18e9c" , "notice" : "Some funds are pending confirmation and cannot be spent yet (Value 0.001 BTC)" }
-    
-    ***/
-    
     /*
     //TODO : untested
     Making Outgoing Payments
@@ -107,7 +97,7 @@ class ODBCWalletService
         var postKeys : NSMutableString = NSMutableString();
         
         var firstCharKeys : NSString = "?";
-
+        
         //Parameters
         postKeys.appendFormat("%@/payment", walletIdentifier);
         
@@ -154,22 +144,11 @@ class ODBCWalletService
             });
     }
     
-    
-    
-    /*
-    The above example would send 1 BTC to 1JzSZFs2DQke2B3S4pBxaNaMzzVZaG4Cqh, 15 BTC to 12Cf6nCcRtKERh9cQm3Z29c9MWvQuFSxvT and 2 BTC to 1dice6YgEVBf88erBFra9BHf6ZMoyvG88 in the same transaction.
-    Response:
-    
-    { "message" : "Response Message" , "tx_hash": "Transaction Hash" }
-    
-    { "message" : "Sent To Multiple Recipients" , "tx_hash" : "f322d01ad784e5deeb25464a5781c3b20971c1863679ca506e702e3e33c18e9c" }
-    
-    */
-
     /*
     //TODO : untested
     Send Many Transactions
     Send a transaction to multiple recipients in the same transaction.. All transactions include a 0.0001 BTC miners fee.
+    -> walletIdentifier : Your Wallet identifier
     -> mainPassword : Your Main My wallet password
     -> secondPassword : Your second My Wallet password if double encryption is enabled.
     -> from : Send from a specific Bitcoin Address (Optional)
@@ -212,7 +191,7 @@ class ODBCWalletService
         if(error){
             failure(ODBlockChainError.parseError("NSDictionnary", result: to.description));
         }else{
-
+            
             // TODO : can be optimized
             postKeys.appendFormat("%@recipients=%@", firstCharKeys, NSString(data: data,encoding: NSUTF8StringEncoding));
             
@@ -250,5 +229,48 @@ class ODBCWalletService
         }
     }
     
+    /*
+    //TODO : untested
+    Fetching the wallet balance
+    Fetch the balance of a wallet. This should be used as an estimate only and will include unconfirmed transactions and possibly double spends.
+    Fetching the wallet balance
+    Fetch the balance of a wallet. This should be used as an estimate only and will include unconfirmed transactions and possibly double spends.
+    -> walletIdentifier : Your Wallet identifier
+    -> mainPassword : Your Main My wallet password
+    Knowed Errors
+    case Unknow
+    */
+    class func fetchingWalletBalance(walletIdentifier : NSString,mainPassword : NSString,  success :(ODBalance) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    {
+        
+        
+        var url : NSURL;
+        var request : NSMutableURLRequest;
+        var postKeys : NSMutableString = NSMutableString();
+        
+        var firstCharKeys : NSString = "?";
+        
+        //Parameters
+        postKeys.appendFormat("%@/balance", walletIdentifier);
+        
+        postKeys.appendFormat("%@main_password=%@", firstCharKeys, mainPassword);
+        
+        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)));
+        
+        request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
+        
+        ODBlockChainService.manageRequest(request,
+            success:{(object : AnyObject) -> Void in
+                if(object.isKindOfClass(NSDictionary)){
+                    var dic : NSDictionary = object as NSDictionary;
+                    success(ODBalance.instantiateWithDictionnary(dic));
+                }else{
+                    failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
+                }
+            },failure:{(error : ODBlockChainError) -> Void in
+                failure(error);
+            });
+    }
+
 
 }

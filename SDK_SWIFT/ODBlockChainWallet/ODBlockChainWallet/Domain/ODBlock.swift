@@ -60,6 +60,7 @@ class ODBlock : NSObject
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODBlock
     {
         var block : ODBlock = ODBlock();
+        
         block.hashBlock = dic.valueForKey("hash") as NSString!;
         block.ver = dic.valueForKey("ver") as NSNumber!;
         block.prevBlock = dic.valueForKey("prev_block") as NSString!;

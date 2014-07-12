@@ -41,9 +41,9 @@ class ODWallet: NSObject
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODWallet
     {
         var createWallet : ODWallet = ODWallet();
-        createWallet.guid = dic.valueForKey("guid") as NSString;
-        createWallet.address = dic.valueForKey("address") as NSString;
-        createWallet.link = dic.valueForKey("link") as NSString;
+        createWallet.guid = dic.valueForKey("guid") as NSString!;
+        createWallet.address = dic.valueForKey("address") as NSString!;
+        createWallet.link = dic.valueForKey("link") as NSString!;
         
         return createWallet;
     }
