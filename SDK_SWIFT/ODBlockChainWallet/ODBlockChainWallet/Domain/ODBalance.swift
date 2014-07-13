@@ -24,13 +24,13 @@ class ODBalance : NSObject
 {
     var balance : NSNumber;
     
-    //Constructor
+    // MARK: Constructor
     init()
     {
         balance = 0;
     }
     
-    //Static Methods
+    // MARK: Static Methods
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODBalance
     {
         var myBalance : ODBalance = ODBalance();
@@ -48,7 +48,7 @@ class ODBalance : NSObject
         }
     }
     
-    //Methods
+    // MARK: Methods
     
     
 }

@@ -25,7 +25,7 @@ class ODBalanceDetails : ODBalance
     var label : NSString;
     var totalReceived : NSNumber;
     
-    //Constructor
+    // MARK: Constructor
     init()
     {
         address = "";
@@ -33,7 +33,7 @@ class ODBalanceDetails : ODBalance
         totalReceived = 0;
     }
     
-    //Static Methods
+    // MARK: Static Methods
     override class func instantiateWithDictionnary(dic:NSDictionary) -> ODBalanceDetails
     {
         var myBalance : ODBalanceDetails = ODBalanceDetails();
@@ -65,6 +65,6 @@ class ODBalanceDetails : ODBalance
         }
     }
     
-    //Methods
+    // MARK: Methods
     
 }

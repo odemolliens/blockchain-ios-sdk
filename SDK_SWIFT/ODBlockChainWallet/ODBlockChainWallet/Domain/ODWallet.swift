@@ -23,13 +23,13 @@ import Foundation
 class ODWallet: NSObject
 {
     
-    //Domain
+    // MARK: Domain
     var guid : NSString;
     var address : NSString;
     var link : NSString;
     
     
-    //Constructor
+    // MARK: Constructor
     init()
     {
         self.guid = "";
@@ -37,7 +37,7 @@ class ODWallet: NSObject
         self.link = "";
     }
     
-    //Static Methods
+    // MARK: Static Methods
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODWallet
     {
         var createWallet : ODWallet = ODWallet();
@@ -67,7 +67,7 @@ class ODWallet: NSObject
         }
     }
     
-    //Methods
+    // MARK: Methods
     
 }
 

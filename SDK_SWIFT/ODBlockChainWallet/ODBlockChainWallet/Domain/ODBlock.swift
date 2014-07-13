@@ -21,7 +21,7 @@ import Foundation
 
 class ODBlock : NSObject
 {
-    //Domain
+    // MARK: Domain
     var hashBlock : NSString;
     var ver : NSNumber;
     var prevBlock : NSString;
@@ -37,7 +37,7 @@ class ODBlock : NSObject
     var receveidTime : NSNumber;
     var relayedBy : NSString;
     
-    //Constructor
+    // MARK: Constructor
     init()
     {
         self.hashBlock = "";
@@ -56,7 +56,7 @@ class ODBlock : NSObject
         self.relayedBy  = "";
     }
     
-    //Static Methods
+    // MARK: Static Methods
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODBlock
     {
         var block : ODBlock = ODBlock();

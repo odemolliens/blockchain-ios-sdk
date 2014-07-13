@@ -79,7 +79,7 @@ class ODBCWalletService
     Making Outgoing Payments
     Send bitcoin from your wallet to another bitcoin address. All transactions include a 0.0001 BTC miners fee.
     -> mainPassword : Your Main My wallet password
-    -> secondPassword : Your second My Wallet password if double encryption is enabled.
+    -> secondPassword : Your second My Wallet password if double encryption is enabled (Optional).
     -> to : Recipient Bitcoin Address.
     -> amount : Amount to send in satoshi.
     -> from : Send from a specific Bitcoin Address (Optional)
@@ -150,7 +150,7 @@ class ODBCWalletService
     Send a transaction to multiple recipients in the same transaction.. All transactions include a 0.0001 BTC miners fee.
     -> walletIdentifier : Your Wallet identifier
     -> mainPassword : Your Main My wallet password
-    -> secondPassword : Your second My Wallet password if double encryption is enabled.
+    -> secondPassword : Your second My Wallet password if double encryption is enabled (Optional).
     -> from : Send from a specific Bitcoin Address (Optional)
     -> to : Send an NSDictionnary like this
     {
@@ -344,6 +344,7 @@ class ODBCWalletService
     Knowed Errors
     case Unknow
     */
+    //#define kBCWalletMyAdress
     class func myAddress(walletIdentifier : NSString,mainPassword : NSString,address : NSString,confirmations : NSNumber,  success :(ODBalanceDetails) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
         var url : NSURL;
@@ -387,7 +388,7 @@ class ODBCWalletService
     Generating a new address
     -> walletIdentifier : Your Wallet identifier
     -> mainPassword Your Main My wallet password
-    -> secondPassword : Your second My Wallet password if double encryption is enabled.
+    -> secondPassword : Your second My Wallet password if double encryption is enabled (Optional).
     -> label : An optional label to attach to this address. It is recommended this is a human readable string e.g. "Order No : 1234". You May use this as a reference to check balance of an order (documented later)
     Knowed Errors
     case Unknow

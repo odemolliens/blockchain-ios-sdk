@@ -31,6 +31,8 @@ class ODBCWalletTest: XCTestCase {
         super.tearDown()
     }
     
+    // MARK: Create Wallet
+    
     //500 - Create Wallet - Password length
     func testWalletCreateWalletErrorPasswordLength() {
             ODBCWalletService.createWallet("", password: "", apiKey: "a", email: "",
@@ -116,5 +118,8 @@ class ODBCWalletTest: XCTestCase {
                 XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
             });
     }
+    
+    
+    // MARK: Payment
     
 }

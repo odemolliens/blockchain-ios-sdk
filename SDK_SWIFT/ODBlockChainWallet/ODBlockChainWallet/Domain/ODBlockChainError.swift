@@ -48,19 +48,19 @@ enum ODBCErrorAPI {
 class ODBlockChainError : NSObject
 {
     
-    //Domain
+    // MARK: Domain
     var type : ODBCError;
     var error : NSError;
     
     
-    //Constructor
+    // MARK: Constructor
     init()
     {
         self.type = ODBCError.ODBCErrorNone;
         self.error = NSError();
     }
     
-    //Methods
+    // MARK: Methods
     
     func contentMessage() -> NSString
     {
@@ -80,7 +80,7 @@ class ODBlockChainError : NSObject
         }
     }
     
-    //Static methods
+    // MARK: Static methods
     
     class func parseError(parseError: NSError) -> ODBlockChainError
     {

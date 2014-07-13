@@ -33,7 +33,7 @@ class ODPaymentResults : NSObject
     var txHash : NSString;
     var notice : NSString;
     
-    //Constructor
+    // MARK: Constructor
     init()
     {
         message = "";
@@ -41,7 +41,7 @@ class ODPaymentResults : NSObject
         notice = "";
     }
     
-    //Static Methods
+    // MARK: Static Methods
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODPaymentResults
     {
         var paymentResult : ODPaymentResults = ODPaymentResults();
@@ -61,6 +61,6 @@ class ODPaymentResults : NSObject
         }
     }
     
-    //Methods
+    // MARK: Methods
     
 }

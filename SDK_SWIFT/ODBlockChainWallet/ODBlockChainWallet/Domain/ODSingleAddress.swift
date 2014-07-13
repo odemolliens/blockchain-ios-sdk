@@ -32,7 +32,7 @@ class ODSingleAddress : NSObject {
     //"txs":[--Array of Transactions--]
     //var tx : NSArray;
     
-    //Constructor
+    // MARK: Constructor
     init()
     {
         self.hash160 = "";
@@ -44,7 +44,7 @@ class ODSingleAddress : NSObject {
         self.finalBalance = 0;
     }
     
-    //Static Methods
+    // MARK: Static Methods
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODSingleAddress
     {
         var singleAddress : ODSingleAddress = ODSingleAddress();

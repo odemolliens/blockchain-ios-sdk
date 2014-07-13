@@ -57,6 +57,9 @@ class ODBCBlockchainTest: XCTestCase {
     });
     }*/
     
+    
+    // MARK: Single Block
+    
     //500 - Single Block Index - Block not found
     func testNetworkSingleBlockIndexNotFound() {
         ODBCBlockchainService.singleBlockIndex("1", success: {(object : ODBlock) -> Void in
@@ -70,7 +73,7 @@ class ODBCBlockchainTest: XCTestCase {
                 }
             });
     }
-    
+
     //200 - Single block Hash
     func testNetworkSingleBlockHashValid() {
         ODBCBlockchainService.singleBlockHash("45345",
@@ -82,6 +85,8 @@ class ODBCBlockchainTest: XCTestCase {
                 XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
             });
     }
+    
+    // MARK: Single Transaction
    
     //500 - Single Transaction Hash - Transaction Not Found
     func testNetworkSingleTransactionHashInvalid() {
@@ -132,6 +137,8 @@ class ODBCBlockchainTest: XCTestCase {
                 XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
             });
     }
+    
+    // MARK: Single Address 
     
     //200 - Single Address Index
     // TODO : No error returned by server if limit > 50
