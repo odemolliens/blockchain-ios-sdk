@@ -42,6 +42,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C40E7FA41976EF6F00AED8D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4226EC21948C7880086F212 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4226ECA1948C7880086F212;
+			remoteInfo = ODBlockChainWallet;
+		};
+		C40E7FA61976EF6F00AED8D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4226EC21948C7880086F212 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4226ECA1948C7880086F212;
+			remoteInfo = ODBlockChainWallet;
+		};
 		C4226ED81948C7880086F212 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C4226EC21948C7880086F212 /* Project object */;
@@ -343,6 +357,8 @@
 				C4CAD870194BB8BE00132137 /* PBXTargetDependency */,
 				C4CAD872194BB8BF00132137 /* PBXTargetDependency */,
 				C4CAD874194DAE9A00132137 /* PBXTargetDependency */,
+				C40E7FA51976EF6F00AED8D3 /* PBXTargetDependency */,
+				C40E7FA71976EF6F00AED8D3 /* PBXTargetDependency */,
 			);
 			name = ODBlockChainWalletTests;
 			productName = ODBlockChainWalletTests;
@@ -450,6 +466,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C40E7FA51976EF6F00AED8D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4226ECA1948C7880086F212 /* ODBlockChainWallet */;
+			targetProxy = C40E7FA41976EF6F00AED8D3 /* PBXContainerItemProxy */;
+		};
+		C40E7FA71976EF6F00AED8D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4226ECA1948C7880086F212 /* ODBlockChainWallet */;
+			targetProxy = C40E7FA61976EF6F00AED8D3 /* PBXContainerItemProxy */;
+		};
 		C4226ED91948C7880086F212 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C4226ECA1948C7880086F212 /* ODBlockChainWallet */;
