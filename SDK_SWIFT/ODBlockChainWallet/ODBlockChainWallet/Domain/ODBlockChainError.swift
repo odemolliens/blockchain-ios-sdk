@@ -173,5 +173,17 @@ class ODBlockChainError : NSObject
         
         return odError;
     }
+    
+    class func parseManualError(error : NSString) -> ODBlockChainError
+    {
+        //TODO : manage error domain + error code
+        var nsError : NSError = NSError(domain: "parseManualError", code: -46, userInfo: NSDictionary(object: error, forKey: "content"));
+        
+        var odError : ODBlockChainError = ODBlockChainError();
+        odError.type = ODBCError.ODBCErrorAPI;
+        odError.error = nsError;
+        
+        return odError;
+    }
 
 }

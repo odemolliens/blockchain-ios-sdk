@@ -36,6 +36,7 @@ class ODBalanceDetails : ODBalance
     // MARK: Static Methods
     override class func instantiateWithDictionnary(dic:NSDictionary) -> ODBalanceDetails
     {
+        NSLog("%@",dic);
         var myBalance : ODBalanceDetails = ODBalanceDetails();
         
         //if(!(dic.valueForKey("balance")==nil)){

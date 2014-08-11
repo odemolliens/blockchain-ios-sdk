@@ -37,7 +37,23 @@ class ODBlockChainService
             if(parseError){
                 failure(ODBlockChainError.parseError(parseError!));
             }else{
-                success(id);
+                
+                var content : NSString = NSString();
+                var dic : NSDictionary = id as NSDictionary!;
+                
+                // TODO : improve
+                if(dic.valueForKey("error")){
+                    if(dic.valueForKey("error").isKindOfClass(NSString)){
+                        content = dic.valueForKey("error") as NSString;
+                    }
+                }
+                
+                if(content.length>0){
+                    var odError : ODBlockChainError = ODBlockChainError.parseManualError(content);
+                    failure(odError);
+                }else{
+                    success(id);
+                }
             }
             
             }, failure: {data,error in
@@ -45,12 +61,10 @@ class ODBlockChainService
                 var content : NSString = NSString();
                 var dic : NSDictionary = error.userInfo as NSDictionary!;
                 
+                // TODO : improve
                 if(dic.valueForKey("content")){
                     if(dic.valueForKey("content").isKindOfClass(NSString)){
                         content = dic.valueForKey("content") as NSString;
-                        
-                        var odError : ODBlockChainError = ODBlockChainError.api(error);
-                        failure(odError);
                     }
                 }
                 
