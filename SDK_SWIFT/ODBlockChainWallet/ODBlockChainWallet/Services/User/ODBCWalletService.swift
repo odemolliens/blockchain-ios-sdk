@@ -32,7 +32,7 @@ class ODBCWalletService
     case Email
     case AlphaNumericOnly
     */
-    class func createWallet(name : NSString, password : NSString, apiKey : NSString, email : NSString, success :(ODWallet) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    class func createWallet(name : NSString, apiKey : NSString, password : NSString,  email : NSString, success :(ODWallet) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
         
         var url : NSURL;
@@ -89,7 +89,7 @@ class ODBCWalletService
     Knowed Errors
     case Unknow
     */
-    class func makePayment(walletIdentifier : NSString,mainPassword : NSString, secondPassword : NSString, amount : NSNumber, to : NSString,from : NSString,shared : NSNumber,fee : NSNumber,note : NSString, success :(ODPaymentResults) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    class func makePayment(walletIdentifier : NSString, apiKey : NSString, mainPassword : NSString, secondPassword : NSString, amount : NSNumber, to : NSString,from : NSString,shared : NSNumber,fee : NSNumber,note : NSString, success :(ODPaymentResults) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
         
         var url : NSURL;
@@ -164,7 +164,7 @@ class ODBCWalletService
     Knowed Errors
     case Unknow
     */
-    class func makeManyPayments(walletIdentifier : NSString,mainPassword : NSString, secondPassword : NSString, to : NSDictionary,from : NSString,shared : NSNumber,fee : NSNumber,note : NSString, success :(ODPaymentResults) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    class func makeManyPayments(walletIdentifier : NSString,apiKey : NSString, mainPassword : NSString, secondPassword : NSString, to : NSDictionary,from : NSString,shared : NSNumber,fee : NSNumber,note : NSString, success :(ODPaymentResults) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
         
         var url : NSURL;
@@ -238,7 +238,7 @@ class ODBCWalletService
     Knowed Errors
     case Unknow
     */
-    class func fetchingWalletBalance(walletIdentifier : NSString,mainPassword : NSString,  success :(ODBalance) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    class func fetchingWalletBalance(walletIdentifier : NSString,apiKey : NSString, mainPassword : NSString,  success :(ODBalance) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
         
         
@@ -281,7 +281,7 @@ class ODBCWalletService
     Knowed Errors
     case Unknow
     */
-    class func listingAddresses(walletIdentifier : NSString,mainPassword : NSString,confirmations : NSNumber,  success :(NSArray) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    class func listingAddresses(walletIdentifier : NSString,apiKey : NSString,mainPassword : NSString,confirmations : NSNumber,  success :(NSArray) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
         var url : NSURL;
         var request : NSMutableURLRequest;
@@ -345,7 +345,7 @@ class ODBCWalletService
     case Unknow
     */
     //#define kBCWalletMyAdress
-    class func myAddress(walletIdentifier : NSString,mainPassword : NSString,address : NSString,confirmations : NSNumber,  success :(ODBalanceDetails) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    class func myAddress(walletIdentifier : NSString,apiKey : NSString,mainPassword : NSString,address : NSString,confirmations : NSNumber,  success :(ODBalanceDetails) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
         var url : NSURL;
         var request : NSMutableURLRequest;
@@ -394,7 +394,7 @@ class ODBCWalletService
     case Unknow
     */
     
-    class func createAddress(walletIdentifier : NSString,mainPassword : NSString,secondPassword : NSString,label : NSString,  success :(ODBalanceDetails) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    class func createAddress(walletIdentifier : NSString,apiKey : NSString,mainPassword : NSString,secondPassword : NSString,label : NSString,  success :(ODBalanceDetails) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
         var url : NSURL;
         var request : NSMutableURLRequest;

@@ -59,7 +59,8 @@ class ODBalanceDetails : ODBalance
     override class func parseErrorResponseFromAPI(response:NSString) -> ODBCErrorAPI
     {
         // TODO : undev
-        if(response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
+        
+        if(response.isEqualToString(kBCWalletDecryptWallet) || response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
             return ODBCErrorAPI.ApiUnavailable;
         }else{
             return ODBCErrorAPI.Unknow;
