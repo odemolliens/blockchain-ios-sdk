@@ -81,6 +81,17 @@ let kBCWalletApiKey : NSString = "Authorization Key invalid or disabled";
 let kBCWalletEmail : NSString = "Invalid Email";
 let kBCWalletAlphaNumeric : NSString = "Label Must be alphanumeric";
 let kBCWalletInvalidAdress : NSString = "Invalid Bitcoin Address";
+let kBCWalletDecryptWallet : NSString = "Error Decrypting Wallet";
+let kBCWalletDecodingAddress : NSString = "Error decoding private key for address x";
+let kBCWalletSecondPasswordIncorrect : NSString = "Second password incorrect";
+let kBCWalletAddressAndAmount : NSString = "You must provide an address and amount";
+let kBCWalletWalletChecksumNotValidated : NSString = "Wallet Checksum did not validate. Serious error: Restore a backup if necessary.";
+let kBCWalletTwoFactorAuthNotEnabled : NSString = "Two factor authentication currently not enabled in the Merchant API";
+let kBCWalletLabelMustBeBetween : NSString = "Label must be between 0 & 255 characters";
+let kBCWalletErrorSavingWallet : NSString = "Error saving wallet";
+let kBCWalletRetrictedWallet : NSString = "Wallets are currently restricted to 5000 transactions";
+let kBCWalletIdentifierNotFound : NSString = "Wallet identifier not found";
+let kBCWalletUnknow : NSString = "Uknown method";
 
 
 //

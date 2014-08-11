@@ -43,6 +43,7 @@ enum ODBCErrorAPI {
     case TransactionNotFound
     case IllegalCharacter
     case Invalid
+    case DecryptingWallet
 }
 
 class ODBlockChainError : NSObject
@@ -66,10 +67,12 @@ class ODBlockChainError : NSObject
     {
         var error : NSString = NSString();
         
+        var dic : NSDictionary = self.error.userInfo as NSDictionary!;
+        
         // TODO : need optimization
-        if(self.error.userInfo.valueForKey("content")){
-            if(self.error.userInfo.valueForKey("content").isKindOfClass(NSString)){
-                error = self.error.userInfo.valueForKey("content") as NSString;
+        if(dic.valueForKey("content")){
+            if(dic.valueForKey("content").isKindOfClass(NSString)){
+                error = dic.valueForKey("content") as NSString;
             }
         }
         
@@ -147,16 +150,18 @@ class ODBlockChainError : NSObject
         
         var odError : ODBlockChainError = ODBlockChainError();
         
-        // TODO : need optimization
-        if(apiError.userInfo.valueForKey("httpcode")){
-            if(apiError.userInfo.valueForKey("httpcode").isKindOfClass(NSNumber)){
-                statusCode = apiError.userInfo.valueForKey("httpcode") as NSNumber;
+        var dic : NSDictionary = apiError.userInfo as NSDictionary!;
+        if(dic.valueForKey("httpcode")){
+            if(dic.valueForKey("httpcode").isKindOfClass(NSNumber)){
+                statusCode = dic.valueForKey("httpcode") as NSNumber;
                 
                 if(statusCode==522){
                     odError.type = ODBCError.ODBCErrorAPI;
                     odError.error = apiError;
                     //Force key for contentMessage() method
-                    odError.error.userInfo.setValue("CloudFare", forKey: "content");
+                    var dicError : NSDictionary = odError.error.userInfo as NSDictionary!;
+                    dicError.setValue("CloudFare", forKey: "content");
+                    
                     return odError;
                 }
                 

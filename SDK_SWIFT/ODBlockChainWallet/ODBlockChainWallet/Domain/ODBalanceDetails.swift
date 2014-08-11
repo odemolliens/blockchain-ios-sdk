@@ -38,19 +38,19 @@ class ODBalanceDetails : ODBalance
     {
         var myBalance : ODBalanceDetails = ODBalanceDetails();
         
-        if(!(dic.valueForKey("balance")==nil)){
+        //if(!(dic.valueForKey("balance")==nil)){
             myBalance.balance = dic.valueForKey("balance") as NSNumber!;
-        }
+        //}
         
         myBalance.address = dic.valueForKey("address") as NSString!;
         
-        if(!(dic.valueForKey("label")==nil)){
+        ///if(!(dic.valueForKey("label")==nil)){
             myBalance.label = dic.valueForKey("label") as NSString!;
-        }
+        ///}
         
-        if(!(dic.valueForKey("total_received")==nil)){
+        //if(!(dic.valueForKey("total_received")==nil)){
             myBalance.totalReceived = dic.valueForKey("total_received") as NSNumber!;
-        }
+        //}
         
         return myBalance;
     }

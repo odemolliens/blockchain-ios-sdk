@@ -43,7 +43,7 @@ class ODBCWalletTest: XCTestCase {
                 failure: {(error : ODBlockChainError) -> Void in
                     
                     if(ODWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.PasswordLength){
-                        XCTAssert("Success")
+                        //Success
                     }else{
                         XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
                     }
@@ -61,7 +61,7 @@ class ODBCWalletTest: XCTestCase {
                 failure: {(error : ODBlockChainError) -> Void in
                     
                     if(ODWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.ApiKey){
-                        XCTAssert("Success")
+                        //Success
                     }else{
                         XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
                     }
@@ -80,7 +80,7 @@ class ODBCWalletTest: XCTestCase {
                 failure: {(error : ODBlockChainError) -> Void in
                     
                     if(ODWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.Email){
-                        XCTAssert("Success")
+                        //Success
                     }else{
                         XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
                     }
@@ -99,7 +99,7 @@ class ODBCWalletTest: XCTestCase {
                 failure: {(error : ODBlockChainError) -> Void in
                     
                     if(ODWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.AlphaNumericOnly){
-                        XCTAssert("Success")
+                        //Success
                     }else{
                         XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
                     }
@@ -110,8 +110,7 @@ class ODBCWalletTest: XCTestCase {
     func testWalletCreateWalletValid() {
         ODBCWalletService.createWallet("myWallet", password: "0123456789aeza", apiKey: /*YourAPIKey*/"", email: "test1@test234.com",
             success:{(object : ODWallet) -> Void in
-                XCTAssert("Success")
-                
+               //Success
             },
             
             failure: {(error : ODBlockChainError) -> Void in
@@ -122,4 +121,18 @@ class ODBCWalletTest: XCTestCase {
     
     // MARK: Payment
     
+    
+    // MARK: My Wallet
+    
+    //200 -
+    func testWalletT() {
+        ODBCWalletService.myAddress(kBCTestWalletIdentifier, mainPassword: kBCTestMainPassword, address: "1EoZ89gSZzXzDATjgFpGc5fQXH1qyAWWYT", confirmations: 6,
+            success:{(object : ODBalanceDetails) -> Void in
+                //Success
+            },
+            
+            failure: {(error : ODBlockChainError) -> Void in
+                XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+            });
+    }
 }
