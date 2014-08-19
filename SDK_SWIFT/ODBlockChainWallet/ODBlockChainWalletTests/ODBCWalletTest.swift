@@ -106,7 +106,7 @@ class ODBCWalletTest: XCTestCase {
             });
     }
     
-    //200 - Create Wallet - FIXME - disabled test service
+    //200 - Create Wallet
     func testWalletCreateWalletValid() {
         ODBCWalletService.createWallet("myWallet", apiKey: kBCTestApiKey,password: "0123456789aeza", email: "test1@test234.com",
             success:{(object : ODWallet) -> Void in
@@ -147,7 +147,7 @@ class ODBCWalletTest: XCTestCase {
                 XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
             });
     }
-    
+
     //makeManyPayments
     //makePayment
 }

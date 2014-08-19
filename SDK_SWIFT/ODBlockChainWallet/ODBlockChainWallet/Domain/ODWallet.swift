@@ -30,7 +30,7 @@ class ODWallet: NSObject
     
     
     // MARK: Constructor
-    init()
+    override init()
     {
         self.guid = "";
         self.address = "";

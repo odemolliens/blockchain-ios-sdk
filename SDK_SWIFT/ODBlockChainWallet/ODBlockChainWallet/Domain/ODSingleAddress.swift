@@ -33,7 +33,7 @@ class ODSingleAddress : NSObject {
     //var tx : NSArray;
     
     // MARK: Constructor
-    init()
+    override init()
     {
         self.hash160 = "";
         self.address = "";

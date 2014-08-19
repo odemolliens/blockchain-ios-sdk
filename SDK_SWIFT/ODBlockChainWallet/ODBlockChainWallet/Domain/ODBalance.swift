@@ -25,7 +25,7 @@ class ODBalance : NSObject
     var balance : NSNumber;
     
     // MARK: Constructor
-    init()
+    override init()
     {
         balance = 0;
     }

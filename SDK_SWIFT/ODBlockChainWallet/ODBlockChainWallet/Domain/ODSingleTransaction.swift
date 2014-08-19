@@ -67,7 +67,7 @@ class ODSingleTransaction : NSObject
     
     
     // MARK: Constructor
-    init()
+    override init()
     {
         self.doubleSpend  = true;
         self.hashBlock = "";

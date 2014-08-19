@@ -91,6 +91,7 @@ let kBCWalletLabelMustBeBetween : NSString = "Label must be between 0 & 255 char
 let kBCWalletErrorSavingWallet : NSString = "Error saving wallet";
 let kBCWalletRetrictedWallet : NSString = "Wallets are currently restricted to 5000 transactions";
 let kBCWalletIdentifierNotFound : NSString = "Wallet identifier not found";
+let kBCWalletConfirmationsLimit : NSString = "Fail: Confirmations must be between 0 and 120";
 let kBCWalletUnknow : NSString = "Uknown method";
 
 

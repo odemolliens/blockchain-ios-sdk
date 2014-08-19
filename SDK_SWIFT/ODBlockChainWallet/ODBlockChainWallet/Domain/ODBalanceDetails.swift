@@ -26,7 +26,7 @@ class ODBalanceDetails : ODBalance
     var totalReceived : NSNumber;
     
     // MARK: Constructor
-    init()
+    override init()
     {
         address = "";
         label = "";
@@ -36,22 +36,23 @@ class ODBalanceDetails : ODBalance
     // MARK: Static Methods
     override class func instantiateWithDictionnary(dic:NSDictionary) -> ODBalanceDetails
     {
-        NSLog("%@",dic);
+
         var myBalance : ODBalanceDetails = ODBalanceDetails();
         
-        //if(!(dic.valueForKey("balance")==nil)){
+        if(!(dic.valueForKey("balance")==nil)){
             myBalance.balance = dic.valueForKey("balance") as NSNumber!;
-        //}
+        }
         
         myBalance.address = dic.valueForKey("address") as NSString!;
         
-        ///if(!(dic.valueForKey("label")==nil)){
+        // TODO : improve JSON loading
+        if(!(dic.valueForKey("label")==nil) && (dic.valueForKey("label")?.isKindOfClass(NSNull)) == false){
             myBalance.label = dic.valueForKey("label") as NSString!;
-        ///}
+        }
         
-        //if(!(dic.valueForKey("total_received")==nil)){
+        if(!(dic.valueForKey("total_received")==nil)){
             myBalance.totalReceived = dic.valueForKey("total_received") as NSNumber!;
-        //}
+        }
         
         return myBalance;
     }

@@ -38,7 +38,7 @@ class ODBlock : NSObject
     var relayedBy : NSString;
     
     // MARK: Constructor
-    init()
+    override init()
     {
         self.hashBlock = "";
         self.ver = -1;

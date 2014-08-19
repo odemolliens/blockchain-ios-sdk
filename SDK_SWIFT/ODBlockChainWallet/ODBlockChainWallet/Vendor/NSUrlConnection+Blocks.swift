@@ -38,7 +38,7 @@ extension NSURLConnection
             
             NSURLConnection.sendAsynchronousRequest(request, queue: queue, completionHandler:{response,data,error in
                 
-                if(error){
+                if((error) != nil){
                     failure(data,error!);
                 }
                 

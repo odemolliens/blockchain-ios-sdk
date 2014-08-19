@@ -55,7 +55,7 @@ class ODBlockChainError : NSObject
     
     
     // MARK: Constructor
-    init()
+    override init()
     {
         self.type = ODBCError.ODBCErrorNone;
         self.error = NSError();
@@ -70,10 +70,10 @@ class ODBlockChainError : NSObject
         var dic : NSDictionary = self.error.userInfo as NSDictionary!;
         
         // TODO : need optimization
-        if(dic.valueForKey("content")){
-            if(dic.valueForKey("content").isKindOfClass(NSString)){
+        if((dic.valueForKey("content")) != nil){
+            //if(dic.valueForKey("content").isKindOfClass(NSString)){
                 error = dic.valueForKey("content") as NSString;
-            }
+            //}
         }
         
         if(error.length>0){
@@ -151,8 +151,8 @@ class ODBlockChainError : NSObject
         var odError : ODBlockChainError = ODBlockChainError();
         
         var dic : NSDictionary = apiError.userInfo as NSDictionary!;
-        if(dic.valueForKey("httpcode")){
-            if(dic.valueForKey("httpcode").isKindOfClass(NSNumber)){
+        if((dic.valueForKey("httpcode")) != nil){
+            //if(dic.valueForKey("httpcode").isKindOfClass(NSNumber)){
                 statusCode = dic.valueForKey("httpcode") as NSNumber;
                 
                 if(statusCode==522){
@@ -165,7 +165,7 @@ class ODBlockChainError : NSObject
                     return odError;
                 }
                 
-            }
+            //}
         }
         
         odError.type = ODBCError.ODBCErrorAPI;

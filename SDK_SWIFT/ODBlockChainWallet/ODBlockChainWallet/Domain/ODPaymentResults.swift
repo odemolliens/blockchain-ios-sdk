@@ -34,7 +34,7 @@ class ODPaymentResults : NSObject
     var notice : NSString;
     
     // MARK: Constructor
-    init()
+    override init()
     {
         message = "";
         txHash = "";

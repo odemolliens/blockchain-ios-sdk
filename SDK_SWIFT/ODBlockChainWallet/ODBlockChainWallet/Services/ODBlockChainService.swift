@@ -34,7 +34,7 @@ class ODBlockChainService
             
             var id : AnyObject! =  NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments,error: &parseError);
             
-            if(parseError){
+            if((parseError) != nil){
                 failure(ODBlockChainError.parseError(parseError!));
             }else{
                 
@@ -42,10 +42,11 @@ class ODBlockChainService
                 var dic : NSDictionary = id as NSDictionary!;
                 
                 // TODO : improve
-                if(dic.valueForKey("error")){
-                    if(dic.valueForKey("error").isKindOfClass(NSString)){
+                if((dic.valueForKey("error")) != nil){
+                    
+                    //if((dic.valueForKey("error")).isKindOfClass(NSString)){
                         content = dic.valueForKey("error") as NSString;
-                    }
+                    //}
                 }
                 
                 if(content.length>0){
@@ -62,10 +63,10 @@ class ODBlockChainService
                 var dic : NSDictionary = error.userInfo as NSDictionary!;
                 
                 // TODO : improve
-                if(dic.valueForKey("content")){
-                    if(dic.valueForKey("content").isKindOfClass(NSString)){
+                if((dic.valueForKey("content")) != nil){
+                    //if((dic.valueForKey("content")).isKindOfClass(NSString)){
                         content = dic.valueForKey("content") as NSString;
-                    }
+                    //}
                 }
                 
                 if(content.length>0){
