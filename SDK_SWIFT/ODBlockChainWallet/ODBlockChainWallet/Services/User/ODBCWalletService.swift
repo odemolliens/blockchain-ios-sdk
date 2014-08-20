@@ -301,7 +301,9 @@ class ODBCWalletService
     -> confirmations : The minimum number of confirmations transactions must have before being included in balance of addresses (Optional)
     Knowed Errors
     case Invalid
+    case DecryptingWallet
     case Unknow
+    case ApiKey
     */
     class func listingAddresses(walletIdentifier : NSString,apiKey : NSString,mainPassword : NSString,confirmations : NSNumber,  success :(NSArray) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {

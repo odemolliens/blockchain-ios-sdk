@@ -82,6 +82,7 @@ let kBCWalletEmail : NSString = "Invalid Email";
 let kBCWalletAlphaNumeric : NSString = "Label Must be alphanumeric";
 let kBCWalletInvalidAdress : NSString = "Invalid Bitcoin Address";
 let kBCWalletDecryptWallet : NSString = "Error Decrypting Wallet";
+let kBCWalletDecryptWalletPwd : NSString = "pad block corrupted";
 let kBCWalletDecodingAddress : NSString = "Error decoding private key for address x";
 let kBCWalletSecondPasswordIncorrect : NSString = "Second password incorrect";
 let kBCWalletAddressAndAmount : NSString = "You must provide an address and amount";
@@ -93,7 +94,7 @@ let kBCWalletRetrictedWallet : NSString = "Wallets are currently restricted to 5
 let kBCWalletIdentifierNotFound : NSString = "Wallet identifier not found";
 let kBCWalletConfirmationsLimit : NSString = "Fail: Confirmations must be between 0 and 120";
 let kBCWalletUnknow : NSString = "Uknown method";
-
+let kBCWalletUnknowGuid : NSString = "Unknown Key Format";
 
 //
 /////////// BlockChain ///////////

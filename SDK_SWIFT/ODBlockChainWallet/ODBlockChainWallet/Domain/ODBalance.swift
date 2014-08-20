@@ -40,8 +40,10 @@ class ODBalance : NSObject
     
     class func parseErrorResponseFromAPI(response:NSString) -> ODBCErrorAPI
     {
-        // TODO : undev
-        if(response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
+        // TODO : undev !!!
+        if(response.isEqualToString(kBCWalletUnknowGuid) || response.isEqualToString(kBCWalletDecryptWallet) || response.isEqualToString(kBCWalletDecryptWalletPwd)){
+            return ODBCErrorAPI.DecryptingWallet;
+        }else if(response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
             return ODBCErrorAPI.ApiUnavailable;
         }else{
             return ODBCErrorAPI.Unknow;

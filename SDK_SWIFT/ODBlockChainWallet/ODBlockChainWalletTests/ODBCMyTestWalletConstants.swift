@@ -25,13 +25,13 @@ import Foundation
 /////////////////
 
 //Wallet Identifier
-let kBCTestWalletIdentifier : NSString = "#MyWallet#";
+let kBCTestWalletIdentifier : NSString = "46873bd7-2792-405a-abe9-433538cca75d";
 //Main Password
-let kBCTestMainPassword : NSString = "#MyMainPassword#";
+let kBCTestMainPassword : NSString = "45805aaAAAA";
 //Second Password
-let kBCTestSecondPassword : NSString = "#MySecondPassword#";
-
-
+let kBCTestSecondPassword : NSString = "45805aaAAAA";
+//Api Key
+let kBCTestApiKey : NSString = "708f8479-86ce-436d-9741-4e77fefc9612";
 
 
 /////////////////
