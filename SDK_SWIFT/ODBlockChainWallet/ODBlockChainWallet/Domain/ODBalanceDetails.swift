@@ -66,7 +66,7 @@ class ODBalanceDetails : ODBalance
             return ODBCErrorAPI.DecryptingWallet;
         }else if(response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
             return ODBCErrorAPI.ApiUnavailable;
-        }else if(response.isEqualToString(kBCWalletConfirmationsLimit)){
+        }else if(response.isEqualToString(kBCWalletInvalidAdress) || response.isEqualToString(kBCWalletInvalidAdress2) || response.isEqualToString(kBCWalletConfirmationsLimit)){
             return ODBCErrorAPI.Invalid;
         }else{
             return ODBCErrorAPI.Unknow;

@@ -58,7 +58,7 @@ class ODWallet: NSObject
             return ODBCErrorAPI.Email;
         }else if(response.isEqualToString(kBCWalletAlphaNumeric)){
             return ODBCErrorAPI.AlphaNumericOnly;
-        }else if(response.isEqualToString(kBCWalletInvalidAdress)){
+        }else if(response.isEqualToString(kBCWalletInvalidAdress) || response.isEqualToString(kBCWalletInvalidAdress2)){
             return ODBCErrorAPI.Invalid;
         }else if(response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
             return ODBCErrorAPI.ApiUnavailable;

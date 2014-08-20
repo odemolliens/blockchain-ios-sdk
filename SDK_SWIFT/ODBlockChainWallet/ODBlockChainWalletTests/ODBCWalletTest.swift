@@ -180,8 +180,8 @@ class ODBCWalletTest: XCTestCase {
         });
     }
     
-    //500 - Listing Adresses - Invalid confirmations
-    func testWalletListingAddressesInvalid() {
+    //500 - Listing Adresses - Confirmations
+    func testWalletListingAddressesConfirmations() {
         
         ODBCWalletService.listingAddresses(kBCTestWalletIdentifier,apiKey: kBCTestApiKey, mainPassword: kBCTestMainPassword, confirmations: -1, success: {(object : NSArray) -> Void in
             //Success
@@ -255,6 +255,97 @@ class ODBCWalletTest: XCTestCase {
     }
     
 
+    //200 - My Address
+    func testWalletMyAddress() {
+        
+        ODBCWalletService.myAddress(kBCTestWalletIdentifier,apiKey: kBCTestApiKey, mainPassword: kBCTestMainPassword, address: kBCTestAddress, confirmations: 6, success: {(object : ODBalanceDetails) -> Void in
+            //Success
+            
+            }, failure: {(error : ODBlockChainError) -> Void in
+                XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+        });
+    }
+    
+    
+    //500 - My Address - Empty Address
+    func testWalletMyAddressEmptyAddress() {
+        
+        ODBCWalletService.myAddress(kBCTestWalletIdentifier,apiKey: kBCTestApiKey, mainPassword: kBCTestMainPassword, address: "", confirmations: 6, success: {(object : ODBalanceDetails) -> Void in
+            //Success
+            
+            }, failure: {(error : ODBlockChainError) -> Void in
+                if(ODBalanceDetails.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.Invalid){
+                    //Success
+                    
+                }else{
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                }
+        });
+    }
+    
+    //500 - My Address - Guid
+    func testWalletMyAddressGuid() {
+        
+        ODBCWalletService.myAddress("test",apiKey: kBCTestApiKey, mainPassword: kBCTestMainPassword, address: "", confirmations: 6, success: {(object : ODBalanceDetails) -> Void in
+            //Success
+            
+            }, failure: {(error : ODBlockChainError) -> Void in
+                if(ODBalanceDetails.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.DecryptingWallet){
+                    //Success
+                    
+                }else{
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                }
+        });
+    }
+    
+    //500 - My Address - Bad Password
+    func testWalletMyAddressBadPassword() {
+        
+        ODBCWalletService.myAddress(kBCTestWalletIdentifier,apiKey: kBCTestApiKey, mainPassword: "test", address: kBCTestAddress, confirmations: 6, success: {(object : ODBalanceDetails) -> Void in
+            //Success
+            
+            }, failure: {(error : ODBlockChainError) -> Void in
+                if(ODBalanceDetails.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.DecryptingWallet){
+                    //Success
+                    
+                }else{
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                }
+        });
+    }
+    
+    //500 - My Address - Api Key
+    func testWalletMyAddressApiKey() {
+        
+        ODBCWalletService.myAddress(kBCTestWalletIdentifier,apiKey: "test", mainPassword: kBCTestMainPassword, address: kBCTestAddress, confirmations: 6, success: {(object : ODBalanceDetails) -> Void in
+            //Success
+            
+            }, failure: {(error : ODBlockChainError) -> Void in
+                if(ODBalanceDetails.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.ApiKey){
+                    //Success
+                    
+                }else{
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                }
+        });
+    }
+    
+    //500 - My Address - Confirmations
+    func testWalletMyAddressConfirmations() {
+        
+        ODBCWalletService.myAddress(kBCTestWalletIdentifier,apiKey: "test", mainPassword: kBCTestMainPassword, address: kBCTestAddress, confirmations: 2, success: {(object : ODBalanceDetails) -> Void in
+            //Success
+            
+            }, failure: {(error : ODBlockChainError) -> Void in
+                if(ODBalanceDetails.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.Invalid){
+                    //Success
+                    
+                }else{
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                }
+        });
+    }
 
     //makeManyPayments
     //makePayment

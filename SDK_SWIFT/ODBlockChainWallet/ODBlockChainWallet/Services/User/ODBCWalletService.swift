@@ -381,6 +381,7 @@ class ODBCWalletService
     -> confirmations : The minimum number of confirmations transactions must have before being included in balance of addresses (Optional)
     -> address : The bitcoin address to lookup
     Knowed Errors
+    case Invalid
     case Unknow
     */
     //#define kBCWalletMyAdress
@@ -404,7 +405,7 @@ class ODBCWalletService
         postKeys.appendFormat("%@address=%@", firstCharKeys, address);
         
         if(!(confirmations.floatValue==(-1.0))){
-            postKeys.appendFormat("%@confirmations=%f", firstCharKeys ,confirmations);
+            postKeys.appendFormat("%@confirmations=%i", firstCharKeys ,confirmations.integerValue);
         }
         
         url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));

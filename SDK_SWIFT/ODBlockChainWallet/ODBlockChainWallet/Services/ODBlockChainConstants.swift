@@ -81,6 +81,7 @@ let kBCWalletApiKey : NSString = "Authorization Key invalid or disabled";
 let kBCWalletEmail : NSString = "Invalid Email";
 let kBCWalletAlphaNumeric : NSString = "Label Must be alphanumeric";
 let kBCWalletInvalidAdress : NSString = "Invalid Bitcoin Address";
+let kBCWalletInvalidAdress2 : NSString = "com.google.bitcoin.core.AddressFormatException: Input to short";
 let kBCWalletDecryptWallet : NSString = "Error Decrypting Wallet";
 let kBCWalletDecryptWalletPwd : NSString = "pad block corrupted";
 let kBCWalletDecodingAddress : NSString = "Error decoding private key for address x";
