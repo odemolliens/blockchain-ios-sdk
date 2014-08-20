@@ -32,7 +32,8 @@ let kBCTestMainPassword : NSString = "#MyMainPassword#";
 let kBCTestSecondPassword : NSString = "#MySecondPassword#";
 //Api Key
 let kBCTestApiKey : NSString = "#ApiKey#";
-
+//Test address
+let kBCTestAddress : NSString = "#Address#";
 
 /////////////////
 /////////////////
