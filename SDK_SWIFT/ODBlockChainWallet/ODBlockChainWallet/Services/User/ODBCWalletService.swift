@@ -21,6 +21,21 @@ import Foundation
 
 class ODBCWalletService
 {
+    
+    /*
+    * Encode all char
+    */
+    class func encode(toEncode : NSString) -> NSString {
+        return CFURLCreateStringByAddingPercentEscapes(
+            nil,
+            toEncode,
+            nil,
+            "!*'();:@&=+$,/?%#[]",
+            CFStringBuiltInEncodings.UTF8.toRaw()
+        )
+    }
+    
+    
     /*
     Create Wallet Service
     -> Email & Name : parameters are optionnal
@@ -46,7 +61,7 @@ class ODBCWalletService
         
         firstCharKeys = "&";
         
-        postKeys.appendFormat("%@password=%@", firstCharKeys, password);
+        postKeys.appendFormat("%@password=%@", firstCharKeys, encode(password));
         
         //Optionnal keys
         if(email.length>0){
@@ -101,13 +116,13 @@ class ODBCWalletService
         //Parameters
         postKeys.appendFormat("%@/payment", walletIdentifier);
         
-        postKeys.appendFormat("%@password=%@", firstCharKeys, mainPassword);
+        postKeys.appendFormat("%@password=%@", firstCharKeys, encode(mainPassword));
         
         firstCharKeys = "&";
         
         postKeys.appendFormat("%@api_code=%@", firstCharKeys ,apiKey);
         
-        postKeys.appendFormat("%@second_password=%@", firstCharKeys, secondPassword);
+        postKeys.appendFormat("%@second_password=%@", firstCharKeys, encode(secondPassword));
         
         postKeys.appendFormat("%@amount=%f", firstCharKeys, (amount.floatValue*kBCWalletSatoshi.floatValue));
         
@@ -178,13 +193,13 @@ class ODBCWalletService
         //Parameters
         postKeys.appendFormat("%@/payment", walletIdentifier);
         
-        postKeys.appendFormat("%@password=%@", firstCharKeys, mainPassword);
+        postKeys.appendFormat("%@password=%@", firstCharKeys, encode(mainPassword));
         
         firstCharKeys = "&";
         
         postKeys.appendFormat("%@api_code=%@", firstCharKeys ,apiKey);
         
-        postKeys.appendFormat("%@second_password=%@", firstCharKeys, secondPassword);
+        postKeys.appendFormat("%@second_password=%@", firstCharKeys, encode(secondPassword));
         
         var error : NSError?;
         var data : NSData;
@@ -234,7 +249,6 @@ class ODBCWalletService
     }
     
     /*
-    //TODO : untested
     Fetching the wallet balance
     Fetch the balance of a wallet. This should be used as an estimate only and will include unconfirmed transactions and possibly double spends.
     -> walletIdentifier : Your Wallet identifier
@@ -259,7 +273,7 @@ class ODBCWalletService
         
         firstCharKeys = "&";
         
-        postKeys.appendFormat("%@password=%@", firstCharKeys, mainPassword);
+        postKeys.appendFormat("%@password=%@", firstCharKeys, encode(mainPassword));
         
         /*
         
@@ -293,7 +307,6 @@ class ODBCWalletService
     
     
     /*
-    //TODO : untested
     Listing Addresses
     List all active addresses in a wallet. Also includes a 0 confirmation balance which should be used as an estimate only and will include unconfirmed transactions and possibly double spends.
     -> walletIdentifier : Your Wallet identifier
@@ -316,7 +329,7 @@ class ODBCWalletService
         //Parameters
         postKeys.appendFormat("%@/list", walletIdentifier);
         
-        postKeys.appendFormat("%@password=%@", firstCharKeys, mainPassword);
+        postKeys.appendFormat("%@password=%@", firstCharKeys, encode(mainPassword));
         
         firstCharKeys = "&";
         
@@ -382,7 +395,7 @@ class ODBCWalletService
         //Parameters
         postKeys.appendFormat("%@/address_balance", walletIdentifier);
         
-        postKeys.appendFormat("%@password=%@", firstCharKeys, mainPassword);
+        postKeys.appendFormat("%@password=%@", firstCharKeys, encode(mainPassword));
         
         firstCharKeys = "&";
         
@@ -433,14 +446,14 @@ class ODBCWalletService
         //Parameters
         postKeys.appendFormat("%@/new_address", walletIdentifier);
         
-        postKeys.appendFormat("%@password=%@", firstCharKeys, mainPassword);
+        postKeys.appendFormat("%@password=%@", firstCharKeys, encode(mainPassword));
         
         firstCharKeys = "&";
         
         postKeys.appendFormat("%@api_code=%@", firstCharKeys ,apiKey);
         
-        postKeys.appendFormat("%@second_password=%@", firstCharKeys, secondPassword);
-        
+        postKeys.appendFormat("%@second_password=%@", firstCharKeys, encode(secondPassword));
+
         postKeys.appendFormat("%@label=%@", firstCharKeys, label);
         
         url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));

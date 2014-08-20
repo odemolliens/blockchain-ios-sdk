@@ -165,6 +165,21 @@ class ODBCWalletTest: XCTestCase {
         });
     }
     
+    //500 - Listing Adresses - ApiKey
+    func testWalletListingAddressesApiKey() {
+        
+        ODBCWalletService.listingAddresses(kBCTestWalletIdentifier,apiKey: "test", mainPassword: kBCTestMainPassword, confirmations: 1, success: {(object : NSArray) -> Void in
+            //Success
+            
+            }, failure: {(error : ODBlockChainError) -> Void in
+                if(ODBalanceDetails.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.ApiKey){
+                    //Success
+                }else{
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                }
+        });
+    }
+    
     //500 - Listing Adresses - Invalid confirmations
     func testWalletListingAddressesInvalid() {
         
@@ -215,6 +230,22 @@ class ODBCWalletTest: XCTestCase {
             
             }, failure: {(error : ODBlockChainError) -> Void in
                 if(ODBalanceDetails.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.DecryptingWallet){
+                    //Success
+                    
+                }else{
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                }
+        });
+    }
+    
+    //500 - Fetching Wallet balance - Api Key
+    func testWalletFetchingWalletBalanceApiKey() {
+        
+        ODBCWalletService.fetchingWalletBalance(kBCTestWalletIdentifier,apiKey: "test", mainPassword: kBCTestMainPassword, success: {(object : ODBalance) -> Void in
+            //Success
+            
+            }, failure: {(error : ODBlockChainError) -> Void in
+                if(ODBalanceDetails.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.ApiKey){
                     //Success
                     
                 }else{
