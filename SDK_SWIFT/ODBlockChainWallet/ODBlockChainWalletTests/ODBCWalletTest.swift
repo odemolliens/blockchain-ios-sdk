@@ -47,7 +47,7 @@ class ODBCWalletTest: XCTestCase {
                 }else{
                     XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
                 }
-            });
+        });
     }
     
     //500 - Create Wallet - Api key
@@ -66,7 +66,7 @@ class ODBCWalletTest: XCTestCase {
                     XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
                 }
                 
-            });
+        });
     }
     
     //500 - Create Wallet - Invalid email
@@ -85,7 +85,7 @@ class ODBCWalletTest: XCTestCase {
                     XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
                 }
                 
-            });
+        });
     }
     
     //500 - Create Wallet - Alphanumeric only
@@ -103,7 +103,7 @@ class ODBCWalletTest: XCTestCase {
                 }else{
                     XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
                 }
-            });
+        });
     }
     
     //200 - Create Wallet
@@ -115,14 +115,10 @@ class ODBCWalletTest: XCTestCase {
             
             failure: {(error : ODBlockChainError) -> Void in
                 XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
-            });
+        });
     }
     
-    
-    // MARK: Payment
-    
-    
-    // MARK: My Wallet
+    // MARK: Listing addresses
     
     //200 - Listing Adresses
     func testWalletListingAddresses() {
@@ -132,7 +128,7 @@ class ODBCWalletTest: XCTestCase {
             
             }, failure: {(error : ODBlockChainError) -> Void in
                 XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
-            });
+        });
     }
     
     //500 - Listing Adresses - GUID
@@ -195,6 +191,8 @@ class ODBCWalletTest: XCTestCase {
         });
     }
     
+    // MARK: Fetching Wallet balance
+    
     //200 - Fetching Wallet balance
     func testWalletFetchingWalletBalance() {
         
@@ -204,7 +202,7 @@ class ODBCWalletTest: XCTestCase {
             }, failure: {(error : ODBlockChainError) -> Void in
                 //TODO : undev
                 XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
-            });
+        });
     }
     //500 - Fetching Wallet balance - GUID
     func testWalletFetchingWalletBalanceGuid() {
@@ -254,7 +252,9 @@ class ODBCWalletTest: XCTestCase {
         });
     }
     
-
+    
+    // MARK: My Address
+    
     //200 - My Address
     func testWalletMyAddress() {
         
@@ -346,7 +346,87 @@ class ODBCWalletTest: XCTestCase {
                 }
         });
     }
-
-    //makeManyPayments
-    //makePayment
+    
+    // MARK: Create Address
+    
+    //200 - Create Address
+    func testWalletCreateAddress() {
+        
+        ODBCWalletService.createAddress(kBCTestWalletIdentifier,apiKey: kBCTestApiKey, mainPassword: kBCTestMainPassword, secondPassword: kBCTestSecondPassword, label: "nameAddress", success: {(object : ODBalanceDetails) -> Void in
+            //Success
+            
+            }, failure: {(error : ODBlockChainError) -> Void in
+                XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+        });
+    }
+    
+    
+    //500 - Create Address - Empty Address
+    func testWalletCreateAddressEmptyAddress() {
+        
+        ODBCWalletService.createAddress(kBCTestWalletIdentifier,apiKey: kBCTestApiKey, mainPassword: kBCTestMainPassword, secondPassword: kBCTestSecondPassword, label: "nameAddress", success: {(object : ODBalanceDetails) -> Void in
+            //Success
+            
+            }, failure: {(error : ODBlockChainError) -> Void in
+                if(ODBalanceDetails.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.Invalid){
+                    //Success
+                    
+                }else{
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                }
+        });
+    }
+    
+    //500 - Create Address - Guid
+    func testWalletCreateAddressGuid() {
+        
+        ODBCWalletService.createAddress(kBCTestWalletIdentifier,apiKey: kBCTestApiKey, mainPassword: kBCTestMainPassword, secondPassword: kBCTestSecondPassword, label: "nameAddress", success: {(object : ODBalanceDetails) -> Void in
+            //Success
+            
+            }, failure: {(error : ODBlockChainError) -> Void in
+                if(ODBalanceDetails.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.DecryptingWallet){
+                    //Success
+                    
+                }else{
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                }
+        });
+    }
+    
+    //500 - Create Address - Bad Password
+    func testWalletCreateAddressBadPassword() {
+        
+        ODBCWalletService.createAddress(kBCTestWalletIdentifier,apiKey: kBCTestApiKey, mainPassword: "1234", secondPassword: "456", label: "nameAddress", success: {(object : ODBalanceDetails) -> Void in
+            //Success
+            
+            }, failure: {(error : ODBlockChainError) -> Void in
+                if(ODBalanceDetails.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.DecryptingWallet){
+                    //Success
+                    
+                }else{
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                }
+        });
+    }
+    
+    //500 - Create Address - Api Key
+    func testWalletCreateAddressApiKey() {
+        
+        ODBCWalletService.createAddress(kBCTestWalletIdentifier,apiKey: "test", mainPassword: kBCTestMainPassword, secondPassword: kBCTestSecondPassword, label: "nameAddress", success: {(object : ODBalanceDetails) -> Void in
+            //Success
+            
+            }, failure: {(error : ODBlockChainError) -> Void in
+                if(ODBalanceDetails.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.ApiKey){
+                    //Success
+                    
+                }else{
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                }
+        });
+    }
+    
+    // MARK: Make payment
+    
+    // MARK: Make many payments
+    
 }

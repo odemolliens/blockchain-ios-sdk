@@ -275,20 +275,7 @@ class ODBCWalletService
         
         postKeys.appendFormat("%@password=%@", firstCharKeys, encode(mainPassword));
         
-        /*
-        
-        TODO : encode pwd !!!!
-        var str = CFURLCreateStringByAddingPercentEscapes(
-            nil,
-            NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!),
-            nil,
-            "!*'();:@&=+$,/?%#[]",
-            CFStringBuiltInEncodings.UTF8.toRaw()
-        )*/
-        
         url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));
-        
-        //url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)));
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
