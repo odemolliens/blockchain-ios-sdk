@@ -52,7 +52,7 @@ class ODBCBlockchainService
                 }
             }, failure:{(error : ODBlockChainError) -> Void in
                 failure(error);
-            });
+        });
     }
     
     /*
@@ -85,7 +85,7 @@ class ODBCBlockchainService
                 
             },failure:{(error : ODBlockChainError) -> Void in
                 failure(error);
-            });
+        });
     }
     
     
@@ -115,7 +115,7 @@ class ODBCBlockchainService
                 }
             },failure:{(error : ODBlockChainError) -> Void in
                 failure(error);
-            });
+        });
     }
     
     /*
@@ -144,7 +144,7 @@ class ODBCBlockchainService
                 }
             },failure:{(error : ODBlockChainError) -> Void in
                 failure(error);
-            });
+        });
     }
     
     /*
@@ -191,7 +191,7 @@ class ODBCBlockchainService
                 }
             },failure:{(error : ODBlockChainError) -> Void in
                 failure(error);
-            });
+        });
     }
     
     /*Retrieve information about a multi address

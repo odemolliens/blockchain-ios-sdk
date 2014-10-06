@@ -87,6 +87,7 @@ class ODBCWalletService
             },failure:{(error : ODBlockChainError) -> Void in
                 failure(error);
             });
+        
     }
     
     /*
