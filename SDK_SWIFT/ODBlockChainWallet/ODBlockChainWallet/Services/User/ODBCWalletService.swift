@@ -21,6 +21,21 @@ import Foundation
 
 class ODBCWalletService
 {
+    
+    /*
+    * Encode all char
+    */
+    class func encode(toEncode : NSString) -> NSString {
+        return CFURLCreateStringByAddingPercentEscapes(
+            nil,
+            toEncode,
+            nil,
+            "!*'();:@&=+$,/?%#[]",
+            CFStringBuiltInEncodings.UTF8.toRaw()
+        )
+    }
+    
+    
     /*
     Create Wallet Service
     -> Email & Name : parameters are optionnal
@@ -32,7 +47,7 @@ class ODBCWalletService
     case Email
     case AlphaNumericOnly
     */
-    class func createWallet(name : NSString, password : NSString, apiKey : NSString, email : NSString, success :(ODWallet) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    class func createWallet(name : NSString, apiKey : NSString, password : NSString,  email : NSString, success :(ODWallet) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
         
         var url : NSURL;
@@ -46,7 +61,7 @@ class ODBCWalletService
         
         firstCharKeys = "&";
         
-        postKeys.appendFormat("%@password=%@", firstCharKeys, password);
+        postKeys.appendFormat("%@password=%@", firstCharKeys, encode(password));
         
         //Optionnal keys
         if(email.length>0){
@@ -57,7 +72,7 @@ class ODBCWalletService
             postKeys.appendFormat("%@label=%@", firstCharKeys ,name);
         }
         
-        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlCreateWallet,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)));
+        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlCreateWallet,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
@@ -72,24 +87,15 @@ class ODBCWalletService
             },failure:{(error : ODBlockChainError) -> Void in
                 failure(error);
             });
+        
     }
-    
-    
-    /****
-    Response:
-    
-    { "message" : "Response Message" , "tx_hash": "Transaction Hash", "notice" : "Additional Message" }
-    
-    { "message" : "Sent 0.1 BTC to 1A8JiWcwvpY7tAopUkSnGuEYHmzGYfZPiq" , "tx_hash" : "f322d01ad784e5deeb25464a5781c3b20971c1863679ca506e702e3e33c18e9c" , "notice" : "Some funds are pending confirmation and cannot be spent yet (Value 0.001 BTC)" }
-    
-    ***/
     
     /*
     //TODO : untested
     Making Outgoing Payments
     Send bitcoin from your wallet to another bitcoin address. All transactions include a 0.0001 BTC miners fee.
     -> mainPassword : Your Main My wallet password
-    -> secondPassword : Your second My Wallet password if double encryption is enabled.
+    -> secondPassword : Your second My Wallet password if double encryption is enabled (Optional).
     -> to : Recipient Bitcoin Address.
     -> amount : Amount to send in satoshi.
     -> from : Send from a specific Bitcoin Address (Optional)
@@ -99,7 +105,7 @@ class ODBCWalletService
     Knowed Errors
     case Unknow
     */
-    class func makePayment(walletIdentifier : NSString,mainPassword : NSString, secondPassword : NSString, amount : NSNumber, to : NSString,from : NSString,shared : NSNumber,fee : NSNumber,note : NSString, success :(ODPaymentResults) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    class func makePayment(walletIdentifier : NSString, apiKey : NSString, mainPassword : NSString, secondPassword : NSString, amount : NSNumber, to : NSString,from : NSString,shared : NSNumber,fee : NSNumber,note : NSString, success :(ODPaymentResults) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
         
         var url : NSURL;
@@ -107,15 +113,17 @@ class ODBCWalletService
         var postKeys : NSMutableString = NSMutableString();
         
         var firstCharKeys : NSString = "?";
-
+        
         //Parameters
         postKeys.appendFormat("%@/payment", walletIdentifier);
         
-        postKeys.appendFormat("%@main_password=%@", firstCharKeys, mainPassword);
+        postKeys.appendFormat("%@password=%@", firstCharKeys, encode(mainPassword));
         
         firstCharKeys = "&";
         
-        postKeys.appendFormat("%@second_password=%@", firstCharKeys, secondPassword);
+        postKeys.appendFormat("%@api_code=%@", firstCharKeys ,apiKey);
+        
+        postKeys.appendFormat("%@second_password=%@", firstCharKeys, encode(secondPassword));
         
         postKeys.appendFormat("%@amount=%f", firstCharKeys, (amount.floatValue*kBCWalletSatoshi.floatValue));
         
@@ -137,7 +145,7 @@ class ODBCWalletService
             postKeys.appendFormat("%@note=%@", firstCharKeys ,note);
         }
         
-        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)));
+        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
@@ -154,24 +162,13 @@ class ODBCWalletService
             });
     }
     
-    
-    
-    /*
-    The above example would send 1 BTC to 1JzSZFs2DQke2B3S4pBxaNaMzzVZaG4Cqh, 15 BTC to 12Cf6nCcRtKERh9cQm3Z29c9MWvQuFSxvT and 2 BTC to 1dice6YgEVBf88erBFra9BHf6ZMoyvG88 in the same transaction.
-    Response:
-    
-    { "message" : "Response Message" , "tx_hash": "Transaction Hash" }
-    
-    { "message" : "Sent To Multiple Recipients" , "tx_hash" : "f322d01ad784e5deeb25464a5781c3b20971c1863679ca506e702e3e33c18e9c" }
-    
-    */
-
     /*
     //TODO : untested
     Send Many Transactions
     Send a transaction to multiple recipients in the same transaction.. All transactions include a 0.0001 BTC miners fee.
+    -> walletIdentifier : Your Wallet identifier
     -> mainPassword : Your Main My wallet password
-    -> secondPassword : Your second My Wallet password if double encryption is enabled.
+    -> secondPassword : Your second My Wallet password if double encryption is enabled (Optional).
     -> from : Send from a specific Bitcoin Address (Optional)
     -> to : Send an NSDictionnary like this
     {
@@ -185,7 +182,7 @@ class ODBCWalletService
     Knowed Errors
     case Unknow
     */
-    class func makeManyPayments(walletIdentifier : NSString,mainPassword : NSString, secondPassword : NSString, to : NSDictionary,from : NSString,shared : NSNumber,fee : NSNumber,note : NSString, success :(ODPaymentResults) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    class func makeManyPayments(walletIdentifier : NSString,apiKey : NSString, mainPassword : NSString, secondPassword : NSString, to : NSDictionary,from : NSString,shared : NSNumber,fee : NSNumber,note : NSString, success :(ODPaymentResults) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
     {
         
         var url : NSURL;
@@ -197,22 +194,24 @@ class ODBCWalletService
         //Parameters
         postKeys.appendFormat("%@/payment", walletIdentifier);
         
-        postKeys.appendFormat("%@main_password=%@", firstCharKeys, mainPassword);
+        postKeys.appendFormat("%@password=%@", firstCharKeys, encode(mainPassword));
         
         firstCharKeys = "&";
         
-        postKeys.appendFormat("%@second_password=%@", firstCharKeys, secondPassword);
+        postKeys.appendFormat("%@api_code=%@", firstCharKeys ,apiKey);
+        
+        postKeys.appendFormat("%@second_password=%@", firstCharKeys, encode(secondPassword));
         
         var error : NSError?;
         var data : NSData;
         
-        data = NSJSONSerialization.dataWithJSONObject(to, options: NSJSONWritingOptions.PrettyPrinted, error: &error);
+        data = NSJSONSerialization.dataWithJSONObject(to, options: NSJSONWritingOptions.PrettyPrinted, error: &error)!;
         
         // TODO : can be optimized
-        if(error){
+        if((error) != nil){
             failure(ODBlockChainError.parseError("NSDictionnary", result: to.description));
         }else{
-
+            
             // TODO : can be optimized
             postKeys.appendFormat("%@recipients=%@", firstCharKeys, NSString(data: data,encoding: NSUTF8StringEncoding));
             
@@ -232,7 +231,7 @@ class ODBCWalletService
                 postKeys.appendFormat("%@note=%@", firstCharKeys ,note);
             }
             
-            url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)));
+            url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));
             
             request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
             
@@ -250,5 +249,281 @@ class ODBCWalletService
         }
     }
     
+    /*
+    Fetching the wallet balance
+    Fetch the balance of a wallet. This should be used as an estimate only and will include unconfirmed transactions and possibly double spends.
+    -> walletIdentifier : Your Wallet identifier
+    -> mainPassword : Your Main My wallet password
+    Knowed Errors
+    case Unknow
+    */
+    class func fetchingWalletBalance(walletIdentifier : NSString,apiKey : NSString, mainPassword : NSString,  success :(ODBalance) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    {
+        
+        
+        var url : NSURL;
+        var request : NSMutableURLRequest;
+        var postKeys : NSMutableString = NSMutableString();
+        
+        var firstCharKeys : NSString = "?";
+        
+        //Parameters
+        postKeys.appendFormat("%@/balance", walletIdentifier);
+        
+        postKeys.appendFormat("%@api_code=%@", firstCharKeys ,apiKey);
+        
+        firstCharKeys = "&";
+        
+        postKeys.appendFormat("%@password=%@", firstCharKeys, encode(mainPassword));
+        
+        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));
+        
+        request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
+        
+        ODBlockChainService.manageRequest(request,
+            success:{(object : AnyObject) -> Void in
+                if(object.isKindOfClass(NSDictionary)){
+                    var dic : NSDictionary = object as NSDictionary;
+                    success(ODBalance.instantiateWithDictionnary(dic));
+                }else{
+                    failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
+                }
+            },failure:{(error : ODBlockChainError) -> Void in
+                failure(error);
+            });
+    }
+    
+    
+    /*
+    Listing Addresses
+    List all active addresses in a wallet. Also includes a 0 confirmation balance which should be used as an estimate only and will include unconfirmed transactions and possibly double spends.
+    -> walletIdentifier : Your Wallet identifier
+    -> mainPassword : Your Main My wallet password
+    -> confirmations : The minimum number of confirmations transactions must have before being included in balance of addresses (Optional)
+    Knowed Errors
+    case Invalid
+    case DecryptingWallet
+    case Unknow
+    case ApiKey
+    */
+    class func listingAddresses(walletIdentifier : NSString,apiKey : NSString,mainPassword : NSString,confirmations : NSNumber,  success :(NSArray) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    {
+        var url : NSURL;
+        var request : NSMutableURLRequest;
+        var postKeys : NSMutableString = NSMutableString();
+        
+        var firstCharKeys : NSString = "?";
+        
+        //Parameters
+        postKeys.appendFormat("%@/list", walletIdentifier);
+        
+        postKeys.appendFormat("%@password=%@", firstCharKeys, encode(mainPassword));
+        
+        firstCharKeys = "&";
+        
+        postKeys.appendFormat("%@api_code=%@", firstCharKeys ,apiKey);
+        
+        if(!(confirmations.floatValue==(-1.0))){
+            postKeys.appendFormat("%@confirmations=%i", firstCharKeys ,confirmations.integerValue);
+        }
+        
+        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));
+        
+        request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
+        
+        ODBlockChainService.manageRequest(request,
+            success:{(object : AnyObject) -> Void in
+                if(object.isKindOfClass(NSDictionary)){
+                    var dic : NSDictionary = object as NSDictionary;
+                    
+                    
+                    //if(dic.valueForKey("addresses").isKindOfClass(NSArray)){
+                        var resultArray : NSArray = dic.valueForKey("addresses") as NSArray;
+                        var mArray : NSMutableArray = NSMutableArray();
+                        
+                        for(var i = 0; i < resultArray.count;i++){
+                            var dicAddress : NSDictionary = resultArray.objectAtIndex(i) as NSDictionary;
+                            
+                            mArray.addObject(ODBalanceDetails.instantiateWithDictionnary(dicAddress));
+                        }
+                        
+                        success(mArray);
+                        
+                    /*}else{
+                        failure(ODBlockChainError.parseError(NSArray.description(),result:dic.description));
+                    }*/
+                }else{
+                    failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
+                }
+            },failure:{(error : ODBlockChainError) -> Void in
+                failure(error);
+            });
+    }
+    
+    /*
+    //TODO : untested
+    Getting the balance of an address
+    Retrieve the balance of a bitcoin address. Querying the balance of an address by label is depreciated.
+    -> walletIdentifier : Your Wallet identifier
+    -> mainPassword : Your Main My wallet password
+    -> confirmations : The minimum number of confirmations transactions must have before being included in balance of addresses (Optional)
+    -> address : The bitcoin address to lookup
+    Knowed Errors
+    case Invalid
+    case Unknow
+    */
+    //#define kBCWalletMyAdress
+    class func myAddress(walletIdentifier : NSString,apiKey : NSString,mainPassword : NSString,address : NSString,confirmations : NSNumber,  success :(ODBalanceDetails) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    {
+        var url : NSURL;
+        var request : NSMutableURLRequest;
+        var postKeys : NSMutableString = NSMutableString();
+        
+        var firstCharKeys : NSString = "?";
+        
+        //Parameters
+        postKeys.appendFormat("%@/address_balance", walletIdentifier);
+        
+        postKeys.appendFormat("%@password=%@", firstCharKeys, encode(mainPassword));
+        
+        firstCharKeys = "&";
+        
+        postKeys.appendFormat("%@api_code=%@", firstCharKeys ,apiKey);
+        
+        postKeys.appendFormat("%@address=%@", firstCharKeys, address);
+        
+        if(!(confirmations.floatValue==(-1.0))){
+            postKeys.appendFormat("%@confirmations=%i", firstCharKeys ,confirmations.integerValue);
+        }
+        
+        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));
+        
+        request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
+        
+        ODBlockChainService.manageRequest(request,
+            success:{(object : AnyObject) -> Void in
+                if(object.isKindOfClass(NSDictionary)){
+                    var dic : NSDictionary = object as NSDictionary;
+                    success(ODBalanceDetails.instantiateWithDictionnary(dic));
+                }else{
+                    failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
+                }
+            },failure:{(error : ODBlockChainError) -> Void in
+                failure(error);
+            });
+    }
+    
+    
+    /*
+    Generating a new address
+    -> walletIdentifier : Your Wallet identifier
+    -> mainPassword Your Main My wallet password
+    -> secondPassword : Your second My Wallet password if double encryption is enabled (Optional).
+    -> label : An optional label to attach to this address. It is recommended this is a human readable string e.g. "Order No : 1234". You May use this as a reference to check balance of an order (documented later)
+    Knowed Errors
+    case Unknow
+    */
+    
+    class func createAddress(walletIdentifier : NSString,apiKey : NSString,mainPassword : NSString,secondPassword : NSString,label : NSString,  success :(ODBalanceDetails) -> Void = {response in /* ... */},failure: (ODBlockChainError) -> Void = {error in /* ... */}) -> Void
+    {
+        var url : NSURL;
+        var request : NSMutableURLRequest;
+        var postKeys : NSMutableString = NSMutableString();
+        
+        var firstCharKeys : NSString = "?";
+        
+        //Parameters
+        postKeys.appendFormat("%@/new_address", walletIdentifier);
+        
+        postKeys.appendFormat("%@password=%@", firstCharKeys, encode(mainPassword));
+        
+        firstCharKeys = "&";
+        
+        postKeys.appendFormat("%@api_code=%@", firstCharKeys ,apiKey);
+        
+        postKeys.appendFormat("%@second_password=%@", firstCharKeys, encode(secondPassword));
+
+        postKeys.appendFormat("%@label=%@", firstCharKeys, label);
+        
+        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));
+        
+        request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
+        
+        ODBlockChainService.manageRequest(request,
+            success:{(object : AnyObject) -> Void in
+                if(object.isKindOfClass(NSDictionary)){
+                    var dic : NSDictionary = object as NSDictionary;
+                    success(ODBalanceDetails.instantiateWithDictionnary(dic));
+                }else{
+                    failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
+                }
+            },failure:{(error : ODBlockChainError) -> Void in
+                failure(error);
+            });
+    }
+    
+    
+    
+    
+    /*
+    
+    Archiving an address
+    
+    To improve wallet performance addresses which have not been used recently should be moved to an archived state. They will still be held in the wallet but will no longer be included in the "list" or "list-transactions" calls.
+    
+    For example if an invoice is generated for a user once that invoice is paid the address should be archived.
+    
+    Or if a unique bitcoin address is generated for each user, users who have not logged in recently (~30 days) their addresses should be archived.
+    
+    https://blockchain.info/merchant/$guid/archive_address?password=$main_password&second_password=$second_password&address=$address
+    
+    $main_password Your Main My wallet password
+    $second_password Your second My Wallet password if double encryption is enabled.
+    $address The bitcoin address to archive
+    
+    Response:
+    
+    {"archived" : "18fyqiZzndTxdVo7g9ouRogB4uFj86JJiy"}
+    
+    */
+    
+    
+    
+    /*
+    
+    Unarchive an address
+    
+    Unarchive an address. Will also restore consolidated addresses (see below).
+    
+    https://blockchain.info/merchant/$guid/unarchive_address?password=$main_password&second_password=$second_password&address=$address
+    
+    $main_password Your Main My wallet password
+    $second_password Your second My Wallet password if double encryption is enabled.
+    $address The bitcoin address to unarchive
+    
+    Response:
+    
+    {"active" : "18fyqiZzndTxdVo7g9ouRogB4uFj86JJiy"}
+    
+    */
+    
+    
+    /*
+    Consolidating Addresses
+    
+    Queries to wallets with over 10 thousand addresses will become sluggish especially in the web interface. The auto_consolidate command will remove some inactive archived addresses from the wallet and insert them as forwarding addresses (see receive payments API). You will still receive callback notifications for these addresses however they will no longer be part of the main wallet and will be stored server side.
+    
+    If generating a lot of addresses it is a recommended to call this method at least every 48 hours. A good value for days is 60 i.e. addresses which have not received transactions in the last 60 days will be consolidated.
+    
+    https://blockchain.info/merchant/$guid/auto_consolidate?password=$main_password&second_password=$second_password&days=$days
+    
+    $main_password Your Main My wallet password
+    $second_password Your second My Wallet password if double encryption is enabled.
+    $days Addresses which have not received any transactions in at least this many days will be consolidated.
+    
+    Response:
+    
+    { "consolidated" : ["18fyqiZzndTxdVo7g9ouRogB4uFj86JJiy"]}
+    */
 
 }

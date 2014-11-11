@@ -33,21 +33,21 @@ class ODPaymentResults : NSObject
     var txHash : NSString;
     var notice : NSString;
     
-    //Constructor
-    init()
+    // MARK: Constructor
+    override init()
     {
         message = "";
         txHash = "";
         notice = "";
     }
     
-    //Static Methods
+    // MARK: Static Methods
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODPaymentResults
     {
         var paymentResult : ODPaymentResults = ODPaymentResults();
-        paymentResult.message = dic.valueForKey("message") as NSString;
-        paymentResult.txHash = dic.valueForKey("tx_hash") as NSString;
-        paymentResult.notice = dic.valueForKey("notice") as NSString;
+        paymentResult.message = dic.valueForKey("message") as NSString!;
+        paymentResult.txHash = dic.valueForKey("tx_hash") as NSString!;
+        paymentResult.notice = dic.valueForKey("notice") as NSString!;
         return paymentResult;
     }
     
@@ -61,6 +61,6 @@ class ODPaymentResults : NSObject
         }
     }
     
-    //Methods
+    // MARK: Methods
     
 }

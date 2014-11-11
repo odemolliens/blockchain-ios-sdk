@@ -23,27 +23,27 @@ import Foundation
 class ODWallet: NSObject
 {
     
-    //Domain
+    // MARK: Domain
     var guid : NSString;
     var address : NSString;
     var link : NSString;
     
     
-    //Constructor
-    init()
+    // MARK: Constructor
+    override init()
     {
         self.guid = "";
         self.address = "";
         self.link = "";
     }
     
-    //Static Methods
+    // MARK: Static Methods
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODWallet
     {
         var createWallet : ODWallet = ODWallet();
-        createWallet.guid = dic.valueForKey("guid") as NSString;
-        createWallet.address = dic.valueForKey("address") as NSString;
-        createWallet.link = dic.valueForKey("link") as NSString;
+        createWallet.guid = dic.valueForKey("guid") as NSString!;
+        createWallet.address = dic.valueForKey("address") as NSString!;
+        createWallet.link = dic.valueForKey("link") as NSString!;
         
         return createWallet;
     }
@@ -58,7 +58,7 @@ class ODWallet: NSObject
             return ODBCErrorAPI.Email;
         }else if(response.isEqualToString(kBCWalletAlphaNumeric)){
             return ODBCErrorAPI.AlphaNumericOnly;
-        }else if(response.isEqualToString(kBCWalletInvalidAdress)){
+        }else if(response.isEqualToString(kBCWalletInvalidAdress) || response.isEqualToString(kBCWalletInvalidAdress2)){
             return ODBCErrorAPI.Invalid;
         }else if(response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
             return ODBCErrorAPI.ApiUnavailable;
@@ -67,7 +67,7 @@ class ODWallet: NSObject
         }
     }
     
-    //Methods
+    // MARK: Methods
     
 }
 

@@ -57,6 +57,9 @@ class ODBCBlockchainTest: XCTestCase {
     });
     }*/
     
+    
+    // MARK: Single Block
+    
     //500 - Single Block Index - Block not found
     func testNetworkSingleBlockIndexNotFound() {
         ODBCBlockchainService.singleBlockIndex("1", success: {(object : ODBlock) -> Void in
@@ -64,24 +67,24 @@ class ODBCBlockchainTest: XCTestCase {
             }, failure: {(error : ODBlockChainError) -> Void in
                 
                 if(ODBlock.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.NotFound){
-                    XCTAssert("Success")
+                    //Success
                 }else{
                     XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
                 }
             });
     }
-    
+
     //200 - Single block Hash
     func testNetworkSingleBlockHashValid() {
         ODBCBlockchainService.singleBlockHash("45345",
             success: {(object : ODBlock) -> Void in
-                XCTAssert("Success:%@",object.hashBlock);
-                
-                // TODO : test domain
+                //Success
             }, failure: {(error : ODBlockChainError) -> Void in
                 XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
             });
     }
+    
+    // MARK: Single Transaction
    
     //500 - Single Transaction Hash - Transaction Not Found
     func testNetworkSingleTransactionHashInvalid() {
@@ -90,7 +93,7 @@ class ODBCBlockchainTest: XCTestCase {
                 XCTFail("Fail")
             }, failure: {(error : ODBlockChainError) -> Void in
                 if(ODSingleTransaction.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.TransactionNotFound){
-                    XCTAssert("Success")
+                    //Success
                 }else{
                     XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
                 }
@@ -101,7 +104,7 @@ class ODBCBlockchainTest: XCTestCase {
     func testNetworkSingleTransactionHashValid() {
         ODBCBlockchainService.singleTransactionHash("18f7f4e51afe9659d84f6722995928d8ef87dbfde2dbca2d25231bb7591afbd8",
             success: {(object : ODSingleTransaction) -> Void in
-                XCTAssert("Success")
+                //Success
                 // TODO : Test domain content
             }, failure: {(error : ODBlockChainError) -> Void in
                 XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
@@ -115,7 +118,7 @@ class ODBCBlockchainTest: XCTestCase {
                 XCTFail("Fail")
             }, failure: {(error : ODBlockChainError) -> Void in
                 if(ODSingleTransaction.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.TransactionNotFound){
-                    XCTAssert("Success")
+                    //Success
                 }else{
                     XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
                 }
@@ -126,19 +129,21 @@ class ODBCBlockchainTest: XCTestCase {
     func testNetworkSingleTransactionIndexValid() {
         ODBCBlockchainService.singleTransactionIndex("46714",
             success: {(object : ODSingleTransaction) -> Void in
-                XCTAssert("Success")
+                //Success
                 // TODO : Test domain content
             }, failure: {(error : ODBlockChainError) -> Void in
                 XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
             });
     }
     
+    // MARK: Single Address 
+    
     //200 - Single Address Index
     // TODO : No error returned by server if limit > 50
     func testNetworkSingleAddressHashValid() {
         ODBCBlockchainService.singleAddressHash("660d4ef3a743e3e696ad990364e555c271ad504b",limit: -1,offset: -1,
             success: {(object : ODSingleAddress) -> Void in
-                XCTAssert("Success")
+               //Success
                 // TODO : Test domain content
             }, failure: {(error : ODBlockChainError) -> Void in
                 XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
@@ -152,7 +157,7 @@ class ODBCBlockchainTest: XCTestCase {
                 XCTFail("Fail");
             }, failure: {(error : ODBlockChainError) -> Void in
                 if(ODSingleAddress.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.IllegalCharacter){
-                    XCTAssert("Success")
+                    //Success
                 }else{
                     XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
                 }
@@ -166,7 +171,7 @@ class ODBCBlockchainTest: XCTestCase {
                 XCTFail("Fail");
             }, failure: {(error : ODBlockChainError) -> Void in
                 if(ODSingleAddress.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.Hash){
-                    XCTAssert("Success")
+                    //Success
                 }else{
                     XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
                 }

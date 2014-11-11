@@ -34,24 +34,39 @@ class ODBlockChainService
             
             var id : AnyObject! =  NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments,error: &parseError);
             
-            if(parseError){
+            if((parseError) != nil){
                 failure(ODBlockChainError.parseError(parseError!));
             }else{
-                success(id);
+                
+                var content : NSString = NSString();
+                var dic : NSDictionary = id as NSDictionary!;
+                
+                // TODO : improve
+                if((dic.valueForKey("error")) != nil){
+                    
+                    //if((dic.valueForKey("error")).isKindOfClass(NSString)){
+                        content = dic.valueForKey("error") as NSString;
+                    //}
+                }
+                
+                if(content.length>0){
+                    var odError : ODBlockChainError = ODBlockChainError.parseManualError(content);
+                    failure(odError);
+                }else{
+                    success(id);
+                }
             }
             
             }, failure: {data,error in
                 
                 var content : NSString = NSString();
+                var dic : NSDictionary = error.userInfo as NSDictionary!;
                 
-                // TODO : need optimization
-                if(error.userInfo.valueForKey("content")){
-                    if(error.userInfo.valueForKey("content").isKindOfClass(NSString)){
-                        content = error.userInfo.valueForKey("content") as NSString;
-                        
-                        var odError : ODBlockChainError = ODBlockChainError.api(error);
-                        failure(odError);
-                    }
+                // TODO : improve
+                if((dic.valueForKey("content")) != nil){
+                    //if((dic.valueForKey("content")).isKindOfClass(NSString)){
+                        content = dic.valueForKey("content") as NSString;
+                    //}
                 }
                 
                 if(content.length>0){

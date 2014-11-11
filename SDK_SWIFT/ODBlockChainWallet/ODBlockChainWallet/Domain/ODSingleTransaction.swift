@@ -22,7 +22,7 @@ import Foundation
 
 class ODSingleTransaction : NSObject
 {
-    //Domain
+    // MARK: Domain
     var hashBlock : NSString;
     var ver : NSNumber;
     var vinSz : NSNumber;
@@ -66,8 +66,8 @@ class ODSingleTransaction : NSObject
 ]*/
     
     
-    //Constructor
-    init()
+    // MARK: Constructor
+    override init()
     {
         self.doubleSpend  = true;
         self.hashBlock = "";
@@ -81,7 +81,7 @@ class ODSingleTransaction : NSObject
         self.time = 0;
     }
     
-    //Static Methods
+    // MARK: Static Methods
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODSingleTransaction
     {
         var transaction : ODSingleTransaction = ODSingleTransaction();
