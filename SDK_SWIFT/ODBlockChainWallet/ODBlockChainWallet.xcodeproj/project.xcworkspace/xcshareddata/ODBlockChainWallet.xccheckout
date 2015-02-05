@@ -14,7 +14,7 @@
 		<string>https://github.com/odemolliens/blockchain-ios-sdk.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SDK_SWIFT/ODBlockChainWallet/ODBlockChainWallet.xcodeproj/project.xcworkspace</string>
+	<string>SDK_SWIFT/ODBlockChainWallet/ODBlockChainWallet.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5FD434EBC4310CA7EB71917ED57D113A286CEB14</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>5FD434EBC4310CA7EB71917ED57D113A286CEB14</string>
 			<key>IDESourceControlWCCName</key>
-			<string>BlockChainIosSDK</string>
+			<string>Blockchain-ios-sdk</string>
 		</dict>
 	</array>
 </dict>

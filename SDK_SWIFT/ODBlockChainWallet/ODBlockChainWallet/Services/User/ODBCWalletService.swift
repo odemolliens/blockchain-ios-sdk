@@ -31,7 +31,7 @@ class ODBCWalletService
             toEncode,
             nil,
             "!*'();:@&=+$,/?%#[]",
-            CFStringBuiltInEncodings.UTF8.toRaw()
+            CFStringBuiltInEncodings.UTF8.rawValue
         )
     }
     
@@ -72,7 +72,7 @@ class ODBCWalletService
             postKeys.appendFormat("%@label=%@", firstCharKeys ,name);
         }
         
-        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlCreateWallet,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlCreateWallet,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!))!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
@@ -145,7 +145,7 @@ class ODBCWalletService
             postKeys.appendFormat("%@note=%@", firstCharKeys ,note);
         }
         
-        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!))!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
@@ -213,7 +213,7 @@ class ODBCWalletService
         }else{
             
             // TODO : can be optimized
-            postKeys.appendFormat("%@recipients=%@", firstCharKeys, NSString(data: data,encoding: NSUTF8StringEncoding));
+            postKeys.appendFormat("%@recipients=%@", firstCharKeys, NSString(data: data,encoding: NSUTF8StringEncoding)!);
             
             if(from.length>0){
                 postKeys.appendFormat("%@from=%@", firstCharKeys ,from);
@@ -231,7 +231,7 @@ class ODBCWalletService
                 postKeys.appendFormat("%@note=%@", firstCharKeys ,note);
             }
             
-            url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));
+            url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!))!;
             
             request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
             
@@ -276,7 +276,7 @@ class ODBCWalletService
         
         postKeys.appendFormat("%@password=%@", firstCharKeys, encode(mainPassword));
         
-        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!))!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
@@ -327,7 +327,7 @@ class ODBCWalletService
             postKeys.appendFormat("%@confirmations=%i", firstCharKeys ,confirmations.integerValue);
         }
         
-        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!))!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
@@ -396,7 +396,7 @@ class ODBCWalletService
             postKeys.appendFormat("%@confirmations=%i", firstCharKeys ,confirmations.integerValue);
         }
         
-        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!))!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
@@ -445,7 +445,7 @@ class ODBCWalletService
 
         postKeys.appendFormat("%@label=%@", firstCharKeys, label);
         
-        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!));
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!))!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         

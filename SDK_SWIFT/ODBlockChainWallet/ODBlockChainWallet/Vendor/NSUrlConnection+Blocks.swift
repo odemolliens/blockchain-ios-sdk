@@ -50,7 +50,7 @@ extension NSURLConnection
                 if(res.statusCode==200){
                     success(data,response);
                 }else{
-                    var datastring: String = NSString(data:data, encoding:NSUTF8StringEncoding)
+                    var datastring: String = NSString(data:data, encoding:NSUTF8StringEncoding)!
                     var content : NSMutableDictionary = NSMutableDictionary();
                     content.setValue(datastring, forKey: "content");
                     content.setValue(res.statusCode, forKey: "httpcode");

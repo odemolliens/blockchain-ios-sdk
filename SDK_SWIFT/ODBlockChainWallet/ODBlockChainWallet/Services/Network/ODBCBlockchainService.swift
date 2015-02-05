@@ -37,7 +37,7 @@ class ODBCBlockchainService
         var url : NSURL;
         var request : NSMutableURLRequest;
         
-        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlBlockInfo,index));
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlBlockInfo,index))!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
@@ -68,7 +68,7 @@ class ODBCBlockchainService
         var url : NSURL;
         var request : NSMutableURLRequest;
         
-        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlBlockInfo,hash));
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlBlockInfo,hash))!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
@@ -100,7 +100,7 @@ class ODBCBlockchainService
         var url : NSURL;
         var request : NSMutableURLRequest;
         
-        url = NSURL.URLWithString(NSString(format : "%@%@?format=json",kBCUrlTransactionInfo,hash));
+        url = NSURL(string:NSString(format : "%@%@?format=json",kBCUrlTransactionInfo,hash))!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
@@ -129,7 +129,7 @@ class ODBCBlockchainService
         var url : NSURL;
         var request : NSMutableURLRequest;
         
-        url = NSURL.URLWithString(NSString(format : "%@%@",kBCUrlTransactionInfo,index));
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlTransactionInfo,index))!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
@@ -176,7 +176,7 @@ class ODBCBlockchainService
             firstCharKeys = "&";
         }
         
-        url = NSURL.URLWithString(NSString(format : "%@%@%@%@format=json",kBCUrlTransactionSingleAddress,hash,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!,firstCharKeys));
+        url = NSURL(string:NSString(format : "%@%@%@%@format=json",kBCUrlTransactionSingleAddress,hash,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!,firstCharKeys))!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
@@ -226,7 +226,7 @@ class ODBCBlockchainService
     //first params is in constants url
     firstCharKeys = "&";
     
-    url = NSURL.URLWithString(NSString(format : "%@%@%@format=json",kBCUrlTransactionMultiAddress,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding),firstCharKeys));
+    url = NSURL(string:NSString(format : "%@%@%@format=json",kBCUrlTransactionMultiAddress,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding),firstCharKeys));
     
     request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
     
