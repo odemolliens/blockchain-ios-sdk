@@ -61,19 +61,19 @@ class ODBlock : NSObject
     {
         var block : ODBlock = ODBlock();
         
-        block.hashBlock = dic.valueForKey("hash") as NSString!;
-        block.ver = dic.valueForKey("ver") as NSNumber!;
-        block.prevBlock = dic.valueForKey("prev_block") as NSString!;
-        block.time = dic.valueForKey("time") as NSNumber!;
-        block.nonce = dic.valueForKey("nonce") as NSNumber!;
-        block.bits = dic.valueForKey("bits") as NSNumber!;
-        block.numberOftx = dic.valueForKey("n_tx") as NSNumber!;
-        block.size = dic.valueForKey("size") as NSNumber!;
-        block.blockIndex = dic.valueForKey("block_index") as NSNumber!;
-        block.mainChain = dic.valueForKey("main_chain") as Bool!;
-        block.height = dic.valueForKey("height") as NSNumber!;
-        block.receveidTime = dic.valueForKey("received_time") as NSNumber!;
-        block.relayedBy = dic.valueForKey("relayed_by") as NSString!;
+        block.hashBlock = dic.valueForKey("hash") as! NSString!;
+        block.ver = dic.valueForKey("ver") as! NSNumber!;
+        block.prevBlock = dic.valueForKey("prev_block") as! NSString!;
+        block.time = dic.valueForKey("time") as! NSNumber!;
+        block.nonce = dic.valueForKey("nonce") as! NSNumber!;
+        block.bits = dic.valueForKey("bits") as! NSNumber!;
+        block.numberOftx = dic.valueForKey("n_tx") as! NSNumber!;
+        block.size = dic.valueForKey("size") as! NSNumber!;
+        block.blockIndex = dic.valueForKey("block_index") as! NSNumber!;
+        block.mainChain = dic.valueForKey("main_chain") as! Bool!;
+        block.height = dic.valueForKey("height") as! NSNumber!;
+        block.receveidTime = dic.valueForKey("received_time") as! NSNumber!;
+        block.relayedBy = dic.valueForKey("relayed_by") as! NSString!;
         
         return block;
     }
@@ -81,11 +81,11 @@ class ODBlock : NSObject
     
     class func parseErrorResponseFromAPI(response:NSString) -> ODBCErrorAPI
     {
-        if(response.isEqualToString(kBCBlockChainHash)){
+        if(response.isEqualToString(kBCBlockChainHash as String)){
             return ODBCErrorAPI.Hash;
-        }else if(response.isEqualToString(kBCBlockChainIndex)){
+        }else if(response.isEqualToString(kBCBlockChainIndex as String)){
             return ODBCErrorAPI.Index;
-        }else if(response.isEqualToString(kBCBlockChainBlockNotFound)){
+        }else if(response.isEqualToString(kBCBlockChainBlockNotFound as String)){
             return ODBCErrorAPI.NotFound;
         }else if(response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
             return ODBCErrorAPI.ApiUnavailable;

@@ -69,7 +69,7 @@ class ODBCBlockchainTest: XCTestCase {
                 if(ODBlock.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.NotFound){
                     //Success
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
             });
     }
@@ -80,7 +80,7 @@ class ODBCBlockchainTest: XCTestCase {
             success: {(object : ODBlock) -> Void in
                 //Success
             }, failure: {(error : ODBlockChainError) -> Void in
-                XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
             });
     }
     
@@ -95,7 +95,7 @@ class ODBCBlockchainTest: XCTestCase {
                 if(ODSingleTransaction.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.TransactionNotFound){
                     //Success
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
             });
     }
@@ -107,7 +107,7 @@ class ODBCBlockchainTest: XCTestCase {
                 //Success
                 // TODO : Test domain content
             }, failure: {(error : ODBlockChainError) -> Void in
-                XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
             });
     }
     
@@ -120,7 +120,7 @@ class ODBCBlockchainTest: XCTestCase {
                 if(ODSingleTransaction.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.TransactionNotFound){
                     //Success
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
             });
     }
@@ -132,7 +132,7 @@ class ODBCBlockchainTest: XCTestCase {
                 //Success
                 // TODO : Test domain content
             }, failure: {(error : ODBlockChainError) -> Void in
-                XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
             });
     }
     
@@ -146,7 +146,7 @@ class ODBCBlockchainTest: XCTestCase {
                //Success
                 // TODO : Test domain content
             }, failure: {(error : ODBlockChainError) -> Void in
-                XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
             });
     }
     
@@ -159,7 +159,7 @@ class ODBCBlockchainTest: XCTestCase {
                 if(ODSingleAddress.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.IllegalCharacter){
                     //Success
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
             });
     }
@@ -173,7 +173,7 @@ class ODBCBlockchainTest: XCTestCase {
                 if(ODSingleAddress.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.Hash){
                     //Success
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
             });
     }

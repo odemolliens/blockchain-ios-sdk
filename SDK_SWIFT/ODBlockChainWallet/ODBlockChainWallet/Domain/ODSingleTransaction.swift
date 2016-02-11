@@ -84,14 +84,15 @@ class ODSingleTransaction : NSObject
     // MARK: Static Methods
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODSingleTransaction
     {
+        
         var transaction : ODSingleTransaction = ODSingleTransaction();
-        transaction.hashBlock = dic.valueForKey("hash") as NSString!;
-        transaction.doubleSpend = dic.valueForKey("double_spend") as Bool!;
-        transaction.ver = dic.valueForKey("ver") as NSNumber!;
-        transaction.vinSz = dic.valueForKey("vin_sz") as NSNumber!;
-        transaction.voutSz = dic.valueForKey("vout_sz") as NSNumber!;
-        transaction.size = dic.valueForKey("size") as NSNumber!;
-        transaction.relayedBy = dic.valueForKey("relayed_by") as NSString!;
+        transaction.hashBlock = dic.valueForKey("hash") as! NSString!;
+        transaction.doubleSpend = dic.valueForKey("double_spend") as! Bool!;
+        transaction.ver = dic.valueForKey("ver") as! NSNumber!;
+        transaction.vinSz = dic.valueForKey("vin_sz") as! NSNumber!;
+        transaction.voutSz = dic.valueForKey("vout_sz") as! NSNumber!;
+        transaction.size = dic.valueForKey("size") as! NSNumber!;
+        transaction.relayedBy = dic.valueForKey("relayed_by") as! NSString!;
         //transaction.blockHeight = dic.valueForKey("block_height") as NSNumber!;
         //transaction.time = dic.valueForKey("time") as NSNumber!;
         //Server doesn't return locktime -_- - or not always TODO
@@ -102,7 +103,7 @@ class ODSingleTransaction : NSObject
     
     class func parseErrorResponseFromAPI(response:NSString) -> ODBCErrorAPI
     {
-        if(response.isEqualToString(kBCBlockChainTransactionNotFound)){
+        if(response.isEqualToString(kBCBlockChainTransactionNotFound as String)){
             return ODBCErrorAPI.TransactionNotFound;
         }else if(response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
             return ODBCErrorAPI.ApiUnavailable;

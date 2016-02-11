@@ -40,18 +40,18 @@ class ODBalanceDetails : ODBalance
         var myBalance : ODBalanceDetails = ODBalanceDetails();
         
         if(!(dic.valueForKey("balance")==nil)){
-            myBalance.balance = dic.valueForKey("balance") as NSNumber!;
+            myBalance.balance = dic.valueForKey("balance") as! NSNumber!;
         }
         
-        myBalance.address = dic.valueForKey("address") as NSString!;
+        myBalance.address = dic.valueForKey("address") as! NSString!;
         
         // TODO : improve JSON loading
         if(!(dic.valueForKey("label")==nil) && (dic.valueForKey("label")?.isKindOfClass(NSNull)) == false){
-            myBalance.label = dic.valueForKey("label") as NSString!;
+            myBalance.label = dic.valueForKey("label") as! NSString!;
         }
         
         if(!(dic.valueForKey("total_received")==nil)){
-            myBalance.totalReceived = dic.valueForKey("total_received") as NSNumber!;
+            myBalance.totalReceived = dic.valueForKey("total_received") as! NSNumber!;
         }
         
         return myBalance;
@@ -62,11 +62,11 @@ class ODBalanceDetails : ODBalance
         // TODO : undev
         //
         
-        if(response.isEqualToString(kBCWalletUnknowGuid) || response.isEqualToString(kBCWalletDecryptWallet) || response.isEqualToString(kBCWalletDecryptWalletPwd)){
+        if(response.isEqualToString(kBCWalletUnknowGuid as String) || response.isEqualToString(kBCWalletDecryptWallet as String) || response.isEqualToString(kBCWalletDecryptWalletPwd as String)){
             return ODBCErrorAPI.DecryptingWallet;
         }else if(response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
             return ODBCErrorAPI.ApiUnavailable;
-        }else if(response.isEqualToString(kBCWalletInvalidAdress) || response.isEqualToString(kBCWalletInvalidAdress2) || response.isEqualToString(kBCWalletConfirmationsLimit)){
+        }else if(response.isEqualToString(kBCWalletInvalidAdress as String) || response.isEqualToString(kBCWalletInvalidAdress2 as String) || response.isEqualToString(kBCWalletConfirmationsLimit as String)){
             return ODBCErrorAPI.Invalid;
         }else{
             return ODBCErrorAPI.Unknow;

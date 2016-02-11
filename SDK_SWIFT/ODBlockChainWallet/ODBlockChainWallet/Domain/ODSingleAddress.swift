@@ -48,22 +48,22 @@ class ODSingleAddress : NSObject {
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODSingleAddress
     {
         var singleAddress : ODSingleAddress = ODSingleAddress();
-        singleAddress.hash160 = dic.valueForKey("hash160") as NSString!;
-        singleAddress.address = dic.valueForKey("address") as NSString!;
-        singleAddress.nTx = dic.valueForKey("n_tx") as NSNumber!;
+        singleAddress.hash160 = dic.valueForKey("hash160") as! NSString!;
+        singleAddress.address = dic.valueForKey("address") as! NSString!;
+        singleAddress.nTx = dic.valueForKey("n_tx") as! NSNumber!;
         //singleAddress.nUnredeemed = dic.valueForKey("n_unredeemed") as NSNumber!;
-        singleAddress.totalReceived = dic.valueForKey("total_received") as NSNumber!;
-        singleAddress.totalSent = dic.valueForKey("total_sent") as NSNumber!;
-        singleAddress.finalBalance = dic.valueForKey("final_balance") as NSNumber!;
+        singleAddress.totalReceived = dic.valueForKey("total_received") as! NSNumber!;
+        singleAddress.totalSent = dic.valueForKey("total_sent") as! NSNumber!;
+        singleAddress.finalBalance = dic.valueForKey("final_balance") as! NSNumber!;
         return singleAddress;
     }
     
     
     class func parseErrorResponseFromAPI(response:NSString) -> ODBCErrorAPI
     {
-        if(response.hasPrefix(kBCBlockChainIllegalChar)){
+        if(response.hasPrefix(kBCBlockChainIllegalChar as String)){
             return ODBCErrorAPI.IllegalCharacter;
-        }else if(response.isEqualToString(kBCBlockChainHash160)){
+        }else if(response.isEqualToString(kBCBlockChainHash160 as String)){
             return ODBCErrorAPI.Hash;
         }else if(response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
             return ODBCErrorAPI.ApiUnavailable;

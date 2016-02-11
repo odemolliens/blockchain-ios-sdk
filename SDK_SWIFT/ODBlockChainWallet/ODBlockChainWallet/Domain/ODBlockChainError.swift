@@ -58,7 +58,7 @@ class ODBlockChainError : NSObject
     override init()
     {
         self.type = ODBCError.ODBCErrorNone;
-        self.error = NSError();
+        self.error = NSError(domain: "", code: -1, userInfo: nil);
     }
     
     // MARK: Methods
@@ -72,7 +72,7 @@ class ODBlockChainError : NSObject
         // TODO : need optimization
         if((dic.valueForKey("content")) != nil){
             //if(dic.valueForKey("content").isKindOfClass(NSString)){
-                error = dic.valueForKey("content") as NSString;
+                error = dic.valueForKey("content") as! NSString;
             //}
         }
         
@@ -88,9 +88,9 @@ class ODBlockChainError : NSObject
     class func parseError(parseError: NSError) -> ODBlockChainError
     {
         
-        var nsError : NSError = NSError();
+        let nsError : NSError = NSError(domain: "", code: -1, userInfo: nil);
         
-        var odError : ODBlockChainError = ODBlockChainError();
+        let odError : ODBlockChainError = ODBlockChainError();
         odError.type = ODBCError.ODBCErrorParse;
         odError.error = nsError;
         
@@ -100,7 +100,7 @@ class ODBlockChainError : NSObject
     class func parseError(expected: NSString, result : NSString) -> ODBlockChainError
     {
         //TODO : manage error domain + error code
-        var nsError : NSError = NSError(domain: "ParseErrorUnexpectedObjectClass", code: -49, userInfo: NSDictionary(object: NSString(format:"expected:%@ result:%@",expected,result), forKey: "error"));
+        var nsError : NSError = NSError(domain: "ParseErrorUnexpectedObjectClass", code: -49, userInfo: NSDictionary(object: NSString(format:"expected:%@ result:%@",expected,result), forKey: "error") as [NSObject : AnyObject]);
         
         var odError : ODBlockChainError = ODBlockChainError();
         odError.type = ODBCError.ODBCErrorParse;
@@ -113,7 +113,7 @@ class ODBlockChainError : NSObject
     class func parseUnexpectedObject() -> ODBlockChainError
     {
         //TODO : manage error domain + error code
-        var nsError : NSError = NSError(domain: "ParseErrorUnexpectedObject", code: -50, userInfo: NSDictionary());
+        var nsError : NSError = NSError(domain: "ParseErrorUnexpectedObject", code: -50, userInfo: NSDictionary() as [NSObject : AnyObject]);
         
         var odError : ODBlockChainError = ODBlockChainError();
         odError.type = ODBCError.ODBCErrorUnexpectedObject;
@@ -126,7 +126,7 @@ class ODBlockChainError : NSObject
     class func parseErrorMissingKeys(missingKeys : NSDictionary) -> ODBlockChainError
     {
         //TODO : manage error domain + error code
-        var nsError : NSError = NSError(domain: "ParseMissingKeysError", code: -51, userInfo: missingKeys);
+        var nsError : NSError = NSError(domain: "ParseMissingKeysError", code: -51, userInfo: missingKeys as [NSObject : AnyObject]);
         
         var odError : ODBlockChainError = ODBlockChainError();
         odError.type = ODBCError.ODBCErrorMissingKeys;
@@ -137,7 +137,7 @@ class ODBlockChainError : NSObject
     
     class func network(networkError: NSError) -> ODBlockChainError
     {
-        var odError : ODBlockChainError = ODBlockChainError();
+        let odError : ODBlockChainError = ODBlockChainError();
         odError.type = ODBCError.ODBCErrorNetwork;
         odError.error = networkError;
         
@@ -153,7 +153,7 @@ class ODBlockChainError : NSObject
         var dic : NSDictionary = apiError.userInfo as NSDictionary!;
         if((dic.valueForKey("httpcode")) != nil){
             //if(dic.valueForKey("httpcode").isKindOfClass(NSNumber)){
-                statusCode = dic.valueForKey("httpcode") as NSNumber;
+                statusCode = dic.valueForKey("httpcode") as! NSNumber;
                 
                 if(statusCode==522){
                     odError.type = ODBCError.ODBCErrorAPI;
@@ -177,7 +177,7 @@ class ODBlockChainError : NSObject
     class func parseManualError(error : NSString) -> ODBlockChainError
     {
         //TODO : manage error domain + error code
-        var nsError : NSError = NSError(domain: "parseManualError", code: -46, userInfo: NSDictionary(object: error, forKey: "content"));
+        var nsError : NSError = NSError(domain: "parseManualError", code: -46, userInfo: NSDictionary(object: error, forKey: "content") as [NSObject : AnyObject]);
         
         var odError : ODBlockChainError = ODBlockChainError();
         odError.type = ODBCError.ODBCErrorAPI;

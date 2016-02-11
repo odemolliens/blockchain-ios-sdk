@@ -34,14 +34,14 @@ class ODBalance : NSObject
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODBalance
     {
         var myBalance : ODBalance = ODBalance();
-        myBalance.balance = dic.valueForKey("balance") as NSNumber!;
+        myBalance.balance = dic.valueForKey("balance") as! NSNumber!;
         return myBalance;
     }
     
     class func parseErrorResponseFromAPI(response:NSString) -> ODBCErrorAPI
     {
         // TODO : undev !!!
-        if(response.isEqualToString(kBCWalletUnknowGuid) || response.isEqualToString(kBCWalletDecryptWallet) || response.isEqualToString(kBCWalletDecryptWalletPwd)){
+        if(response.isEqualToString(kBCWalletUnknowGuid as String) || response.isEqualToString(kBCWalletDecryptWallet as String) || response.isEqualToString(kBCWalletDecryptWalletPwd as String)){
             return ODBCErrorAPI.DecryptingWallet;
         }else if(response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
             return ODBCErrorAPI.ApiUnavailable;

@@ -41,24 +41,24 @@ class ODWallet: NSObject
     class func instantiateWithDictionnary(dic:NSDictionary) -> ODWallet
     {
         var createWallet : ODWallet = ODWallet();
-        createWallet.guid = dic.valueForKey("guid") as NSString!;
-        createWallet.address = dic.valueForKey("address") as NSString!;
-        createWallet.link = dic.valueForKey("link") as NSString!;
+        createWallet.guid = dic.valueForKey("guid") as! NSString!;
+        createWallet.address = dic.valueForKey("address") as! NSString!;
+        createWallet.link = dic.valueForKey("link") as! NSString!;
         
         return createWallet;
     }
     
     class func parseErrorResponseFromAPI(response:NSString) -> ODBCErrorAPI
     {
-        if(response.isEqualToString(kBCWalletPasswordLength)){
+        if(response.isEqualToString(kBCWalletPasswordLength as String)){
             return ODBCErrorAPI.PasswordLength;
-        }else if(response.isEqualToString(kBCWalletApiKey)){
+        }else if(response.isEqualToString(kBCWalletApiKey as String)){
             return ODBCErrorAPI.ApiKey;
-        }else if(response.isEqualToString(kBCWalletEmail)){
+        }else if(response.isEqualToString(kBCWalletEmail as String)){
             return ODBCErrorAPI.Email;
-        }else if(response.isEqualToString(kBCWalletAlphaNumeric)){
+        }else if(response.isEqualToString(kBCWalletAlphaNumeric as String)){
             return ODBCErrorAPI.AlphaNumericOnly;
-        }else if(response.isEqualToString(kBCWalletInvalidAdress) || response.isEqualToString(kBCWalletInvalidAdress2)){
+        }else if(response.isEqualToString(kBCWalletInvalidAdress as String) || response.isEqualToString(kBCWalletInvalidAdress2 as String)){
             return ODBCErrorAPI.Invalid;
         }else if(response.isEqualToString(kBCCommonNull) || response.isEqualToString(kBCCommonCloudFare)){
             return ODBCErrorAPI.ApiUnavailable;

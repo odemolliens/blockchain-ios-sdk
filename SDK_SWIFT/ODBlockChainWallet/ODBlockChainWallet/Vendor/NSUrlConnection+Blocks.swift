@@ -41,23 +41,23 @@ extension NSURLConnection
                     if(data == nil){
                         failure(NSData(),error!);
                     }else{
-                        failure(data,error!);
+                        failure(data!,error!);
                     }
                 }
                 
-                let res = response as NSHTTPURLResponse!;
+                let res = response as! NSHTTPURLResponse!;
 
                 if(res.statusCode==200){
-                    success(data,response);
+                    success(data!,response!);
                 }else{
-                    var datastring: String = NSString(data:data, encoding:NSUTF8StringEncoding)!
+                    var datastring: String = NSString(data:data!, encoding:NSUTF8StringEncoding)! as String
                     var content : NSMutableDictionary = NSMutableDictionary();
                     content.setValue(datastring, forKey: "content");
                     content.setValue(res.statusCode, forKey: "httpcode");
                     
-                    var mError : NSError = NSError(domain: request.URL.description, code: res.statusCode, userInfo: content);
+                    var mError : NSError = NSError(domain: request.URL!.description, code: res.statusCode, userInfo: content as [NSObject : AnyObject]);
                     //content.setValue(NSHTTPURLResponse.localizedStringForStatusCode(res.statusCode), forKey: "localizedError");
-                    failure(data,mError);
+                    failure(data!,mError);
                 }
                 
                 waiting = false;

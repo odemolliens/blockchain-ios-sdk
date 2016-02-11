@@ -72,14 +72,14 @@ class ODBCWalletService
             postKeys.appendFormat("%@label=%@", firstCharKeys ,name);
         }
         
-        url = NSURL(string:NSString(format : "%@%@",kBCUrlCreateWallet,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!))!;
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlCreateWallet,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!) as String)!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
         ODBlockChainService.manageRequest(request,
             success:{(object : AnyObject) -> Void in
                 if(object.isKindOfClass(NSDictionary)){
-                    var dic : NSDictionary = object as NSDictionary;
+                    var dic : NSDictionary = object as! NSDictionary;
                     success(ODWallet.instantiateWithDictionnary(dic));
                 }else{
                     failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
@@ -145,14 +145,14 @@ class ODBCWalletService
             postKeys.appendFormat("%@note=%@", firstCharKeys ,note);
         }
         
-        url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!))!;
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!) as String)!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
         ODBlockChainService.manageRequest(request,
             success:{(object : AnyObject) -> Void in
                 if(object.isKindOfClass(NSDictionary)){
-                    var dic : NSDictionary = object as NSDictionary;
+                    var dic : NSDictionary = object as! NSDictionary;
                     success(ODPaymentResults.instantiateWithDictionnary(dic));
                 }else{
                     failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
@@ -205,7 +205,7 @@ class ODBCWalletService
         var error : NSError?;
         var data : NSData;
         
-        data = NSJSONSerialization.dataWithJSONObject(to, options: NSJSONWritingOptions.PrettyPrinted, error: &error)!;
+        data = try! NSJSONSerialization.dataWithJSONObject(to, options: NSJSONWritingOptions.PrettyPrinted);
         
         // TODO : can be optimized
         if((error) != nil){
@@ -231,14 +231,14 @@ class ODBCWalletService
                 postKeys.appendFormat("%@note=%@", firstCharKeys ,note);
             }
             
-            url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!))!;
+            url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!) as String)!;
             
             request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
             
             ODBlockChainService.manageRequest(request,
                 success:{(object : AnyObject) -> Void in
                     if(object.isKindOfClass(NSDictionary)){
-                        var dic : NSDictionary = object as NSDictionary;
+                        var dic : NSDictionary = object as! NSDictionary;
                         success(ODPaymentResults.instantiateWithDictionnary(dic));
                     }else{
                         failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
@@ -276,14 +276,14 @@ class ODBCWalletService
         
         postKeys.appendFormat("%@password=%@", firstCharKeys, encode(mainPassword));
         
-        url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!))!;
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!) as String)!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
         ODBlockChainService.manageRequest(request,
             success:{(object : AnyObject) -> Void in
                 if(object.isKindOfClass(NSDictionary)){
-                    var dic : NSDictionary = object as NSDictionary;
+                    var dic : NSDictionary = object as! NSDictionary;
                     success(ODBalance.instantiateWithDictionnary(dic));
                 }else{
                     failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
@@ -327,22 +327,22 @@ class ODBCWalletService
             postKeys.appendFormat("%@confirmations=%i", firstCharKeys ,confirmations.integerValue);
         }
         
-        url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!))!;
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!) as String)!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
         ODBlockChainService.manageRequest(request,
             success:{(object : AnyObject) -> Void in
                 if(object.isKindOfClass(NSDictionary)){
-                    var dic : NSDictionary = object as NSDictionary;
+                    var dic : NSDictionary = object as! NSDictionary;
                     
                     
                     //if(dic.valueForKey("addresses").isKindOfClass(NSArray)){
-                        var resultArray : NSArray = dic.valueForKey("addresses") as NSArray;
+                        var resultArray : NSArray = dic.valueForKey("addresses") as! NSArray;
                         var mArray : NSMutableArray = NSMutableArray();
                         
                         for(var i = 0; i < resultArray.count;i++){
-                            var dicAddress : NSDictionary = resultArray.objectAtIndex(i) as NSDictionary;
+                            var dicAddress : NSDictionary = resultArray.objectAtIndex(i) as! NSDictionary;
                             
                             mArray.addObject(ODBalanceDetails.instantiateWithDictionnary(dicAddress));
                         }
@@ -396,14 +396,14 @@ class ODBCWalletService
             postKeys.appendFormat("%@confirmations=%i", firstCharKeys ,confirmations.integerValue);
         }
         
-        url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!))!;
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!) as String)!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
         ODBlockChainService.manageRequest(request,
             success:{(object : AnyObject) -> Void in
                 if(object.isKindOfClass(NSDictionary)){
-                    var dic : NSDictionary = object as NSDictionary;
+                    var dic : NSDictionary = object as! NSDictionary;
                     success(ODBalanceDetails.instantiateWithDictionnary(dic));
                 }else{
                     failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));
@@ -445,14 +445,14 @@ class ODBCWalletService
 
         postKeys.appendFormat("%@label=%@", firstCharKeys, label);
         
-        url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!))!;
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlWalletMerchant,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!) as String)!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
         ODBlockChainService.manageRequest(request,
             success:{(object : AnyObject) -> Void in
                 if(object.isKindOfClass(NSDictionary)){
-                    var dic : NSDictionary = object as NSDictionary;
+                    var dic : NSDictionary = object as! NSDictionary;
                     success(ODBalanceDetails.instantiateWithDictionnary(dic));
                 }else{
                     failure(ODBlockChainError.parseError(NSDictionary.description(),result:object.description));

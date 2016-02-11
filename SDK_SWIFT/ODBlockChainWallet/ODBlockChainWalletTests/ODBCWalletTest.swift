@@ -45,7 +45,7 @@ class ODBCWalletTest: XCTestCase {
                 if(ODWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.PasswordLength){
                     //Success
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -63,7 +63,7 @@ class ODBCWalletTest: XCTestCase {
                 if(ODWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.ApiKey){
                     //Success
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
                 
         });
@@ -82,7 +82,7 @@ class ODBCWalletTest: XCTestCase {
                 if(ODWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.Email){
                     //Success
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
                 
         });
@@ -101,7 +101,7 @@ class ODBCWalletTest: XCTestCase {
                 if(ODWallet.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.AlphaNumericOnly){
                     //Success
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -114,7 +114,7 @@ class ODBCWalletTest: XCTestCase {
             },
             
             failure: {(error : ODBlockChainError) -> Void in
-                XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
         });
     }
     
@@ -127,7 +127,7 @@ class ODBCWalletTest: XCTestCase {
             //Success
             
             }, failure: {(error : ODBlockChainError) -> Void in
-                XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
         });
     }
     
@@ -141,7 +141,7 @@ class ODBCWalletTest: XCTestCase {
                 if(ODBalanceDetails.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.DecryptingWallet){
                     //Success
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -156,7 +156,7 @@ class ODBCWalletTest: XCTestCase {
                 if(ODBalanceDetails.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.DecryptingWallet){
                     //Success
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -171,7 +171,7 @@ class ODBCWalletTest: XCTestCase {
                 if(ODBalanceDetails.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.ApiKey){
                     //Success
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -186,7 +186,7 @@ class ODBCWalletTest: XCTestCase {
                 if(ODBalanceDetails.parseErrorResponseFromAPI(error.contentMessage())==ODBCErrorAPI.Invalid){
                     //Success
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -201,7 +201,7 @@ class ODBCWalletTest: XCTestCase {
             
             }, failure: {(error : ODBlockChainError) -> Void in
                 //TODO : undev
-                XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
         });
     }
     //500 - Fetching Wallet balance - GUID
@@ -215,7 +215,7 @@ class ODBCWalletTest: XCTestCase {
                     //Success
                     
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -231,7 +231,7 @@ class ODBCWalletTest: XCTestCase {
                     //Success
                     
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -247,7 +247,7 @@ class ODBCWalletTest: XCTestCase {
                     //Success
                     
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -262,7 +262,7 @@ class ODBCWalletTest: XCTestCase {
             //Success
             
             }, failure: {(error : ODBlockChainError) -> Void in
-                XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
         });
     }
     
@@ -278,7 +278,7 @@ class ODBCWalletTest: XCTestCase {
                     //Success
                     
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -294,7 +294,7 @@ class ODBCWalletTest: XCTestCase {
                     //Success
                     
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -310,7 +310,7 @@ class ODBCWalletTest: XCTestCase {
                     //Success
                     
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -326,7 +326,7 @@ class ODBCWalletTest: XCTestCase {
                     //Success
                     
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -342,7 +342,7 @@ class ODBCWalletTest: XCTestCase {
                     //Success
                     
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -356,7 +356,7 @@ class ODBCWalletTest: XCTestCase {
             //Success
             
             }, failure: {(error : ODBlockChainError) -> Void in
-                XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
         });
     }
     
@@ -372,7 +372,7 @@ class ODBCWalletTest: XCTestCase {
                     //Success
                     
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -388,7 +388,7 @@ class ODBCWalletTest: XCTestCase {
                     //Success
                     
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -404,7 +404,7 @@ class ODBCWalletTest: XCTestCase {
                     //Success
                     
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }
@@ -420,7 +420,7 @@ class ODBCWalletTest: XCTestCase {
                     //Success
                     
                 }else{
-                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()));
+                    XCTFail(NSString(format:"Fail: %@",error.contentMessage()) as String);
                 }
         });
     }

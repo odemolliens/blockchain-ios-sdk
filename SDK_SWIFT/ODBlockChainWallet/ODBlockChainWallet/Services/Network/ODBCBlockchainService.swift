@@ -37,14 +37,14 @@ class ODBCBlockchainService
         var url : NSURL;
         var request : NSMutableURLRequest;
         
-        url = NSURL(string:NSString(format : "%@%@",kBCUrlBlockInfo,index))!;
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlBlockInfo,index) as String)!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
         ODBlockChainService.manageRequest(request,
             success:{(object : AnyObject) -> Void in
                 if(object.isKindOfClass(NSDictionary)){
-                    var dic : NSDictionary = object as NSDictionary;
+                    var dic : NSDictionary = object as! NSDictionary;
                     
                     success(ODBlock.instantiateWithDictionnary(dic));
                 }else{
@@ -68,7 +68,7 @@ class ODBCBlockchainService
         var url : NSURL;
         var request : NSMutableURLRequest;
         
-        url = NSURL(string:NSString(format : "%@%@",kBCUrlBlockInfo,hash))!;
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlBlockInfo,hash) as String)!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
@@ -76,7 +76,7 @@ class ODBCBlockchainService
             success:{(object : AnyObject) -> Void in
                 
                 if(object.isKindOfClass(NSDictionary)){
-                    var dic : NSDictionary = object as NSDictionary;
+                    var dic : NSDictionary = object as! NSDictionary;
                     
                     success(ODBlock.instantiateWithDictionnary(dic));
                 }else{
@@ -100,14 +100,14 @@ class ODBCBlockchainService
         var url : NSURL;
         var request : NSMutableURLRequest;
         
-        url = NSURL(string:NSString(format : "%@%@?format=json",kBCUrlTransactionInfo,hash))!;
+        url = NSURL(string:NSString(format : "%@%@?format=json",kBCUrlTransactionInfo,hash) as String)!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
         ODBlockChainService.manageRequest(request,
             success:{(object : AnyObject) -> Void in
                 if(object.isKindOfClass(NSDictionary)){
-                    var dic : NSDictionary = object as NSDictionary;
+                    var dic : NSDictionary = object as! NSDictionary;
                     
                     success(ODSingleTransaction.instantiateWithDictionnary(dic));
                 }else{
@@ -129,14 +129,14 @@ class ODBCBlockchainService
         var url : NSURL;
         var request : NSMutableURLRequest;
         
-        url = NSURL(string:NSString(format : "%@%@",kBCUrlTransactionInfo,index))!;
+        url = NSURL(string:NSString(format : "%@%@",kBCUrlTransactionInfo,index) as String)!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
         ODBlockChainService.manageRequest(request,
             success:{(object : AnyObject) -> Void in
                 if(object.isKindOfClass(NSDictionary)){
-                    var dic : NSDictionary = object as NSDictionary;
+                    var dic : NSDictionary = object as! NSDictionary;
                     
                     success(ODSingleTransaction.instantiateWithDictionnary(dic));
                 }else{
@@ -176,14 +176,14 @@ class ODBCBlockchainService
             firstCharKeys = "&";
         }
         
-        url = NSURL(string:NSString(format : "%@%@%@%@format=json",kBCUrlTransactionSingleAddress,hash,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!,firstCharKeys))!;
+        url = NSURL(string:NSString(format : "%@%@%@%@format=json",kBCUrlTransactionSingleAddress,hash,postKeys.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!,firstCharKeys) as String)!;
         
         request = NSMutableURLRequest(URL: url, cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData, timeoutInterval:NSTimeInterval(kBCTimeout));
         
         ODBlockChainService.manageRequest(request,
             success:{(object : AnyObject) -> Void in
                 if(object.isKindOfClass(NSDictionary)){
-                    var dic : NSDictionary = object as NSDictionary;
+                    var dic : NSDictionary = object as! NSDictionary;
                     
                     success(ODSingleAddress.instantiateWithDictionnary(dic));
                 }else{
